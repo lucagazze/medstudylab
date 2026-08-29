@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#555;font-family:'Inter',system-ui,sans-serif}
+  #og{
+    width:1200px;height:630px;position:relative;overflow:hidden;
+    background:linear-gradient(150deg,#2f55b5 0%,#2645a0 48%,#1f3c92 100%);
+    display:flex;align-items:center;gap:44px;padding:0 62px;color:#fff;
+  }
+  #og::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(620px 380px at 88% -12%, rgba(247,207,73,.18), transparent 62%),
+      radial-gradient(520px 340px at 2% 108%, rgba(249,114,22,.20), transparent 66%);
+  }
+  .left{position:relative;z-index:2;flex:1;min-width:0}
+  .brandline{display:flex;align-items:center;gap:13px;margin-bottom:24px}
+  .brandline img{width:54px;height:54px;border-radius:50%;display:block}
+  .brandline span{font-size:23px;font-weight:800;letter-spacing:.2px}
+  h1{font-size:60px;font-weight:900;line-height:1.06;letter-spacing:-1.6px}
+  h1 em{font-style:normal;color:#f7cf49}
+  .sub{margin-top:20px;font-size:25px;font-weight:600;opacity:.95;line-height:1.35}
+  .pills{display:flex;gap:11px;margin-top:30px;flex-wrap:wrap}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.30);
+        border-radius:999px;padding:10px 20px;font-size:19px;font-weight:700}
+  .right{position:relative;z-index:2;width:396px;flex:0 0 396px}
+  .right img{width:100%;display:block;filter:drop-shadow(0 24px 48px rgba(0,0,0,.42))}
+</style></head>
+<body>
+<div id="og">
+  <div class="left">
+    <div class="brandline"><img src="brand/logo-mark.png" alt=""><span>MedStudyLab</span></div>
+    <h1>Illustrated<br><em>Pharmacology</em></h1>
+    <p class="sub">8 visual modules + 2 bonuses.<br>Understand it — don't memorise it.</p>
+    <div class="pills">
+      <div class="pill">Instant access</div>
+      <div class="pill">30-day guarantee</div>
+    </div>
+  </div>
+  <div class="right"><img src="mockup-hero.png" alt=""></div>
+</div>
+</body></html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#8a8a8a;font-family:'Nunito',system-ui,sans-serif;color:#20242c}
+
+  .page{
+    width:820px;height:1098px;background:#fff;
+    padding:34px 40px 30px;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+
+  /* ---------- running head ---------- */
+  .head{display:flex;justify-content:space-between;align-items:flex-start;
+        font-size:15px;color:#3a3f4a;margin-bottom:20px;flex:0 0 auto}
+  .head .sub{font-weight:700;display:flex;align-items:center;gap:6px;margin-top:2px}
+  .head .sub::before{content:'◆';color:#f2762c;font-size:11px}
+  .head .brand{color:#8b90a0;font-weight:600}
+  .folio{position:absolute;left:26px;bottom:18px;font-size:14px;color:#9aa0ad}
+
+  /* ---------- layout ---------- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1 1 auto;min-height:0}
+  .col{display:flex;flex-direction:column;gap:13px}
+  .stack{display:flex;flex-direction:column;gap:15px;flex:1 1 auto}
+
+  /* ---------- headings ---------- */
+  h2{font-size:23px;font-weight:800;line-height:1.22;letter-spacing:-.2px;
+     display:inline;padding:3px 9px;border-radius:5px;box-decoration-break:clone;
+     -webkit-box-decoration-break:clone}
+  .h-wrap{position:relative}
+  .hl-peach h2{background:#ffdfc9}
+  .hl-mint  h2{background:#c9f0e4}
+  .hl-lilac h2{background:#e2dcfb}
+  .hl-sky   h2{background:#cfe6fb}
+  .hl-lemon h2{background:#fdeeae}
+  .hl-rose  h2{background:#ffd7e0}
+
+  /* little sparkle lines beside a heading */
+  .spark{position:absolute;top:-6px;right:-14px;width:40px;height:40px}
+
+  p{font-size:16.5px;line-height:1.52;color:#20242c}
+  b,strong{font-weight:800}
+
+  .note{border-radius:12px;padding:14px 16px;font-size:16px;line-height:1.5;text-align:center}
+  .note.peach{background:#ffe6d3}
+  .note.lemon{background:#fdf3c4}
+  .note.mint{background:#d7f3e8}
+
+  .chip{display:inline-flex;align-items:center;gap:9px;color:#fff;font-weight:800;
+        font-size:18px;padding:9px 18px;border-radius:999px;align-self:flex-start}
+  .chip.orange{background:#f2762c}
+  .chip.teal{background:#20a99b}
+  .chip.blue{background:#3b82d6}
+  .chip.purple{background:#7d5be0}
+  .chip .x{margin-left:auto;opacity:.75;font-weight:700}
+  .chip-row{display:flex;align-items:center;gap:10px;background:#f2762c;border-radius:999px;
+            padding:9px 16px;color:#fff;font-weight:800;font-size:18px}
+  .chip-row.teal{background:#20a99b}
+  .chip-row.blue{background:#3b82d6}
+  .chip-row .mag{font-size:16px}
+  .chip-row .x{margin-left:auto;font-weight:600;opacity:.8}
+
+  .emo{font-family:'Segoe UI Emoji','Nunito',sans-serif;line-height:1}
+  .row{display:flex;align-items:center;gap:14px}
+  .center{text-align:center}
+  .imgrow{display:flex;justify-content:center;align-items:center;gap:18px;font-size:52px}
+
+  .tag{display:inline-block;background:#fde3ec;color:#20242c;font-size:13.5px;
+       padding:4px 11px;border-radius:8px;font-weight:600;white-space:nowrap}
+  .tag.blue{background:#dbeafe}
+  .tag.mint{background:#d7f3e8}
+
+  .cap{font-size:15px;color:#3a3f4a;text-align:center;font-weight:600}
+  .divider{height:1px;background:#e6e8ee;margin:6px 0}
+
+  svg{display:block}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — PHARMACOKINETICS ============ -->
+<div class="page" id="p1">
+  <div class="head">
+    <div><div>Pharmacology</div><div class="sub">Pharmacokinetics</div></div>
+    <div class="brand">MedStudyLab</div>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="h-wrap hl-peach"><h2>Drug Accumulation:</h2></div>
+      <p>Some drugs build up in specific tissues instead of spreading evenly through the body. These reservoirs equilibrate with plasma and release the drug back slowly over time.</p>
+
+      <div class="imgrow" style="margin:2px 0">
+        <svg width="200" height="120" viewBox="0 0 200 120">
+          <rect x="14"  y="92" width="26" height="22" rx="4" fill="#f2762c"/>
+          <rect x="54"  y="72" width="26" height="42" rx="4" fill="#f2762c"/>
+          <rect x="94"  y="46" width="26" height="68" rx="4" fill="#f2762c"/>
+          <rect x="134" y="18" width="26" height="96" rx="4" fill="#f2762c"/>
+          <path d="M14 84 C 60 78, 110 52, 156 16" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M138 10 L168 8 L162 38 Z" fill="#111"/>
+        </svg>
+      </div>
+
+      <div class="note peach">It is worth noting that <b>lipid-soluble</b> drugs have a strong affinity for adipose tissue, whereas <b>water-soluble</b> drugs tend to hold higher concentrations in the blood and interstitial space.</div>
+
+      <div class="chip-row"><span class="mag emo">🔍</span> Metabolism <span class="x">✕</span></div>
+
+      <div class="row" style="justify-content:center;gap:24px">
+        <span class="emo" style="font-size:44px">💊</span>
+        <svg width="82" height="66" viewBox="0 0 70 56"><path d="M4 18 C4 6, 22 2, 38 6 C54 10, 68 12, 66 24 C64 38, 48 52, 32 50 C16 48, 4 34, 4 18Z" fill="#a3413f"/><path d="M40 8 C50 10, 62 14, 61 24" stroke="#7d2f2e" stroke-width="3" fill="none"/><path d="M30 12 C34 24, 32 38, 24 46" stroke="#7d2f2e" stroke-width="2.5" fill="none"/></svg>
+      </div>
+      <p>This process, also called <b>biotransformation</b>, allows the liver to convert drugs into active, inactive, or more easily excreted forms.</p>
+
+      <div class="h-wrap hl-lilac"><h2>Half-life (t½):</h2></div>
+      <p>The time required for the plasma concentration of a drug to fall by half. It determines the <b>dosing interval</b> and how long the drug lingers once it is stopped.</p>
+      <div class="note lemon">After roughly <b>4 to 5 half-lives</b>, a drug is considered effectively cleared from the body.</div>
+    </div>
+
+    <div class="col">
+      <div class="h-wrap hl-peach"><h2>First-Pass Metabolism:</h2>
+        <svg class="spark" viewBox="0 0 40 40"><g stroke="#ffcaa0" stroke-width="4" stroke-linecap="round"><path d="M6 22 L1 26"/><path d="M12 12 L9 5"/><path d="M22 9 L24 2"/></g></svg>
+      </div>
+      <p>After oral administration the drug passes through the digestive tract, where it is absorbed and carried to the liver via the hepatic portal vein.</p>
+
+      <svg width="360" height="230" viewBox="0 0 360 230" style="margin:2px auto">
+        <g stroke="#f2c76a" stroke-width="5" fill="none" stroke-linecap="round">
+          <path d="M92 42 H236"/><path d="M262 62 V128"/><path d="M236 176 H92"/><path d="M66 158 V62"/>
+        </g>
+        <path d="M228 34 L248 42 L228 50 Z" fill="#f2c76a"/>
+        <path d="M254 120 L262 140 L270 120 Z" fill="#f2c76a"/>
+        <path d="M100 168 L80 176 L100 184 Z" fill="#f2c76a"/>
+        <path d="M58 74 L66 54 L74 74 Z" fill="#f2c76a"/>
+        <rect x="20" y="96" width="92" height="40" rx="9" fill="#fde3ec"/>
+        <text x="66" y="112" text-anchor="middle" font-family="Nunito" font-size="14" fill="#20242c">Systemic</text>
+        <text x="66" y="128" text-anchor="middle" font-family="Nunito" font-size="14" fill="#20242c">circulation</text>
+        <rect x="130" y="24" width="80" height="26" rx="8" fill="#fde3ec"/>
+        <text x="170" y="42" text-anchor="middle" font-family="Nunito" font-size="14" fill="#20242c">Oral route</text>
+        <text x="170" y="18" text-anchor="middle" font-size="20" class="emo">💊</text>
+        <rect x="196" y="98" width="58" height="26" rx="8" fill="#fde3ec"/>
+        <text x="225" y="116" text-anchor="middle" font-family="Nunito" font-size="14" fill="#20242c">Liver</text>
+        <g transform="translate(272,96) scale(0.62)"><path d="M4 18 C4 6, 22 2, 38 6 C54 10, 68 12, 66 24 C64 38, 48 52, 32 50 C16 48, 4 34, 4 18Z" fill="#a3413f"/><path d="M40 8 C50 10, 62 14, 61 24" stroke="#7d2f2e" stroke-width="3" fill="none"/><path d="M30 12 C34 24, 32 38, 24 46" stroke="#7d2f2e" stroke-width="2.5" fill="none"/></g>
+        <rect x="118" y="164" width="112" height="26" rx="8" fill="#fde3ec"/>
+        <text x="174" y="182" text-anchor="middle" font-family="Nunito" font-size="14" fill="#20242c">IV route</text>
+        <text x="262" y="192" text-anchor="middle" font-size="24" class="emo">💉</text>
+      </svg>
+
+      <p>In the liver many drugs are metabolised, which reduces the amount of active form reaching the bloodstream.</p>
+
+      <svg width="230" height="120" viewBox="0 0 230 120" style="margin:0 auto">
+        <rect x="0" y="0" width="230" height="120" rx="12" fill="#eef2fb"/>
+        <line x1="26" y1="16" x2="26" y2="98" stroke="#9aa0ad" stroke-width="2"/>
+        <line x1="26" y1="98" x2="212" y2="98" stroke="#9aa0ad" stroke-width="2"/>
+        <rect x="44"  y="30" width="26" height="68" rx="4" fill="#f2762c"/>
+        <rect x="88"  y="52" width="26" height="46" rx="4" fill="#f79a63"/>
+        <rect x="132" y="68" width="26" height="30" rx="4" fill="#f7b892"/>
+        <rect x="176" y="80" width="26" height="18" rx="4" fill="#fad2ba"/>
+        <path d="M52 24 C 110 30, 150 58, 196 74" stroke="#1f3f8f" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M186 62 L206 78 L182 84 Z" fill="#1f3f8f"/>
+      </svg>
+
+      <p>This initial hepatic step, known as the <b>first-pass effect</b>, sharply lowers the concentration of active drug available for distribution around the body.</p>
+
+      <div class="h-wrap hl-mint"><h2>Bioavailability (F):</h2></div>
+      <p>The fraction of an administered dose that actually reaches the systemic circulation unchanged. By definition an <b>intravenous</b> dose has F = 100%, because it bypasses first-pass metabolism entirely.</p>
+    </div>
+  </div>
+  <div class="folio">23</div>
+</div>
+
+
+<!-- ============ PAGE 2 — PHARMACODYNAMICS ============ -->
+<div class="page" id="p2">
+  <div class="head">
+    <div><div>Pharmacology</div><div class="sub">Pharmacodynamics</div></div>
+    <div class="brand">MedStudyLab</div>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="h-wrap hl-mint"><h2>Pharmacodynamics</h2></div>
+      <p>The study of the biochemical and physiological effects that drugs produce on the body.</p>
+
+      <div class="imgrow" style="margin:6px 0;gap:14px">
+        <span class="emo" style="font-size:52px">🔑</span>
+        <svg width="56" height="24" viewBox="0 0 56 24"><path d="M2 12 H36" stroke="#20a99b" stroke-width="4" stroke-linecap="round"/><path d="M32 4 L52 12 L32 20 Z" fill="#20a99b"/></svg>
+        <span class="emo" style="font-size:52px">🔒</span>
+      </div>
+
+      <div class="note lemon">A drug binding to its receptor works much like a <b>key fitting a lock</b>. Drugs (the keys) find specific receptors in the body (the locks). That interaction triggers a biological response.</div>
+
+      <div class="chip-row blue"><span class="mag emo">🔍</span> Types of ligand <span class="x">✕</span></div>
+
+      <div class="h-wrap hl-mint" style="margin-top:2px"><h2>AGONIST</h2></div>
+      <p>A ligand that binds to a receptor and <b>activates</b> a response similar to that of the body's own molecule. Agonists are either full — activating the receptor completely — or partial, activating it only in part.</p>
+
+      <svg width="356" height="132" viewBox="0 0 356 132" style="margin:2px auto">
+        <path d="M22 40 q26 -26 52 0 q10 22 -6 34 q-20 16 -40 0 q-16 -12 -6 -34Z" fill="#c8a8f0" stroke="#20242c" stroke-width="3"/>
+        <circle cx="40" cy="54" r="4" fill="#20242c"/><circle cx="58" cy="54" r="4" fill="#20242c"/>
+        <path d="M40 66 q9 8 18 0" stroke="#20242c" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <text x="48" y="112" text-anchor="middle" font-family="Nunito" font-size="15" font-weight="700" fill="#20242c">Agonist</text>
+        <path d="M96 60 H144" stroke="#20a99b" stroke-width="4" stroke-linecap="round"/>
+        <path d="M138 52 L156 60 L138 68 Z" fill="#20a99b"/>
+        <rect x="176" y="24" width="28" height="76" rx="9" fill="#8fd8ce" stroke="#20242c" stroke-width="3"/>
+        <circle cx="190" cy="40" r="5" fill="#20242c"/><circle cx="190" cy="62" r="5" fill="#20242c"/><circle cx="190" cy="84" r="5" fill="#20242c"/>
+        <text x="190" y="120" text-anchor="middle" font-family="Nunito" font-size="15" font-weight="700" fill="#20242c">Receptor</text>
+        <g stroke="#f2c02c" stroke-width="4" stroke-linecap="round">
+          <path d="M228 62 h18"/><path d="M232 40 l14 8"/><path d="M232 84 l14 -8"/>
+        </g>
+        <text x="262" y="56" font-family="Nunito" font-size="15" font-weight="700" fill="#20a99b">Response</text>
+        <text x="262" y="76" font-family="Nunito" font-size="15" font-weight="700" fill="#20a99b">activated</text>
+      </svg>
+    </div>
+
+    <div class="col">
+      <div class="h-wrap hl-sky"><h2>Specificity:</h2></div>
+      <p>The ability of a drug to bind selectively to its target receptor rather than to other receptors present in the body. Low specificity means the drug binds several different receptors, which is what produces side effects.</p>
+
+      <svg width="340" height="200" viewBox="0 0 340 200" style="margin:4px auto">
+        <ellipse cx="230" cy="118" rx="98" ry="74" fill="#fbdfe6"/>
+        <ellipse cx="230" cy="118" rx="46" ry="34" fill="#f5b8ca"/>
+        <text x="150" y="18" text-anchor="middle" font-family="Nunito" font-size="12.5" fill="#20242c">Chemicals that</text>
+        <text x="150" y="33" text-anchor="middle" font-family="Nunito" font-size="12.5" fill="#20242c">cannot bind</text>
+        <text x="286" y="18" text-anchor="middle" font-family="Nunito" font-size="12.5" fill="#20242c">Chemicals that</text>
+        <text x="286" y="33" text-anchor="middle" font-family="Nunito" font-size="12.5" fill="#20242c">can bind</text>
+        <g fill="#e15b7a"><circle cx="128" cy="60" r="13"/><circle cx="158" cy="78" r="13"/></g>
+        <g fill="#e15b7a"><circle cx="282" cy="58" r="13"/><circle cx="310" cy="76" r="13"/></g>
+        <path d="M120 74 l-14 12" stroke="#20242c" stroke-width="3" stroke-linecap="round"/>
+        <path d="M276 72 l-12 14" stroke="#20242c" stroke-width="3" stroke-linecap="round"/>
+        <text x="120" y="150" text-anchor="middle" font-family="Nunito" font-size="13" fill="#20242c">Cell</text>
+        <path d="M132 146 L176 132" stroke="#20242c" stroke-width="2"/>
+        <text x="118" y="182" text-anchor="middle" font-family="Nunito" font-size="13" fill="#20242c">Receptor</text>
+        <path d="M136 178 L192 150" stroke="#20242c" stroke-width="2"/>
+      </svg>
+
+      <div class="divider"></div>
+
+      <div class="h-wrap hl-lilac"><h2>ANTAGONIST</h2></div>
+      <p>A ligand that binds to the receptor but <b>blocks</b> it, preventing the natural molecule from producing its effect.</p>
+
+      <svg width="356" height="132" viewBox="0 0 356 132" style="margin:2px auto">
+        <path d="M22 40 q26 -26 52 0 q10 22 -6 34 q-20 16 -40 0 q-16 -12 -6 -34Z" fill="#f4a6b8" stroke="#20242c" stroke-width="3"/>
+        <path d="M38 50 l12 10 M50 50 l-12 10" stroke="#20242c" stroke-width="3" stroke-linecap="round"/>
+        <path d="M56 50 l12 10 M68 50 l-12 10" stroke="#20242c" stroke-width="3" stroke-linecap="round"/>
+        <text x="48" y="112" text-anchor="middle" font-family="Nunito" font-size="15" font-weight="700" fill="#20242c">Antagonist</text>
+        <path d="M96 60 H144" stroke="#c0395c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M138 52 L156 60 L138 68 Z" fill="#c0395c"/>
+        <rect x="176" y="24" width="28" height="76" rx="9" fill="#cfd6e0" stroke="#20242c" stroke-width="3"/>
+        <circle cx="190" cy="40" r="5" fill="#20242c"/><circle cx="190" cy="62" r="5" fill="#20242c"/><circle cx="190" cy="84" r="5" fill="#20242c"/>
+        <text x="190" y="120" text-anchor="middle" font-family="Nunito" font-size="15" font-weight="700" fill="#20242c">Receptor</text>
+        <circle cx="252" cy="62" r="17" fill="none" stroke="#c0395c" stroke-width="4"/>
+        <path d="M241 51 L263 73" stroke="#c0395c" stroke-width="4" stroke-linecap="round"/>
+        <text x="280" y="56" font-family="Nunito" font-size="15" font-weight="700" fill="#c0395c">No</text>
+        <text x="280" y="76" font-family="Nunito" font-size="15" font-weight="700" fill="#c0395c">response</text>
+      </svg>
+
+      <div class="note mint">Remember: an agonist <b>turns the response on</b>; an antagonist <b>keeps it switched off</b>.</div>
+
+      <div class="h-wrap hl-lemon"><h2>Affinity vs efficacy</h2></div>
+      <p><b>Affinity</b> is how tightly a drug binds its receptor. <b>Efficacy</b> is how strong a response it produces once bound. An antagonist has high affinity but <b>zero efficacy</b>.</p>
+    </div>
+  </div>
+  <div class="folio">29</div>
+</div>
+
+
+<!-- ============ PAGE 3 — SELECTIVITY ============ -->
+<div class="page" id="p3">
+  <div class="head">
+    <div><div>Pharmacology</div><div class="sub">Pharmacodynamics</div></div>
+    <div class="brand">MedStudyLab</div>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="chip-row blue"><span class="mag emo">🔍</span> Drug selectivity <span class="x">✕</span></div>
+
+      <div class="imgrow" style="margin:6px 0">
+        <svg width="160" height="130" viewBox="0 0 160 130">
+          <circle cx="72" cy="66" r="52" fill="#fff" stroke="#2d6fd0" stroke-width="4"/>
+          <circle cx="72" cy="66" r="38" fill="#dceaff"/>
+          <circle cx="72" cy="66" r="24" fill="#fff" stroke="#2d6fd0" stroke-width="4"/>
+          <circle cx="72" cy="66" r="10" fill="#e15b7a"/>
+          <path d="M150 8 L86 60" stroke="#f2762c" stroke-width="5" stroke-linecap="round"/>
+          <path d="M78 54 L96 50 L92 68 Z" fill="#f2762c"/>
+        </svg>
+      </div>
+
+      <p>The selectivity of a drug is its capacity to act specifically on certain target receptors or tissues without disturbing other systems.</p>
+
+      <div class="h-wrap hl-sky" style="margin-top:2px"><h2>Relationship with receptors</h2></div>
+      <p><b>Selective</b> drugs bind predominantly to one receptor type, which makes their therapeutic action far more precise.</p>
+
+      <div class="note mint">The greater the selectivity, the more <b>specific</b> the drug–receptor interaction becomes.</div>
+
+      <div style="background:#fdf3c4;border-radius:12px;padding:12px 14px;text-align:center;
+                  font-size:17px;font-weight:800;white-space:nowrap">
+        <span style="color:#e05a86">Lower</span> selectivity
+        <span style="color:#e05a86">→ more</span> unwanted effects
+      </div>
+
+      <div class="h-wrap hl-rose"><h2>Impact on side effects:</h2></div>
+      <p>Selectivity is directly linked to how often adverse effects appear. Highly selective drugs tend to cause <b>fewer adverse reactions</b>, because they interact with fewer receptors outside their therapeutic target.</p>
+
+      <div class="note peach">Selectivity is <b>dose-dependent</b>: push the dose high enough and even a selective drug starts hitting its secondary receptors.</div>
+    </div>
+
+    <div class="col">
+      <div class="h-wrap hl-lemon"><h2>Examples and applications:</h2></div>
+
+      <div style="border-radius:12px;overflow:hidden;background:#eef2f8;height:150px;display:flex;align-items:center;justify-content:center;font-size:64px">
+        <span class="emo">🫀</span><span class="emo" style="font-size:44px;margin-left:10px">🩺</span>
+      </div>
+
+      <p>Drugs used in cardiac treatment, such as <b>beta-blockers</b>, are a clear example of why selectivity matters: it prevents effects on other systems, like the lungs.</p>
+
+      <div class="divider"></div>
+
+      <div class="h-wrap hl-mint"><h2>Poorly selective drugs</h2></div>
+      <p>Drugs with <b>low selectivity</b> can bind to several receptor types at once, producing a broader — and often less predictable — range of effects across the body.</p>
+
+      <div class="note peach">This is why a non-selective beta-blocker can slow the heart <b>and</b> trigger bronchoconstriction, whereas a cardioselective one mostly spares the airways.</div>
+
+      <div class="h-wrap hl-lilac"><h2>Quick comparison</h2></div>
+      <table style="width:100%;border-collapse:separate;border-spacing:0 6px;font-size:15.5px">
+        <tr>
+          <td style="background:#d7f3e8;border-radius:9px 0 0 9px;padding:9px 12px;font-weight:800;width:44%">Atenolol</td>
+          <td style="background:#eef7f3;border-radius:0 9px 9px 0;padding:9px 12px">Cardioselective β<b>1</b></td>
+        </tr>
+        <tr>
+          <td style="background:#ffe6d3;border-radius:9px 0 0 9px;padding:9px 12px;font-weight:800">Propranolol</td>
+          <td style="background:#fdf1e8;border-radius:0 9px 9px 0;padding:9px 12px">Non-selective β<b>1</b>+β<b>2</b></td>
+        </tr>
+        <tr>
+          <td style="background:#d7f3e8;border-radius:9px 0 0 9px;padding:9px 12px;font-weight:800">Salbutamol</td>
+          <td style="background:#eef7f3;border-radius:0 9px 9px 0;padding:9px 12px">Selective β<b>2</b> agonist</td>
+        </tr>
+      </table>
+
+      <div class="imgrow" style="font-size:44px;margin-top:4px">
+        <span class="emo">🫁</span><span class="emo">💊</span><span class="emo">⚠️</span>
+      </div>
+    </div>
+  </div>
+  <div class="folio">32</div>
+</div>
+
+
+<!-- ============ PAGE 4 — DOSE RESPONSE ============ -->
+<div class="page" id="p4">
+  <div class="head">
+    <div><div>Pharmacology</div><div class="sub">Pharmacodynamics</div></div>
+    <div class="brand">MedStudyLab</div>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="h-wrap hl-sky"><h2>Therapeutic window</h2></div>
+
+      <svg width="360" height="220" viewBox="0 0 360 220" style="margin:4px auto">
+        <text x="12" y="150" font-family="Nunito" font-size="12.5" fill="#3a3f4a" transform="rotate(-90 12 150)">Plasma concentration</text>
+        <line x1="34" y1="14" x2="34" y2="184" stroke="#9aa0ad" stroke-width="2"/>
+        <line x1="34" y1="184" x2="348" y2="184" stroke="#9aa0ad" stroke-width="2"/>
+        <rect x="34" y="30" width="314" height="34" fill="#fde0e6"/>
+        <rect x="34" y="64" width="314" height="62" fill="#dcecfb"/>
+        <rect x="34" y="126" width="314" height="58" fill="#eef1f6"/>
+        <path d="M34 178 Q112 62 196 90 T348 158" stroke="#2d6fd0" stroke-width="4" fill="none"/>
+        <text x="342" y="24" text-anchor="end" font-family="Nunito" font-size="13.5" font-weight="700" fill="#c0395c">Risk of toxicity</text>
+        <text x="342" y="100" text-anchor="end" font-family="Nunito" font-size="13.5" font-weight="700" fill="#20242c">Therapeutic window</text>
+        <text x="342" y="164" text-anchor="end" font-family="Nunito" font-size="13.5" font-weight="700" fill="#5c6472">Reduced or no effect</text>
+        <text x="120" y="60" font-family="Nunito" font-size="12.5" fill="#3a3f4a">Drug effect</text>
+        <text x="190" y="206" text-anchor="middle" font-family="Nunito" font-size="14" fill="#3a3f4a">Time</text>
+      </svg>
+
+      <p>The range between the minimum effective dose and the maximum dose before toxic effects appear. This interval defines the <b>safety of the drug</b>.</p>
+
+      <div class="h-wrap hl-lemon"><h2>Onset and duration of effect:</h2></div>
+      <div class="row">
+        <p style="flex:1">The time a drug takes to start working after administration, and how long that effect persists.</p>
+        <span class="emo" style="font-size:46px">⏳</span>
+      </div>
+
+      <div class="h-wrap hl-lilac"><h2>Therapeutic index (TI):</h2></div>
+      <div style="background:#eef2fb;border-radius:12px;padding:14px;text-align:center">
+        <div style="font-size:20px;font-weight:800;color:#2d4fa8">TI = TD<span style="font-size:14px">50</span> ÷ ED<span style="font-size:14px">50</span></div>
+      </div>
+      <p>A single number summarising safety. Drugs with a <b>narrow</b> index — warfarin, digoxin, lithium — need plasma monitoring, because the effective and toxic doses sit close together.</p>
+
+      <div class="note peach">The <b>higher</b> the therapeutic index, the wider the margin for error when dosing.</div>
+    </div>
+
+    <div class="col">
+      <div class="h-wrap hl-mint"><h2>Median Effective Dose (ED<tspan>50</tspan>):</h2></div>
+      <div class="row">
+        <span class="emo" style="font-size:40px">💊</span>
+        <span class="emo" style="font-size:40px">✅</span>
+      </div>
+      <p>The dose at which 50% of individuals show the desired therapeutic response. It is the standard measure of a drug's <b>potency</b>.</p>
+
+      <div class="h-wrap hl-peach"><h2>Median Toxic Dose (TD<tspan>50</tspan>):</h2></div>
+      <div class="row">
+        <span class="emo" style="font-size:40px">🤒</span>
+        <span class="emo" style="font-size:40px">⛔</span>
+      </div>
+      <p>The dose at which 50% of individuals show a toxic response. It is used to assess how <b>safe</b> a drug is.</p>
+
+      <div class="h-wrap hl-rose"><h2>Median Lethal Dose (LD<tspan>50</tspan>):</h2></div>
+      <div class="row">
+        <span class="emo" style="font-size:40px">☠️</span>
+        <span class="emo" style="font-size:40px">💊</span>
+      </div>
+      <p>The dose at which 50% of individuals show a lethal response. Together with the TD<b>50</b> it defines the drug's overall safety margin.</p>
+
+      <div class="note lemon">A wide gap between ED<b>50</b> and TD<b>50</b> means a <b>large therapeutic index</b> — the drug is easier to dose safely.</div>
+
+      <div class="h-wrap hl-sky"><h2>Potency vs efficacy</h2></div>
+      <p><b>Potency</b> is the dose needed to produce an effect — a lower ED<b>50</b> means a more potent drug. <b>Efficacy</b> is the maximum effect the drug can achieve, no matter the dose.</p>
+
+      <div class="note mint">A more potent drug is not automatically a better one. Furosemide has a far higher <b>efficacy</b> than bendroflumethiazide — it clears much more fluid at its maximum dose — whatever the milligram potency of either.</div>
+    </div>
+  </div>
+  <div class="folio">33</div>
+</div>
+
+
+<!-- ============ PAGE 5 — KINETICS VS DYNAMICS ============ -->
+<div class="page" id="p5">
+  <div class="head">
+    <div><div class="sub" style="margin-top:0">Pharmacokinetics vs Pharmacodynamics</div></div>
+    <div class="brand">MedStudyLab</div>
+  </div>
+
+  <div class="stack" style="justify-content:space-evenly">
+    <div>
+      <div class="center">
+        <div style="font-size:44px;font-weight:800;letter-spacing:-1px">
+          <span style="color:#2d4fa8">Pharmaco</span><span style="color:#1f9d8e">kinetics</span>
+        </div>
+        <div style="display:flex;justify-content:center;gap:0;margin-top:-2px">
+          <div style="border-top:2px solid #2d4fa8;width:200px;text-align:center;font-size:17px;font-style:italic;padding-top:3px">Drug</div>
+          <div style="border-top:2px solid #1f9d8e;width:200px;text-align:center;font-size:17px;font-style:italic;padding-top:3px">Movement</div>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top:12px">
+        <span style="background:#fdf07f;font-size:22px;font-weight:800;padding:4px 12px;border-radius:4px">What the body does to the drug</span>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-around;margin-top:14px">
+        <div class="center">
+          <span class="emo" style="font-size:82px">🧑‍⚕️</span>
+          <div class="cap" style="margin-top:2px">Body</div>
+        </div>
+        <div class="center">
+          <svg width="150" height="40" viewBox="0 0 150 40">
+            <text x="75" y="14" text-anchor="middle" font-family="Nunito" font-size="15" font-weight="700" fill="#20242c">Action</text>
+            <path d="M8 28 H120" stroke="#5c6472" stroke-width="4" stroke-linecap="round"/>
+            <path d="M116 20 L138 28 L116 36 Z" fill="#5c6472"/>
+          </svg>
+        </div>
+        <div class="center">
+          <span class="emo" style="font-size:72px">💊</span>
+          <div class="cap" style="margin-top:2px">Drug</div>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top:10px">
+        <div style="display:inline-block;border:2px solid #2d4fa8;border-radius:10px;padding:8px 18px">
+          <div style="font-size:18px;font-weight:700">
+            <span style="background:#dbeafe;padding:0 3px;border-radius:3px">A</span>bsorption +
+            <span style="background:#dbeafe;padding:0 3px;border-radius:3px">D</span>istribution +
+            <span style="background:#dbeafe;padding:0 3px;border-radius:3px">M</span>etabolism +
+            <span style="background:#dbeafe;padding:0 3px;border-radius:3px">E</span>xcretion
+          </div>
+          <div style="font-size:20px;font-weight:800;color:#2d4fa8;margin-top:2px">(ADME)</div>
+        </div>
+      </div>
+
+      <div class="note mint" style="max-width:640px;margin:14px auto 0">
+        It answers the question: <b>where does the drug go</b>, how much of it gets there, and how long does it stay?
+      </div>
+    </div>
+
+    <div class="divider" style="margin:0"></div>
+
+    <div>
+      <div class="center">
+        <div style="font-size:44px;font-weight:800;letter-spacing:-1px">
+          <span style="color:#2d4fa8">Pharmaco</span><span style="color:#f2762c">dynamics</span>
+        </div>
+        <div style="display:flex;justify-content:center;gap:0;margin-top:-2px">
+          <div style="border-top:2px solid #2d4fa8;width:200px;text-align:center;font-size:17px;font-style:italic;padding-top:3px">Drug</div>
+          <div style="border-top:2px solid #f2762c;width:200px;text-align:center;font-size:17px;font-style:italic;padding-top:3px">Effect</div>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top:12px">
+        <span style="background:#fdf07f;font-size:22px;font-weight:800;padding:4px 12px;border-radius:4px">What the drug does to the body</span>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-around;margin-top:14px">
+        <div class="center">
+          <span class="emo" style="font-size:72px">💊</span>
+          <div class="cap" style="margin-top:2px">Drug</div>
+        </div>
+        <div class="center">
+          <svg width="150" height="40" viewBox="0 0 150 40">
+            <text x="75" y="14" text-anchor="middle" font-family="Nunito" font-size="15" font-weight="700" fill="#20242c">Action</text>
+            <path d="M8 28 H108" stroke="#a9743f" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="120" cy="22" r="6" fill="#c98b52"/><circle cx="132" cy="30" r="6" fill="#c98b52"/><circle cx="120" cy="36" r="6" fill="#c98b52"/>
+          </svg>
+        </div>
+        <div class="center">
+          <span class="emo" style="font-size:72px">🧑‍⚕️</span>
+          <div class="cap" style="margin-top:2px">Body responding</div>
+        </div>
+      </div>
+
+      <div class="center" style="margin-top:12px;font-size:21px;font-weight:800;font-style:italic">
+        Therapeutic effects, pharmacological effects and adverse reactions.
+      </div>
+
+      <div class="note peach" style="max-width:640px;margin:14px auto 0">
+        It answers the question: <b>what happens once the drug arrives</b> — which receptor it hits and how strong the response is.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
