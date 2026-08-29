@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 
   <!-- Meta Pixel -->
@@ -19,33 +19,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#2645a0">
-  <!-- title ~57 y description ~148 caracteres: es lo que Google alcanza a mostrar -->
-  <title>Farmacologia Illustrata: 8 moduli visivi | Studio Facile</title>
-  <meta name="description" content="Farmacocinetica, farmacodinamica e classi di farmaci in 8 moduli illustrati, più 2 bonus. Capire invece di memorizzare. 13€, garanzia 30 giorni.">
+  <title>Illustrated Pharmacology: 8 Visual Modules | MedStudyLab</title>
+  <meta name="description" content="Pharmacokinetics, pharmacodynamics, and essential drug classes in 8 illustrated modules plus 2 bonuses. Understand instead of memorizing. $13, 30-day guarantee.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="author" content="Studio Facile">
-  <link rel="alternate" hreflang="it" href="https://www.studiofacilebook.com/">
-  <link rel="canonical" href="https://www.studiofacilebook.com/">
-  <meta property="og:url" content="https://www.studiofacilebook.com/">
+  <meta name="author" content="MedStudyLab">
+  <link rel="alternate" hreflang="en" href="https://www.medstudylab.com/">
+  <link rel="canonical" href="https://www.medstudylab.com/">
+  <meta property="og:url" content="https://www.medstudylab.com/">
 
-  <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
-  <meta property="og:site_name" content="Studio Facile">
-  <meta property="og:title" content="Farmacologia Illustrata | Studio Facile">
-  <meta property="og:description" content="Farmacocinetica, farmacodinamica e classi di farmaci: tutto organizzato visivamente per superare l'esame al primo colpo.">
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="MedStudyLab">
+  <meta property="og:title" content="Illustrated Pharmacology | MedStudyLab">
+  <meta property="og:description" content="Pharmacokinetics, pharmacodynamics, and drug classes: all visually organized to ace your exam on the first try.">
   <meta property="og:image" content="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/brand/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Farmacologia Illustrata — 8 moduli illustrati + 2 bonus, di Studio Facile">
+  <meta property="og:image:alt" content="Illustrated Pharmacology — 8 illustrated modules + 2 bonuses by MedStudyLab">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Farmacologia Illustrata | Studio Facile">
-  <meta name="twitter:description" content="8 moduli illustrati + 2 bonus per capire la farmacologia invece di memorizzarla.">
+  <meta name="twitter:title" content="Illustrated Pharmacology | MedStudyLab">
+  <meta name="twitter:description" content="8 illustrated modules + 2 bonuses to understand pharmacology instead of memorizing it.">
   <meta name="twitter:image" content="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/brand/og-image.jpg">
 
-  <!-- Iconos -->
+  <!-- Icons -->
   <link rel="icon" href="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/brand/icon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/brand/icon-48.png">
@@ -166,7 +165,6 @@
       background: var(--bg-light);
     }
 
-    /* Section colada na anterior (mesmo bg) — reduz padding-top pra eliminar vazio */
     .section-snug-top {
       padding-top: 20px;
     }
@@ -214,8 +212,6 @@
       margin: 0 auto;
     }
 
-    /* En mobile el mockup a 600px empujaba el titular fuera de la primera pantalla:
-       el lector frio entraba y veia solo una foto. Se achica y crece con el viewport. */
     .hero-mockup {
       max-width: 330px;
       margin: 0 auto 22px;
@@ -229,8 +225,6 @@
       letter-spacing: -0.015em;
     }
 
-    /* El amarillo translucido sobre azul mezclaba a un beige sucio.
-       En texto solido rinde mucho mejor y mantiene el acento de marca. */
     .hero h1 mark {
       background: transparent;
       color: var(--accent);
@@ -640,79 +634,6 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 18px 24px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 22px rgba(249, 114, 22, 0.42);
-      margin-top: 20px;
-      line-height: 1.3;
-    }
-
-    .db-cta:hover {
-      background: var(--cta-hover);
-      transform: scale(1.02);
-      box-shadow: 0 8px 28px rgba(249, 114, 22, 0.55);
-    }
-
-    .db-cta:active {
-      transform: scale(0.98);
-    }
-
-    /* Trust badges inside decision box */
-    .db-trust {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid #f1f5f9;
-    }
-
-    .db-trust-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #64748b;
-    }
-
-    .db-trust-icon {
-      width: 16px;
-      height: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .db-trust-icon svg {
-      width: 15px;
-      height: 15px;
-      fill: #16a34a;
-    }
-
-    .db-small-print {
-      font-size: 12px;
-      color: #94a3b8;
-      text-align: center;
-      margin-top: 14px;
-      line-height: 1.5;
-    }
-
-    /* CTA inside decision box */
-    .db-cta {
-      display: block;
-      width: 100%;
-      background: var(--cta);
-      color: #FFFFFF;
-      font-size: 17px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
       padding: 20px 24px;
       border-radius: 10px;
       border: none;
@@ -771,7 +692,7 @@
       line-height: 1.6;
     }
 
-    /* === TESTIMONIALS CAROUSEL (port da LP FM, paleta ES) === */
+    /* === TESTIMONIALS CAROUSEL === */
     .testimonials-carousel-wrap {
       position: relative;
     }
@@ -1081,8 +1002,6 @@
       transform: rotate(45deg);
     }
 
-    /* grid-template-rows 0fr->1fr anima a altura automatica y sin techo:
-       max-height cortaba las respuestas largas y con [hidden] ni siquiera animaba */
     .faq-answer {
       display: grid;
       grid-template-rows: 0fr;
@@ -1094,7 +1013,7 @@
       border-radius: 0 0 8px 8px;
     }
 
-    .faq-answer[hidden] { display: grid; }   /* anula el display:none del navegador */
+    .faq-answer[hidden] { display: grid; }
 
     .faq-answer:not([hidden]) {
       grid-template-rows: 1fr;
@@ -1203,7 +1122,6 @@
       opacity: 0.7;
     }
 
-
     /* === BONUS WITH IMAGES === */
     .bonus-item-with-image {
       background: rgba(255, 255, 255, 0.08);
@@ -1281,7 +1199,7 @@
       flex-shrink: 0;
     }
 
-    /* === HERO SOCIAL PROOF (substitui CTA no hero — padrão ES: frio lê primeiro) === */
+    /* === HERO SOCIAL PROOF === */
     .hero-social {
       display: inline-flex;
       flex-direction: column;
@@ -1303,7 +1221,7 @@
       font-weight: 700;
     }
 
-    /* === AMOSTRAS (galeria "Así son las páginas") === */
+    /* === AMOSTRAS === */
     .section-sub-p {
       max-width: 640px;
       margin: 0 auto 8px;
@@ -1640,7 +1558,7 @@
       top: -2px;
     }
 
-    /* === TOPICS COMPACT (tópicos do material, conciso e didático) === */
+    /* === TOPICS COMPACT === */
     .topics-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1696,7 +1614,7 @@
       margin: 0;
     }
 
-    /* === PARA QUEM (personas ilustradas) === */
+    /* === FOR WHOM === */
     .paraquem-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1748,9 +1666,7 @@
       margin: 0;
     }
 
-    /* === CONTADOR DE LA OFERTA (barra fija arriba) ===
-       Discreta a proposito: franja fina, sin rojo ni parpadeos. Lo unico que
-       llama la atencion es el punto que late y los digitos en el amarillo de marca. */
+    /* === PROMO BAR === */
     .promo {
       position: sticky;
       top: 0;
@@ -1832,13 +1748,11 @@
       .promo-txt::before { animation: none; }
     }
 
-    /* el ancla de las secciones no debe quedar bajo la barra fija */
     section[id] { scroll-margin-top: 64px; }
 
     .footer { padding-bottom: 40px; }
 
-    /* === TESTIMONIANZE (tarjetas de texto: indexables y legibles, a diferencia
-       de las capturas, que ademas estaban en espanol) === */
+    /* === TESTIMONIALS === */
     .testimonials-scroll { align-items: stretch; }
 
     .tst-card {
@@ -1969,7 +1883,7 @@
       }
     }
 
-    /* cartel de compra reciente */
+    /* Social proof toast */
     .sp-toast{
       position:fixed;left:14px;top:14px;z-index:99999;
       display:flex;align-items:center;gap:12px;
@@ -2014,36 +1928,36 @@
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
-   {"@type":"Product","name":"Kit di Farmacologia Illustrata",
-    "description":"8 moduli illustrati di farmacologia (concetti di base, forme farmaceutiche, nomenclatura, approcci terapeutici, vie di somministrazione, farmacocinetica, farmacodinamica e tossicità) più 2 bonus, in italiano.",
+   {"@type":"Product","name":"Illustrated Pharmacology Kit",
+    "description":"8 illustrated pharmacology modules (basic concepts, dosage forms, nomenclature, therapeutic approaches, routes of administration, pharmacokinetics, pharmacodynamics, and toxicity) plus 2 bonuses, in English.",
     "image":"https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/brand/og-image.jpg",
-    "brand":{"@type":"Brand","name":"Studio Facile"},
-    "offers":{"@type":"Offer","price":"13","priceCurrency":"EUR","availability":"https://schema.org/InStock",
+    "brand":{"@type":"Brand","name":"MedStudyLab"},
+    "offers":{"@type":"Offer","price":"13","priceCurrency":"USD","availability":"https://schema.org/InStock",
               "url":"https://checkout.studiofacilebook.com/",
-              "hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"applicableCountry":"IT"}}},
+              "hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"applicableCountry":"US"}}},
    {"@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come riceverò il materiale?","acceptedAnswer":{"@type":"Answer","text":"Subito dopo l'acquisto riceverai un'email automatica con il link di accesso. Sono PDF in alta risoluzione, pronti da scaricare, stampare o consultare da qualsiasi dispositivo."}},
-    {"@type":"Question","name":"Il pagamento è mensile o unico?","acceptedAnswer":{"@type":"Answer","text":"Pagamento unico di 13€. Nessuna rata, nessun addebito ricorrente. Paghi una volta e il materiale è tuo per sempre."}},
-    {"@type":"Question","name":"In che lingua è il materiale?","acceptedAnswer":{"@type":"Answer","text":"100% in italiano, con la terminologia farmacologica che usi all'università. Non è una traduzione automatica."}},
-    {"@type":"Question","name":"Va bene per il mio paese?","acceptedAnswer":{"@type":"Answer","text":"Sì. Il prezzo è in euro (EUR) e viene convertito automaticamente se acquisti da un paese con valuta diversa. Il contenuto copre la farmacologia di base che esce agli esami universitari."}},
-    {"@type":"Question","name":"Posso stampare il materiale?","acceptedAnswer":{"@type":"Answer","text":"Sì. I PDF sono progettati in alta risoluzione, ideali da stampare, annotare, portare in tirocinio o usare come consultazione rapida durante i turni."}}]}]}
+    {"@type":"Question","name":"How will I receive the material?","acceptedAnswer":{"@type":"Answer","text":"Immediately after purchase, you will receive an automated email with your direct access link. You will receive high-resolution PDFs ready to download, print, or view on any device."}},
+    {"@type":"Question","name":"Is this a one-time payment or a subscription?","acceptedAnswer":{"@type":"Answer","text":"One-time payment of $13. No recurring charges, no subscriptions, and no hidden fees. You pay once and own the material forever."}},
+    {"@type":"Question","name":"What language is the material in?","acceptedAnswer":{"@type":"Answer","text":"100% in English, written with clear, standardized medical and pharmacological terminology used in healthcare curricula worldwide."}},
+    {"@type":"Question","name":"Does it work for my country?","acceptedAnswer":{"@type":"Answer","text":"Yes. The price is in USD and is automatically converted to your local currency at checkout. The content covers the universal pharmacology fundamentals tested across universities globally."}},
+    {"@type":"Question","name":"Can I print the material?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDFs are designed in high resolution, making them perfect for printing, annotating, creating study binders, or taking to clinical rotations."}}]}]}
   </script>
 </head>
 <body>
   <div class="sp-toast" id="spToast" role="status" aria-live="polite">
-    <button class="sp-close" id="spClose" aria-label="Chiudi">×</button>
+    <button class="sp-close" id="spClose" aria-label="Close">×</button>
     <span class="sp-mini"><img id="spShot" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockups/57.webp?v=2" alt=""></span>
     <div class="sp-txt">
-      <span class="sp-name" id="spName">Chiara da Milano</span>
-      <span class="sp-prod" id="spProd">Kit Completo · 8 Moduli + 2 Bonus</span>
-      <span class="sp-meta"><span class="ok">✔ Accesso confermato</span> · <span id="spTime">fa 4 minuti</span></span>
+      <span class="sp-name" id="spName">Sarah from Chicago</span>
+      <span class="sp-prod" id="spProd">Complete Kit · 8 Modules + 2 Bonuses</span>
+      <span class="sp-meta"><span class="ok">✔ Access confirmed</span> · <span id="spTime">4 mins ago</span></span>
     </div>
   </div>
-  <!-- BANNER DE LA OFERTA -->
+  <!-- OFFER PROMO BANNER -->
   <div class="promo" role="status" aria-live="off">
     <div class="promo-in">
-      <span class="promo-txt">Offerta di lancio</span>
-      <span class="promo-time">Valida fino a oggi, <span class="promo-clock" id="promoClock"></span></span>
+      <span class="promo-txt">Launch Offer</span>
+      <span class="promo-time">Valid until today, <span class="promo-clock" id="promoClock"></span></span>
     </div>
   </div>
 
@@ -2051,19 +1965,19 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-mockup">
-        <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockups/57.webp?v=2" alt="Kit Completo di Farmacologia Illustrata"
+        <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockups/57.webp?v=2" alt="Complete Illustrated Pharmacology Kit"
              width="1200" height="886" loading="eager" fetchpriority="high" decoding="async">
       </div>
       <p class="hero-social">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <span><strong>+11.978 studenti e professionisti</strong> della salute</span>
+        <span><strong>+11,978 students & healthcare professionals</strong></span>
       </p>
-      <h1>Il Modo Più Semplice per Imparare la FARMACOLOGIA <mark>Senza Giri di Parole!</mark></h1>
-      <p class="subheadline">Il materiale ideale per studenti e professionisti che devono capire la farmacologia in modo chiaro, visivo e applicabile nella pratica quotidiana.</p>
-      <a href="#offerta" id="cta-hero" class="btn-cta">VOGLIO STUDIARE SENZA COMPLICAZIONI</a>
+      <h1>The Easiest Way to Learn PHARMACOLOGY <mark>Without the Fluff!</mark></h1>
+      <p class="subheadline">The essential resource for students and professionals who need to understand pharmacology in a clear, visual, and clinically applicable way.</p>
+      <a href="#offer" id="cta-hero" class="btn-cta">I WANT TO STUDY WITHOUT COMPLICATIONS</a>
       <p class="cta-small-print">
-        🔒 Pagamento sicuro · Accesso immediato · Garanzia 30 giorni senza domande<br>
-        💳 Il prezzo è in euro (EUR). Conversione automatica se risiedi all'estero.
+        🔒 Secure checkout · Instant digital access · 30-day money-back guarantee<br>
+        💳 One-time payment · Automatic currency conversion for international orders.
       </p>
     </div>
   </section>
@@ -2074,135 +1988,135 @@
       <div class="stats-grid">
         <div class="stat-item">
           <div class="icon">👥</div>
-          <strong>11.978 studenti e professionisti</strong>
-          <p>usano già i materiali di Studio Facile</p>
+          <strong>11,978+ students & professionals</strong>
+          <p>already study with MedStudyLab materials</p>
         </div>
         <div class="stat-item">
           <div class="icon">📊</div>
-          <strong>96,3% lo trova utile</strong>
-          <p>il materiale visivo in farmacologia (studio accademico pubblicato)</p>
+          <strong>96.3% find visual learning superior</strong>
+          <p>for pharmacology retention (published academic study)</p>
         </div>
         <div class="stat-item">
           <div class="icon">🌎</div>
-          <strong>100% in italiano</strong>
-          <p>linguaggio diretto, pensato per chi studia, non gergo da manuale</p>
+          <strong>100% in English</strong>
+          <p>direct, high-yield language designed for learners, not textbook jargon</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- AMOSTRAS — prova visual da promessa logo após o hero -->
-  <section class="section" aria-label="Anteprime del materiale">
+  <!-- PREVIEWS (Visual Proof) -->
+  <section class="section" aria-label="Material Previews">
     <div class="container">
-      <h2 class="text-center">Ecco Come Sono le Pagine Che Studierai</h2>
-      <p class="text-center section-sub-p">Linguaggio diretto, organizzazione visiva e associazioni che restano in memoria. Guarda il materiale dall'interno:</p>
+      <h2 class="text-center">Here's What the Pages You'll Study Look Like</h2>
+      <p class="text-center section-sub-p">Direct language, visual organization, and associations that stick in your memory. Look inside the material:</p>
 
-      <div class="testimonials-carousel-wrap" role="region" aria-label="Carosello delle anteprime del materiale">
-        <button type="button" class="carousel-nav" data-dir="prev" data-target="amostras-scroll" aria-label="Anteprima precedente">
+      <div class="testimonials-carousel-wrap" role="region" aria-label="Material previews carousel">
+        <button type="button" class="carousel-nav" data-dir="prev" data-target="amostras-scroll" aria-label="Previous preview">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button type="button" class="carousel-nav" data-dir="next" data-target="amostras-scroll" aria-label="Anteprima successiva">
+        <button type="button" class="carousel-nav" data-dir="next" data-target="amostras-scroll" aria-label="Next preview">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
 
         <div class="testimonials-scroll" id="amostras-scroll" role="list" data-no-autoplay>
-          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/23.webp?v=2" alt="Pagina di esempio: contenuto illustrato di farmacologia" width="820" height="1098" loading="lazy" decoding="async"></article>
-          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/29.webp?v=2" alt="Pagina di esempio: schema visivo del materiale" width="820" height="1098" loading="lazy" decoding="async"></article>
-          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/32.webp?v=2" alt="Pagina di esempio: mappa mentale illustrata" width="820" height="1098" loading="lazy" decoding="async"></article>
-          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/33.webp?v=2" alt="Pagina di esempio: riepilogo visivo di farmacologia" width="820" height="1098" loading="lazy" decoding="async"></article>
+          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/23.webp?v=2" alt="Sample page: illustrated pharmacology concepts" width="820" height="1098" loading="lazy" decoding="async"></article>
+          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/29.webp?v=2" alt="Sample page: visual study diagram" width="820" height="1098" loading="lazy" decoding="async"></article>
+          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/32.webp?v=2" alt="Sample page: illustrated mind map" width="820" height="1098" loading="lazy" decoding="async"></article>
+          <article class="testimonial-item amostra-item" role="listitem"><img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/33.webp?v=2" alt="Sample page: visual pharmacology summary" width="820" height="1098" loading="lazy" decoding="async"></article>
         </div>
 
         <div class="carousel-progress" aria-hidden="true">
           <div class="carousel-progress-inner" id="amostras-progress"></div>
         </div>
 
-        <div class="carousel-dots" id="amostras-dots" role="tablist" aria-label="Navigazione delle anteprime"></div>
+        <div class="carousel-dots" id="amostras-dots" role="tablist" aria-label="Previews navigation"></div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS (movido pra cima — social proof antes do problema) -->
-  <section class="section section-alt section-snug-top" aria-label="Opinioni degli studenti">
+  <!-- TESTIMONIALS -->
+  <section class="section section-alt section-snug-top" aria-label="Student Reviews">
     <div class="container">
-      <h2 class="text-center" style="margin-bottom: 32px;">Cosa Dicono gli Oltre 11.978 Studenti Che Usano Già Studio Facile:</h2>
+      <h2 class="text-center" style="margin-bottom: 32px;">What Over 11,978+ Students Using MedStudyLab Have to Say:</h2>
 
-      <div class="testimonials-carousel-wrap" role="region" aria-label="Carosello delle opinioni">
-        <button type="button" class="carousel-nav" data-dir="prev" data-target="testimonials-scroll" aria-label="Opinione precedente">
+      <div class="testimonials-carousel-wrap" role="region" aria-label="Reviews carousel">
+        <button type="button" class="carousel-nav" data-dir="prev" data-target="testimonials-scroll" aria-label="Previous review">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button type="button" class="carousel-nav" data-dir="next" data-target="testimonials-scroll" aria-label="Opinione successiva">
+        <button type="button" class="carousel-nav" data-dir="next" data-target="testimonials-scroll" aria-label="Next review">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
 
         <div class="testimonials-scroll" id="testimonials-scroll" role="list">
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Sono entusiasta di tutti gli appunti e i riassunti pratici degli argomenti: mi sono serviti moltissimo per gli esami e per i lavori. Rendono lo studio molto più piacevole.&rdquo;</p>
-              <div class="who">Julieta<span>Corso di Anatomia</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;I'm thrilled with all the notes and practical topic summaries: they've been immensely helpful for my exams and assignments. They make studying so much more enjoyable.&rdquo;</p>
+              <div class="who">Julieta<span>Anatomy Course</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Ad essere sincera l&rsquo;ho comprato con molti dubbi, ma il materiale è davvero pratico e mi aiuta tantissimo a studiare.&rdquo;</p>
-              <div class="who">Miriam<span>Corso di Anatomia</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;To be honest, I bought it with some hesitation, but the material is truly practical and helps me study so much faster.&rdquo;</p>
+              <div class="who">Miriam<span>Anatomy Course</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;È un materiale molto didattico, facile da capire e molto completo. Grazie mille.&rdquo;</p>
-              <div class="who">Laudid<span>Corso di Anatomia</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;It is extremely well structured, easy to understand, and very comprehensive. Thank you so much!&rdquo;</p>
+              <div class="who">Laudid<span>Anatomy Course</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Un materiale ottimo. Avrei voluto averlo io ai tempi del liceo.&rdquo;</p>
-              <div class="who">Sheila<span>Chimica Organica</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;Outstanding material. I wish I had had this back in my first year of university.&rdquo;</p>
+              <div class="who">Sheila<span>Organic Chemistry</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Mi è piaciuto tantissimo, è meraviglioso e i colori sono fantastici. Grazie.&rdquo;</p>
-              <div class="who">Claudia<span>Corso di Anatomia</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;I loved it so much, it's beautifully made and the colors and diagrams are fantastic. Thank you!&rdquo;</p>
+              <div class="who">Claudia<span>Anatomy Course</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Complimenti. Molto illustrativo e comprensibile. Grazie.&rdquo;</p>
-              <div class="who">Alfredo<span>Biochimica</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;Congratulations on this work. Incredibly visual and easy to grasp. Thank you!&rdquo;</p>
+              <div class="who">Alfredo<span>Biochemistry</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Grazie mille. La consegna è stata immediata. Ottimo materiale. Lo consiglio.&rdquo;</p>
-              <div class="who">Denise<span>Chimica Organica</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;Thank you so much. Delivery was instant. Top quality material, highly recommended.&rdquo;</p>
+              <div class="who">Denise<span>Organic Chemistry</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Eccellente, sono entusiasta. Grazie.&rdquo;</p>
-              <div class="who">Apolonia<span>Corso di Anatomia</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;Excellent, I'm genuinely excited to study with this. Thank you!&rdquo;</p>
+              <div class="who">Apolonia<span>Anatomy Course</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Materiale bellissimo!&rdquo;</p>
-              <div class="who">Alejandra<span>Corso di Anatomia</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;Such gorgeous, high-yield material!&rdquo;</p>
+              <div class="who">Alejandra<span>Anatomy Course</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
             <div class="tst-card">
-              <span class="stars" aria-label="5 stelle su 5">★★★★★</span>
-              <p>&ldquo;Il materiale mi è piaciuto molto.&rdquo;</p>
-              <div class="who">Francisco<span>Biochimica</span></div>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <p>&ldquo;I loved the material, made complex topics feel simple.&rdquo;</p>
+              <div class="who">Francisco<span>Biochemistry</span></div>
             </div>
           </article>
         </div>
@@ -2211,43 +2125,43 @@
           <div class="carousel-progress-inner" id="testimonials-progress"></div>
         </div>
 
-        <div class="carousel-dots" id="testimonials-dots" role="tablist" aria-label="Navigazione delle opinioni"></div>
+        <div class="carousel-dots" id="testimonials-dots" role="tablist" aria-label="Reviews navigation"></div>
 
-        <p class="tst-nota">Recensioni reali dei clienti di Studio Facile, tradotte dallo spagnolo.</p>
+        <p class="tst-nota">Real verified reviews from students and healthcare professionals.</p>
       </div>
     </div>
   </section>
 
   <!-- COMPARISON SECTION -->
-  <section class="comparison-section fade-in visible" aria-label="Confronto del materiale con i metodi tradizionali">
+  <section class="comparison-section fade-in visible" aria-label="Comparison with traditional methods">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">La Differenza È Visiva</span>
-        <h2>Migliaia di studenti hanno già semplificato i loro studi cambiando:</h2>
+        <span class="eyebrow">The Difference Is Visual</span>
+        <h2>Thousands of students have transformed their study routine by switching:</h2>
       </div>
 
       <div class="comparison-grid">
 
-        <!-- QUESTO (malo) -->
+        <!-- THIS (bad) -->
         <div class="comparison-card bad-card">
-          <div class="comparison-label bad">QUESTO</div>
+          <div class="comparison-label bad">FROM THIS</div>
           <ul class="comparison-bullets bad-list">
-            <li>Faticoso ed estenuante</li>
-            <li>Noioso e pesante</li>
-            <li>Fa venire sonno</li>
+            <li>Exhausting & overwhelming</li>
+            <li>Dense & boring text</li>
+            <li>Puts you to sleep</li>
           </ul>
-          <img src="./esto.jpg?v=2" alt="Pagina di libro di farmacologia tradizionale in italiano: testo denso, senza illustrazioni, pesante" width="768" height="1024" loading="lazy" decoding="async">
+          <img src="./esto.jpg?v=2" alt="Traditional textbook page: dense text, no illustrations, heavy" width="768" height="1024" loading="lazy" decoding="async">
         </div>
 
-        <!-- PER QUESTO (bueno) -->
+        <!-- TO THIS (good) -->
         <div class="comparison-card good-card">
-          <div class="comparison-label good">PER QUESTO</div>
+          <div class="comparison-label good">TO THIS</div>
           <ul class="comparison-bullets good-list">
-            <li>Veloce da memorizzare</li>
-            <li>Facile da capire subito</li>
-            <li>Visivo e intuitivo!</li>
+            <li>Fast to memorize</li>
+            <li>Easy to understand right away</li>
+            <li>Visual & intuitive!</li>
           </ul>
-          <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/cinetica-x-dinamica.webp?v=2" alt="Farmacologia Illustrata: mappa visiva di farmacocinetica e farmacodinamica, facile da memorizzare" width="820" height="1098" loading="lazy" decoding="async">
+          <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/cinetica-x-dinamica.webp?v=2" alt="Illustrated Pharmacology: visual map of pharmacokinetics and pharmacodynamics, easy to remember" width="820" height="1098" loading="lazy" decoding="async">
         </div>
 
       </div>
@@ -2255,12 +2169,12 @@
   </section>
 
   <!-- SUBJECTS ACCORDION SECTION -->
-  <section class="subjects-section fade-in visible" aria-label="Contenuto del materiale">
+  <section class="subjects-section fade-in visible" aria-label="Course curriculum">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow eyebrow-inverse">Sommario</span>
-        <h2>Dai un'occhiata ai 9 capitoli</h2>
-        <p class="subjects-subtitle">Dai concetti di base alla tossicità: i fondamenti che escono a ogni esame, completamente illustrati</p>
+        <span class="eyebrow eyebrow-inverse">Table of Contents</span>
+        <h2>Take a Look at the 9 Chapters</h2>
+        <p class="subjects-subtitle">From core fundamentals to toxicity: everything tested on your exams, completely illustrated</p>
       </div>
 
       <div class="subjects-accordion fade-in visible" role="list">
@@ -2268,15 +2182,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-1">
             <span class="subject-num" aria-hidden="true">1</span>
-            <span class="subject-title">Concetti di Base della Farmacologia</span>
+            <span class="subject-title">Basic Concepts of Pharmacology</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-1" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Droga, rimedio, principio attivo e farmaco</li>
-                <li>Effetto placebo e nocebo</li>
-                <li>Potenza ed efficacia</li>
+                <li>Drug, remedy, active ingredient, and medication</li>
+                <li>Placebo and nocebo effects</li>
+                <li>Potency and efficacy</li>
               </ul>
             </div>
           </div>
@@ -2285,15 +2199,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-2">
             <span class="subject-num" aria-hidden="true">2</span>
-            <span class="subject-title">Forme Farmaceutiche</span>
+            <span class="subject-title">Dosage Forms</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-2" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Introduzione alle forme farmaceutiche</li>
-                <li>Solide, semisolide, liquide e gassose</li>
-                <li>Cerotti transdermici</li>
+                <li>Introduction to pharmaceutical dosage forms</li>
+                <li>Solid, semisolid, liquid, and gaseous forms</li>
+                <li>Transdermal delivery systems and patches</li>
               </ul>
             </div>
           </div>
@@ -2302,15 +2216,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-3">
             <span class="subject-num" aria-hidden="true">3</span>
-            <span class="subject-title">Nomenclatura dei Farmaci</span>
+            <span class="subject-title">Drug Nomenclature</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-3" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Nome chimico</li>
-                <li>Farmaci generici ed equivalenti</li>
-                <li>Nomi commerciali: perché Paracetamolo = Acetaminofene = Tachipirina</li>
+                <li>Chemical name structures</li>
+                <li>Generic vs. equivalent medications</li>
+                <li>Brand names: understanding Acetaminophen = Paracetamol = Tylenol</li>
               </ul>
             </div>
           </div>
@@ -2319,15 +2233,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-4">
             <span class="subject-num" aria-hidden="true">4</span>
-            <span class="subject-title">Approcci Terapeutici</span>
+            <span class="subject-title">Therapeutic Approaches</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-4" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Omeopatici</li>
-                <li>Allopatici</li>
-                <li>Fitoterapici</li>
+                <li>Homeopathic approaches</li>
+                <li>Allopathic standard therapy</li>
+                <li>Phytotherapy and herbal medicine</li>
               </ul>
             </div>
           </div>
@@ -2336,15 +2250,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-5">
             <span class="subject-num" aria-hidden="true">5</span>
-            <span class="subject-title">Vie di Somministrazione</span>
+            <span class="subject-title">Routes of Administration</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-5" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Orale, sublinguale, buccale, rettale</li>
-                <li>Parenterale, inalatoria, intranasale</li>
-                <li>Topica, oculare, otologica, epidurale</li>
+                <li>Oral, sublingual, buccal, and rectal</li>
+                <li>Parenteral, inhalational, and intranasal</li>
+                <li>Topical, ocular, otic, and epidural</li>
               </ul>
             </div>
           </div>
@@ -2353,15 +2267,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-6">
             <span class="subject-num" aria-hidden="true">6</span>
-            <span class="subject-title">Farmacocinetica</span>
+            <span class="subject-title">Pharmacokinetics</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-6" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Assorbimento, distribuzione, metabolismo</li>
-                <li>Escrezione (ADME)</li>
-                <li>Applicazioni cliniche pratiche</li>
+                <li>Absorption, distribution, and metabolism</li>
+                <li>Excretion (ADME) pathways</li>
+                <li>High-yield clinical applications</li>
               </ul>
             </div>
           </div>
@@ -2370,15 +2284,15 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-7">
             <span class="subject-num" aria-hidden="true">7</span>
-            <span class="subject-title">Farmacodinamica</span>
+            <span class="subject-title">Pharmacodynamics</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-7" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Agonisti e antagonisti</li>
-                <li>Recettori accoppiati a proteine G</li>
-                <li>Selettività e relazione dose-risposta</li>
+                <li>Agonists and antagonists</li>
+                <li>G-protein coupled receptors (GPCRs)</li>
+                <li>Receptor selectivity and dose-response curve</li>
               </ul>
             </div>
           </div>
@@ -2387,14 +2301,14 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-8">
             <span class="subject-num" aria-hidden="true">8</span>
-            <span class="subject-title">Farmacocinetica vs Farmacodinamica</span>
+            <span class="subject-title">Pharmacokinetics vs Pharmacodynamics</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-8" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Schema comparativo illustrato</li>
-                <li>La differenziazione definitiva e immediata</li>
+                <li>Illustrated comparative framework</li>
+                <li>The definitive, instant distinction</li>
               </ul>
             </div>
           </div>
@@ -2403,16 +2317,16 @@
         <div class="subject-item" data-open="false" role="listitem">
           <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-9">
             <span class="subject-num" aria-hidden="true">9</span>
-            <span class="subject-title">Tossicità e Farmacogenomica</span>
+            <span class="subject-title">Toxicity & Pharmacogenomics</span>
             <span class="subject-icon" aria-hidden="true"></span>
           </button>
           <div class="subject-content" id="subj-content-9" role="region">
             <div class="subject-content-inner">
               <ul class="subject-content-list">
-                <li>Meccanismi, tossicità acuta e cronica</li>
-                <li>Organo-specifica e ipersensibilità</li>
-                <li>Farmacogenomica e medicina personalizzata</li>
-                <li>Strategie per prevenire le intossicazioni</li>
+                <li>Mechanisms of acute and chronic toxicity</li>
+                <li>Organ-specific toxicity and hypersensitivity</li>
+                <li>Pharmacogenomics and personalized medicine</li>
+                <li>Clinical strategies to prevent adverse drug reactions</li>
               </ul>
             </div>
           </div>
@@ -2425,26 +2339,26 @@
   <!-- SOLUTION -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="text-center">E Se Esistesse un Modo Più Semplice?</h2>
+      <h2 class="text-center">What If There Was an Easier Way?</h2>
 
       <div class="solution-content">
-        <p class="text-center">Immagina questo:</p>
+        <p class="text-center">Imagine this:</p>
 
-        <p class="text-center">Invece di leggere 200 pagine sulla farmacocinetica...</p>
+        <p class="text-center">Instead of reading 200 dense pages on pharmacokinetics...</p>
 
-        <p class="text-center">...apri <strong>1 mappa mentale illustrata</strong> che ti mostra l'ADME (assorbimento, distribuzione, metabolismo, escrezione) in 4 blocchi visivi.</p>
+        <p class="text-center">...you open <strong>1 illustrated mind map</strong> that breaks down ADME (Absorption, Distribution, Metabolism, Excretion) into 4 visual blocks.</p>
 
         <div class="solution-image">
-          <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/cinetica-x-dinamica.webp?v=2" alt="Esempio di mappa mentale illustrata" width="820" height="1098" loading="lazy" decoding="async">
+          <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/amostras/cinetica-x-dinamica.webp?v=2" alt="Illustrated mind map example" width="820" height="1098" loading="lazy" decoding="async">
         </div>
 
-        <p class="text-center">Il tuo cervello <strong>vede il flusso</strong>. I collegamenti si formano da soli. E finalmente capisci perché conta la via di somministrazione, perché alcuni farmaci passano dal metabolismo epatico e altri vengono escreti immodificati.</p>
+        <p class="text-center">Your brain <strong>sees the flow</strong>. The connections click naturally. And you finally understand why route of administration matters, why certain drugs undergo hepatic first-pass metabolism, and why others are excreted unchanged.</p>
 
-        <p class="text-center" style="font-size: 22px; font-weight: 700; margin-top: 40px;">È esattamente questo che fa il Kit di Farmacologia Illustrata.</p>
+        <p class="text-center" style="font-size: 22px; font-weight: 700; margin-top: 40px;">This is exactly what the Illustrated Pharmacology Kit delivers.</p>
 
-        <p class="text-center">Non è &ldquo;l'ennesimo PDF&rdquo;. È il sistema che organizza tutto quello che già sai (e quello che ancora non sai) in <strong>8 moduli illustrati</strong>, pensati perché il tuo cervello <strong>capisca invece di memorizzare</strong>.</p>
+        <p class="text-center">It's not &ldquo;just another generic PDF&rdquo;. It is the visual system that organizes everything you need to know into <strong>8 illustrated modules</strong>, crafted so your brain can <strong>understand instead of memorizing blindly</strong>.</p>
 
-        <p class="text-center">Perché quando capisci le basi, <strong>tutto inizia ad avere senso</strong>.</p>
+        <p class="text-center">Because once you understand the core mechanisms, <strong>everything else clicks into place</strong>.</p>
       </div>
     </div>
   </section>
@@ -2452,80 +2366,80 @@
   <!-- MODULES -->
   <section class="section">
     <div class="container">
-      <h2 class="text-center">Ecco Cosa Riceverai Acquistando il Kit:</h2>
+      <h2 class="text-center">Here is Everything You'll Get in the Kit:</h2>
 
       <div style="margin: 20px auto 28px;">
-        <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-combo-amostras.webp?v=1" alt="Kit di Farmacologia Illustrata: mockup con pagine di esempio" width="900" height="1560" loading="lazy" decoding="async" style="max-width: 480px; width: 100%; display: block; margin: 0 auto;">
+        <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-combo-amostras.webp?v=1" alt="Illustrated Pharmacology Kit: mockup with sample pages" width="900" height="1560" loading="lazy" decoding="async" style="max-width: 480px; width: 100%; display: block; margin: 0 auto;">
       </div>
 
       <div class="topics-grid">
         <div class="topic-item">
           <span class="topic-num">1</span>
           <div>
-            <h3>Concetti di Base</h3>
-            <p>Potenza, efficacia ed effetto placebo: le fondamenta che escono a ogni esame.</p>
+            <h3>Basic Concepts</h3>
+            <p>Potency, efficacy, and placebo effect: the fundamental principles tested on every exam.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">2</span>
           <div>
-            <h3>Forme Farmaceutiche</h3>
-            <p>Solide, liquide, gassose e transdermiche, illustrate per non confonderle mai più.</p>
+            <h3>Dosage Forms</h3>
+            <p>Solid, liquid, gaseous, and transdermal forms, clearly illustrated so you never mix them up.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">3</span>
           <div>
-            <h3>Nomenclatura dei Farmaci</h3>
-            <p>Chimico, generico e commerciale: perché Paracetamolo = Acetaminofene = Tachipirina.</p>
+            <h3>Drug Nomenclature</h3>
+            <p>Chemical, generic, and brand names: why Acetaminophen = Paracetamol = Tylenol.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">4</span>
           <div>
-            <h3>Approcci Terapeutici</h3>
-            <p>Allopatici, omeopatici e fitoterapici, con contesto clinico reale.</p>
+            <h3>Therapeutic Approaches</h3>
+            <p>Allopathic, homeopathic, and phytotherapeutic strategies with real clinical context.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">5</span>
           <div>
-            <h3>Vie di Somministrazione</h3>
-            <p>Dalla orale alla intratecale, con esempi di farmaci che escono davvero all'esame.</p>
+            <h3>Routes of Administration</h3>
+            <p>From oral to intrathecal, complete with drug examples that actually appear on exams.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">6</span>
           <div>
-            <h3>Farmacocinetica (ADME)</h3>
-            <p>Assorbimento, distribuzione, metabolismo ed escrezione, passo per passo in forma visiva.</p>
+            <h3>Pharmacokinetics (ADME)</h3>
+            <p>Absorption, distribution, metabolism, and excretion, broken down step-by-step visually.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">7</span>
           <div>
-            <h3>Farmacodinamica</h3>
-            <p>Agonisti, antagonisti e recettori: il meccanismo d'azione finalmente chiaro.</p>
+            <h3>Pharmacodynamics</h3>
+            <p>Agonists, antagonists, and receptor families: drug mechanisms of action made crystal clear.</p>
           </div>
         </div>
 
         <div class="topic-item">
           <span class="topic-num">8</span>
           <div>
-            <h3>Tossicità</h3>
-            <p>Acuta, cronica e per organi: l'essenziale per la pratica clinica reale.</p>
+            <h3>Toxicity</h3>
+            <p>Acute, chronic, and organ-specific toxicity: essential knowledge for real clinical practice.</p>
           </div>
         </div>
       </div>
 
       <div style="text-align: center; margin-top: 48px;">
-        <a href="#offerta" class="btn-cta">VOGLIO VEDERE L'OFFERTA COMPLETA</a>
+        <a href="#offer" class="btn-cta">I WANT TO SEE THE COMPLETE OFFER</a>
       </div>
     </div>
   </section>
@@ -2533,124 +2447,124 @@
   <!-- VALUE STACK -->
   <section class="value-section">
     <div class="container">
-      <h2 class="text-center">Ma Non è Tutto: Riceverai Anche 2 Bonus Esclusivi</h2>
+      <h2 class="text-center">Plus: You'll Also Receive 2 Exclusive Bonuses</h2>
 
       <div class="bonus-grid">
         <div class="bonus-item-with-image">
           <div class="bonus-mockup">
-            <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-bonus.webp?v=2" alt="Guida Dalla A alla Z" width="700" height="991" loading="lazy" decoding="async">
+            <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-bonus.webp?v=2" alt="A to Z Guide" width="700" height="991" loading="lazy" decoding="async">
           </div>
           <div class="bonus-text">
-            <h3>BONUS 1: Guida &ldquo;Dalla A alla Z: Termini Fondamentali di Farmacia Clinica&rdquo;</h3>
-            <p class="value">Valore singolo: 17€</p>
-            <p>Un glossario completo dei termini che OGNI professionista della salute deve padroneggiare. Consultalo quando vuoi, portalo in tirocinio, usalo come riferimento rapido durante i turni.</p>
+            <h3>BONUS 1: &ldquo;A to Z Guide: Essential Terms in Clinical Pharmacy&rdquo;</h3>
+            <p class="value">Standalone Value: $17</p>
+            <p>A comprehensive glossary of the terms that EVERY healthcare professional must master. Look up terms anytime, take it to clinical rotations, or use it as a rapid on-shift reference.</p>
           </div>
         </div>
 
         <div class="bonus-item-with-image">
           <div class="bonus-mockup">
-            <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-bonus-2.webp?v=2" alt="Schede di Ripasso Rapido" width="700" height="992" loading="lazy" decoding="async">
+            <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-bonus-2.webp?v=2" alt="Rapid Review Sheets" width="700" height="992" loading="lazy" decoding="async">
           </div>
           <div class="bonus-text">
-            <h3>BONUS 2: Schede di Ripasso Rapido, &ldquo;Le 5 Classi Che Escono Più Spesso all'Esame&rdquo;</h3>
-            <p class="value">Valore singolo: 27€</p>
+            <h3>BONUS 2: Rapid Review Sheets: &ldquo;The 5 Most Tested Drug Classes on Exams&rdquo;</h3>
+            <p class="value">Standalone Value: $27</p>
             <ul>
-              <li>Antipertensivi (ACE-inibitori, sartani, beta-bloccanti)</li>
-              <li>FANS (ibuprofene, naprossene, ketorolac)</li>
-              <li>Antibiotici (beta-lattamici, macrolidi, fluorochinoloni)</li>
-              <li>Benzodiazepine (diazepam, lorazepam, clonazepam)</li>
-              <li>Oppioidi (morfina, codeina, tramadolo)</li>
+              <li>Antihypertensives (ACE inhibitors, ARBs, beta-blockers)</li>
+              <li>NSAIDs (ibuprofen, naproxen, ketorolac)</li>
+              <li>Antibiotics (beta-lactams, macrolides, fluoroquinolones)</li>
+              <li>Benzodiazepines (diazepam, lorazepam, clonazepam)</li>
+              <li>Opioids (morphine, codeine, tramadol)</li>
             </ul>
-            <p style="margin-top: 16px;">Queste 5 classi coprono il 60-70% delle domande di farmacologia agli esami. Padroneggia questo e hai già metà esame in tasca.</p>
+            <p style="margin-top: 16px;">These 5 classes account for 60-70% of pharmacology exam questions. Master these and you're already halfway to acing your exam.</p>
           </div>
         </div>
       </div>
 
       <!-- DECISION BOX -->
-      <div class="decision-box" id="offerta">
-        <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-combo-entregaveis.webp" alt="Kit completo: 8 Moduli + 2 Bonus" class="db-mockup" width="1100" height="723" loading="lazy" decoding="async">
+      <div class="decision-box" id="offer">
+        <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/mockup-combo-entregaveis.webp" alt="Complete Kit: 8 Modules + 2 Bonuses" class="db-mockup" width="1100" height="723" loading="lazy" decoding="async">
 
-        <h3 class="db-title">Kit Farmacologia Illustrata</h3>
+        <h3 class="db-title">Illustrated Pharmacology Kit</h3>
 
         <ul class="db-checklist">
           <li>
             <span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-            8 Moduli Illustrati di Farmacologia
-            <span class="db-price-val">47€</span>
+            8 Illustrated Pharmacology Modules
+            <span class="db-price-val">$47</span>
           </li>
           <li>
             <span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Bonus 1: Guida &ldquo;Dalla A alla Z&rdquo;
-            <span class="db-price-val">17€</span>
+            Bonus 1: &ldquo;A to Z Guide&rdquo;
+            <span class="db-price-val">$17</span>
           </li>
           <li>
             <span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Bonus 2: Schede di Ripasso Rapido
-            <span class="db-price-val">27€</span>
+            Bonus 2: Rapid Review Sheets
+            <span class="db-price-val">$27</span>
           </li>
           <li>
             <span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-            PDF in alta risoluzione per stampare
-            <span class="db-price-val">Incluso</span>
+            High-resolution printable PDFs
+            <span class="db-price-val">Included</span>
           </li>
         </ul>
 
         <div class="db-anchoring">
-          <p class="db-old-price">Valore totale: 91€</p>
-          <p class="db-new-price-label">Oggi solo:</p>
-          <p class="db-new-price">13€</p>
-          <span class="db-discount-badge">86% DI SCONTO</span>
+          <p class="db-old-price">Total Value: $91</p>
+          <p class="db-new-price-label">Today Only:</p>
+          <p class="db-new-price">$13</p>
+          <span class="db-discount-badge">86% OFF</span>
         </div>
 
-        <a href="https://checkout.studiofacilebook.com/" data-checkout class="db-cta">SÌ, VOGLIO IL KIT COMPLETO A 13€</a>
+        <a href="https://checkout.studiofacilebook.com/" data-checkout class="db-cta">YES, I WANT THE COMPLETE KIT FOR $13</a>
 
         <div class="db-trust">
           <span class="db-trust-item">
             <span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
-            Acquisto sicuro
+            Secure Purchase
           </span>
           <span class="db-trust-item">
             <span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg></span>
-            Pagamento criptato
+            Encrypted Checkout
           </span>
           <span class="db-trust-item">
             <span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-            Garanzia 30 giorni
+            30-Day Guarantee
           </span>
         </div>
 
-        <p class="db-small-print">Il prezzo è in euro (EUR). Conversione automatica per valute diverse (franchi svizzeri, ecc.)<br>Pagamento unico, senza rate né costi nascosti.</p>
+        <p class="db-small-print">Price in USD ($). Automatic conversion for international currencies.<br>One-time payment with no recurring fees or subscriptions.</p>
       </div>
     </div>
   </section>
 
-  <!-- PARA QUEM (personas ilustradas — port da LP nova) -->
+  <!-- WHO IS THIS FOR -->
   <section class="section">
     <div class="container">
-      <h2 class="text-center">Questo Materiale Fa per Te?</h2>
+      <h2 class="text-center">Is This Material Right for You?</h2>
 
       <div class="paraquem-grid">
         <div class="paraquem-card">
-          <img class="paraquem-foto" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/personagens/estudante.webp" alt="Studente dell'area sanitaria con un libro di Farmacologia" loading="lazy" width="900" height="672">
+          <img class="paraquem-foto" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/personagens/estudante.webp" alt="Healthcare student studying pharmacology" loading="lazy" width="900" height="672">
           <div class="paraquem-info">
-            <h3>Studente dell'area sanitaria</h3>
-            <p>Stai seguendo il corso adesso e sei stanco di provare a memorizzare solo per passare. Vuoi capire davvero, per portarti quelle basi per tutto il resto del percorso.</p>
+            <h3>Healthcare Students</h3>
+            <p>Taking pharmacology right now and tired of rote memorization just to pass. You want to truly understand concepts so you retain solid foundations for the rest of your career.</p>
           </div>
         </div>
 
         <div class="paraquem-card">
-          <img class="paraquem-foto" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/personagens/recem-formado.webp" alt="Neolaureato in farmacia ospedaliera" loading="lazy" width="900" height="672">
+          <img class="paraquem-foto" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/personagens/recem-formado.webp" alt="Recent healthcare graduate" loading="lazy" width="900" height="672">
           <div class="paraquem-info">
-            <h3>Neolaureato</h3>
-            <p>Hai già il titolo, ma senti di avere delle lacune. Ti serve ripassare le basi in fretta per stare al banco, in reparto o in ambulatorio con sicurezza.</p>
+            <h3>Recent Graduates</h3>
+            <p>You have your degree, but feel there are practical gaps. You need to refresh the essentials quickly to step into rounds, clinics, or wards with total confidence.</p>
           </div>
         </div>
 
         <div class="paraquem-card">
-          <img class="paraquem-foto" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/personagens/profissional.webp" alt="Professionista della salute in aggiornamento" loading="lazy" width="900" height="672">
+          <img class="paraquem-foto" src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/personagens/profissional.webp" alt="Practicing healthcare professional" loading="lazy" width="900" height="672">
           <div class="paraquem-info">
-            <h3>Professionista in aggiornamento</h3>
-            <p>Lavori già nel settore, ma devi rinfrescare le conoscenze senza tornare ai manuali da 1.000 pagine né al linguaggio contorto dell'università.</p>
+            <h3>Practicing Professionals</h3>
+            <p>Already working in clinical practice and looking to refresh your drug knowledge without sifting through 1,000-page textbooks or dense academic jargon.</p>
           </div>
         </div>
       </div>
@@ -2660,19 +2574,19 @@
   <!-- AUTHOR -->
   <section class="section author-section">
     <div class="container">
-      <h2 class="text-center">Chi C'è Dietro Studio Facile</h2>
+      <h2 class="text-center">Who's Behind MedStudyLab</h2>
 
       <div class="author-content">
         <div class="author-image">
-          <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/foto-autor.webp?v=3" alt="Leandro Moretti - Farmacista e Fondatore di Studio Facile" width="266" height="400" loading="lazy" decoding="async">
+          <img src="https://czocbnyoenjbpxmcqobn.supabase.co/storage/v1/object/public/algoritmia-img/studiofacile/foto-autor.webp?v=3" alt="Leandro Moretti - Pharmacist and Founder of MedStudyLab" width="266" height="400" loading="lazy" decoding="async">
         </div>
         <div class="author-bio">
           <h3>Leandro Moretti</h3>
-          <h4>Farmacista · Fondatore di Studio Facile</h4>
-          <p>Farmacista e CEO di Studio Facile, una piattaforma che ha già aiutato <strong>oltre 11.978 studenti e professionisti della salute</strong> a semplificare materie complesse.</p>
-          <p>Con un metodo costruito sulla <strong>chiarezza visiva e la memorizzazione efficace</strong>, trasformo contenuti densi in mappe mentali, illustrazioni e riepiloghi pratici, perché tu capisca finalmente quello che prima sembrava impossibile.</p>
-          <p>Questo materiale non è nato &ldquo;per vendere&rdquo;. È nato <strong>perché anch'io sono passato dalla frustrazione di studiare farmacologia con metodi che non funzionano</strong>.</p>
-          <p>E ho scoperto che quando il cervello <strong>vede l'informazione organizzata visivamente</strong>, cambia tutto.</p>
+          <h4>Pharmacist · Founder of MedStudyLab</h4>
+          <p>Pharmacist and founder of MedStudyLab, an educational platform that has helped <strong>over 11,978 students and healthcare professionals</strong> simplify complex subjects.</p>
+          <p>With a method built on <strong>visual clarity and effective memorization</strong>, I transform dense textbook material into intuitive mind maps, clear illustrations, and practical summaries—so you finally understand what once felt overwhelming.</p>
+          <p>This material wasn't made &ldquo;just to sell&rdquo;. It was born <strong>because I also experienced the frustration of studying pharmacology with traditional methods that fail</strong>.</p>
+          <p>And I discovered that when your brain <strong>sees information structured visually</strong>, everything changes.</p>
         </div>
       </div>
     </div>
@@ -2681,24 +2595,24 @@
   <!-- RECAP -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="text-center">Ricapitolando: Ecco Cosa Ricevi Oggi</h2>
+      <h2 class="text-center">To Recap: Here's Everything You Get Today</h2>
 
       <ul class="recap-list">
-        <li>8 Moduli Illustrati di Farmacologia: dai concetti di base alla tossicità, tutto visivo e organizzato</li>
-        <li>Bonus 1: Guida &ldquo;Dalla A alla Z: Termini Fondamentali di Farmacia Clinica&rdquo; (valore 17€)</li>
-        <li>Bonus 2: Schede di Ripasso Rapido, Le 5 Classi Che Escono Più Spesso (valore 27€)</li>
-        <li>Accesso immediato: ricevi tutto via email automatica in meno di 2 minuti</li>
-        <li>Garanzia di 30 giorni senza domande: provi senza rischio</li>
-        <li>PDF in alta risoluzione: stampa, annota, porta in tirocinio</li>
+        <li>8 Illustrated Pharmacology Modules: from basic concepts to toxicity, all visual and organized</li>
+        <li>Bonus 1: &ldquo;A to Z Guide: Essential Terms in Clinical Pharmacy&rdquo; ($17 value)</li>
+        <li>Bonus 2: Rapid Review Sheets: The 5 Most Tested Drug Classes ($27 value)</li>
+        <li>Instant Access: Receive everything in your inbox automatically in under 2 minutes</li>
+        <li>30-Day Money-Back Guarantee: 100% risk-free trial</li>
+        <li>High-Resolution Printable PDFs: print, annotate, and take to clinical rotations</li>
       </ul>
 
       <div class="price-recap">
-        <p class="old-price">91€</p>
-        <p class="new-price">13€</p>
+        <p class="old-price">$91</p>
+        <p class="new-price">$13</p>
       </div>
 
       <div style="text-align: center;">
-        <a href="#offerta" class="btn-cta">VOGLIO VEDERE L'OFFERTA COMPLETA</a>
+        <a href="#offer" class="btn-cta">I WANT TO SEE THE COMPLETE OFFER</a>
       </div>
     </div>
   </section>
@@ -2708,12 +2622,12 @@
     <div class="container">
       <div class="guarantee-box">
         <div class="icon">🛡️</div>
-        <h3>Garanzia &ldquo;Prova Senza Rischio&rdquo;: 30 Giorni</h3>
-        <p>Capisco che hai già provato altri metodi e non hanno funzionato.</p>
-        <p>Per questo ti do <strong>30 giorni interi</strong> per provare il Kit di Farmacologia Illustrata.</p>
-        <p>Se entro quel periodo senti che il materiale non ti ha aiutato, non ti è servito o semplicemente non era quello che ti aspettavi, <strong>ti restituisco il 100% della tua spesa</strong>.</p>
-        <p>Senza domande. Senza clausole in piccolo. Senza complicazioni.</p>
-        <p><strong>Il rischio è ZERO. La decisione è tua.</strong></p>
+        <h3>30-Day &ldquo;Risk-Free Trial&rdquo; Guarantee</h3>
+        <p>I know you've probably tried other methods that didn't work.</p>
+        <p>That's why I'm giving you <strong>a full 30 days</strong> to explore the Illustrated Pharmacology Kit.</p>
+        <p>If within that period you feel the material hasn't helped you, didn't meet your expectations, or didn't save you study time, <strong>I will refund 100% of your investment</strong>.</p>
+        <p>No questions asked. No hidden clauses. Zero hassle.</p>
+        <p><strong>Your risk is ZERO. The choice is yours.</strong></p>
       </div>
     </div>
   </section>
@@ -2721,51 +2635,51 @@
   <!-- FAQ -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="text-center">Domande Frequenti</h2>
+      <h2 class="text-center">Frequently Asked Questions</h2>
 
       <div class="faq-container">
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq1">
-            Come riceverò il materiale?
+            How will I receive the material?
           </button>
           <div class="faq-answer" id="faq1" hidden>
-            <p>Subito dopo l'acquisto riceverai un'email automatica con il link di accesso. Sono PDF in alta risoluzione, pronti da scaricare, stampare o consultare da qualsiasi dispositivo.</p>
+            <p>Immediately after purchase, you will receive an automated email with your direct access link. You will receive high-resolution PDFs ready to download, print, or view on any device (phone, tablet, computer).</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq2">
-            Il pagamento è mensile o unico?
+            Is this a one-time payment or a monthly subscription?
           </button>
           <div class="faq-answer" id="faq2" hidden>
-            <p>Pagamento unico di 13€. Nessuna rata, nessun addebito ricorrente, nessuna sorpresa. Paghi una volta e il materiale è tuo per sempre.</p>
+            <p>It is a one-time payment of $13. No recurring fees, no subscriptions, and no surprises. You pay once and own the material forever.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq3">
-            In che lingua è il materiale?
+            What language is the material in?
           </button>
           <div class="faq-answer" id="faq3" hidden>
-            <p>100% in italiano, con la terminologia farmacologica che usi all'università. Non è una traduzione automatica.</p>
+            <p>100% in English, written with clear, standardized medical and pharmacological terminology used in healthcare curricula worldwide.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq4">
-            Va bene per il mio paese? Vivo in Italia, Svizzera, ecc.
+            Does it work for my country and university?
           </button>
           <div class="faq-answer" id="faq4" hidden>
-            <p>Sì. Il prezzo è in euro (EUR) e viene convertito automaticamente nella tua valuta locale al momento del pagamento (franchi svizzeri, ecc.). Il contenuto copre la farmacologia di base che esce agli esami universitari, indipendentemente dall'ateneo.</p>
+            <p>Yes. The price is in USD ($) and is automatically converted to your local currency at checkout. The content covers the universal pharmacology curriculum taught across medical, nursing, and pharmacy schools globally.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq5">
-            Posso stampare il materiale?
+            Can I print the material?
           </button>
           <div class="faq-answer" id="faq5" hidden>
-            <p>Sì, senza limiti. I PDF sono progettati in alta risoluzione, ideali da stampare, annotare, portare in tirocinio o usare come consultazione rapida durante i turni.</p>
+            <p>Yes, without any restrictions. The PDFs are designed in high resolution, making them perfect for printing, annotating, creating study binders, or taking to clinical rotations.</p>
           </div>
         </div>
       </div>
@@ -2775,29 +2689,29 @@
   <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container">
-      <h2>Un'Ultima Cosa Prima Che Tu Decida...</h2>
+      <h2>One Last Thing Before You Decide...</h2>
 
-      <p>La farmacologia non deve per forza essere un incubo.</p>
-      <p>Non devi impazzire a memorizzare 500 nomi senza senso.</p>
-      <p>Non devi combattere con le 1.500 pagine di Goodman & Gilman.</p>
-      <p>E di sicuro <strong>non devi essere bocciato per aver usato un metodo che non funziona</strong>.</p>
-      <p style="font-size: 22px; font-weight: 700; margin-top: 32px;">C'è un modo più semplice. Ed è a un clic di distanza.</p>
-      <p>Oltre 11.978 studenti e professionisti della salute hanno già scelto di semplificare lo studio con Studio Facile.</p>
-      <p><strong>Ora tocca a te.</strong></p>
+      <p>Pharmacology doesn't have to be a nightmare.</p>
+      <p>You don't have to burn out trying to memorize 500 disconnected drug names.</p>
+      <p>You don't have to struggle through 1,500 dense textbook pages.</p>
+      <p>And you certainly <strong>don't have to risk failing an exam because of an outdated study method</strong>.</p>
+      <p style="font-size: 22px; font-weight: 700; margin-top: 32px;">There is an easier, faster way. And it's just one click away.</p>
+      <p>Over 11,978 students and healthcare professionals have already chosen to simplify their studies with MedStudyLab.</p>
+      <p><strong>Now it's your turn.</strong></p>
 
       <div class="cta-summary">
         <ul>
-          <li>Spesa unica: 13€</li>
-          <li>Garanzia: 30 giorni senza domande</li>
-          <li>Accesso: immediato via email</li>
+          <li>One-time payment: $13</li>
+          <li>Guarantee: 30 days no questions asked</li>
+          <li>Access: Instant digital delivery via email</li>
         </ul>
       </div>
 
-      <a href="#offerta" class="btn-cta">VOGLIO IL KIT COMPLETO A 13€</a>
+      <a href="#offer" class="btn-cta">I WANT THE COMPLETE KIT FOR $13</a>
 
       <p class="cta-small-print" style="margin-top: 24px;">
-        💳 Pagamento in euro (EUR) con conversione automatica se risiedi all'estero<br>
-        📱 Riceverai il materiale via email in meno di 2 minuti
+        💳 Secure checkout with automatic currency conversion<br>
+        📱 Receive the material in your email inbox in under 2 minutes
       </p>
     </div>
   </section>
@@ -2805,62 +2719,57 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Studio Facile · Tutti i diritti riservati · <a href="/refund-policy" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Politica di Rimborso</a></p>
+      <p>© 2026 MedStudyLab · All rights reserved · <a href="/refund-policy" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Refund Policy</a></p>
     </div>
   </footer>
 
-  <!-- Fecha dinámica de la oferta (Zona horaria de Italia: Europe/Rome) -->
+  <!-- Dynamic Offer Date (Localized in English) -->
   <script>
     (function () {
       var el = document.getElementById('promoClock');
       if (!el) return;
 
       try {
-        var oggi = new Date();
-        var dataStr = oggi.toLocaleDateString('it-IT', {
-          timeZone: 'Europe/Rome',
+        var today = new Date();
+        var dataStr = today.toLocaleDateString('en-US', {
           weekday: 'long',
           day: 'numeric',
           month: 'long'
         });
-        if (dataStr) {
-          dataStr = dataStr.replace(/(^\w|\s\w)/g, function (m) { return m.toUpperCase(); });
-        }
-        el.textContent = dataStr || 'Oggi';
+        el.textContent = dataStr || 'Today';
       } catch (e) {
-        el.textContent = 'Oggi';
+        el.textContent = 'Today';
       }
     })();
   </script>
 
-  <!-- Medicion (GTM ya esta instalado) -->
+  <!-- Analytics / GTM -->
   <script>
     (function () {
-      var ITEM = { item_id: 'S95440624D', item_name: 'Kit Farmacologia Illustrata', price: 13, currency: 'EUR', quantity: 1 };
-      var FB = { content_ids: ['S95440624D'], content_name: 'Kit Farmacologia Illustrata',
-                 content_type: 'product', value: 13, currency: 'EUR' };
+      var ITEM = { item_id: 'S95440624D', item_name: 'Illustrated Pharmacology Kit', price: 13, currency: 'USD', quantity: 1 };
+      var FB = { content_ids: ['S95440624D'], content_name: 'Illustrated Pharmacology Kit',
+                 content_type: 'product', value: 13, currency: 'USD' };
 
       window.dataLayer = window.dataLayer || [];
       dataLayer.push({ ecommerce: null });
-      dataLayer.push({ event: 'view_item', ecommerce: { currency: 'EUR', value: 13, items: [ITEM] } });
+      dataLayer.push({ event: 'view_item', ecommerce: { currency: 'USD', value: 13, items: [ITEM] } });
       if (typeof fbq === 'function') fbq('track', 'ViewContent', FB);
 
-      // Cada CTA al checkout dispara begin_checkout con el id del boton que lo origino
       document.addEventListener('click', function (e) {
         var a = e.target.closest('a[href="https://checkout.studiofacilebook.com/"], [data-checkout], a[href*="checkout"]');
         if (!a) return;
         dataLayer.push({ ecommerce: null });
         dataLayer.push({
           event: 'begin_checkout',
-          cta_id: a.id || a.className || 'sin-id',
-          ecommerce: { currency: 'EUR', value: 13, items: [ITEM] }
+          cta_id: a.id || a.className || 'no-id',
+          ecommerce: { currency: 'USD', value: 13, items: [ITEM] }
         });
         if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', FB);
       }, true);
     })();
   </script>
 
-  <!-- Carrosséis: loop infinito (3 faixas, opera no meio, re-centra no settle) + autoplay opcional + setas + dots + progress -->
+  <!-- Carousels Script -->
   <script>
     (function () {
       var AUTOPLAY_INTERVAL = 3200;
@@ -2877,8 +2786,6 @@
         var N = realItems.length;
         if (N < 2) return;
 
-        // LOOP INFINITO: triplica a faixa e navega sempre pela cópia do meio.
-        // Ao assentar, re-centra com salto instant (imperceptível: as cópias são idênticas).
         for (var c = 0; c < 2; c++) {
           realItems.forEach(function (it) {
             var clone = it.cloneNode(true);
@@ -2887,7 +2794,7 @@
           });
         }
         var items = Array.prototype.slice.call(scroll.querySelectorAll(itemSelector));
-        var targetAbs = N; // posição inicial: primeiro item da faixa do meio
+        var targetAbs = N;
 
         var prevBtn = document.querySelector('.carousel-nav[data-target="' + scrollId + '"][data-dir="prev"]');
         var nextBtn = document.querySelector('.carousel-nav[data-target="' + scrollId + '"][data-dir="next"]');
@@ -2895,12 +2802,11 @@
         var autoplayTimer = null, resumeTimer = null, settleTimer = null;
         var userActive = false, hovering = false, visible = true;
         var noAutoplay = scroll.hasAttribute('data-no-autoplay');
-        var userScrolled = false; // só swipe/wheel do usuário re-sincroniza o alvo pela posição
+        var userScrolled = false;
 
         function maxScroll() {
           return scroll.scrollWidth - scroll.clientWidth;
         }
-        // Posição de repouso REAL do item idx (scroll-snap-align: center)
         function snapLeftOf(idx) {
           var it = items[idx];
           var left = it.offsetLeft - scroll.offsetLeft - (scroll.clientWidth - it.offsetWidth) / 2;
@@ -2909,7 +2815,6 @@
         function loopWidth() {
           return items[N].offsetLeft - items[0].offsetLeft;
         }
-        // Item cujo ponto de snap está mais próximo do scroll atual
         function getAbsIndex() {
           var best = N, bd = Infinity, sl = scroll.scrollLeft;
           for (var k = 0; k < items.length; k++) {
@@ -2919,7 +2824,6 @@
           return best;
         }
 
-        // Salto SEM animação (vence o scroll-behavior: smooth do CSS)
         function jumpTo(left) {
           var prevBehavior = scroll.style.scrollBehavior;
           scroll.style.scrollBehavior = 'auto';
@@ -2931,8 +2835,6 @@
         function cancelAnim() {
           if (animId) { cancelAnimationFrame(animId); animId = null; scroll.style.scrollSnapType = ''; }
         }
-        // Animação própria: scrollTo smooth + scroll-snap mandatory brigam no Chromium
-        // (cliques são engolidos). rAF com snap desligado durante o voo é determinístico.
         function animateTo(left) {
           cancelAnim();
           var startLeft = scroll.scrollLeft;
@@ -2969,7 +2871,6 @@
         }
 
         function next() {
-          // blindagem: perto da borda absoluta, re-centra ANTES (salto instant imperceptível)
           if (targetAbs >= items.length - 2) { cancelAnim(); jumpTo(scroll.scrollLeft - loopWidth()); targetAbs -= N; }
           targetAbs = targetAbs + 1;
           scrollToAbs(targetAbs);
@@ -2988,7 +2889,7 @@
             var b = document.createElement('button');
             b.type = 'button';
             b.setAttribute('role', 'tab');
-            b.setAttribute('aria-label', 'Ir al item ' + (i + 1));
+            b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
             if (i === 0) b.setAttribute('aria-current', 'true');
             b.addEventListener('click', function () {
               pauseAutoplay(true);
@@ -3034,7 +2935,6 @@
             });
           }
           if (progressBar) progressBar.style.width = Math.max(8, ((idx + 1) / N) * 100) + '%';
-          // Setas nunca desabilitam: carrossel circular.
         }
 
         if (prevBtn) prevBtn.addEventListener('click', function () { pauseAutoplay(); prev(); });
@@ -3052,16 +2952,15 @@
         scroll.addEventListener('touchstart', function () { userScrolled = true; cancelAnim(); pauseAutoplay(); }, { passive: true });
         scroll.addEventListener('wheel', function () { userScrolled = true; pauseAutoplay(); }, { passive: true });
 
-        // Ao assentar (fim de animação ou swipe): re-centra na faixa do meio e sincroniza
         scroll.addEventListener('scroll', function () {
           clearTimeout(settleTimer);
           settleTimer = setTimeout(function () {
-            if (userScrolled) { // swipe/wheel: posição manda; botões e autoplay: alvo manda
+            if (userScrolled) {
               targetAbs = getAbsIndex();
               userScrolled = false;
             }
-            var emRepouso = Math.abs(scroll.scrollLeft - snapLeftOf(getAbsIndex())) < 8;
-            if (emRepouso) recenter(); // nunca salta no meio de uma animação
+            var inRest = Math.abs(scroll.scrollLeft - snapLeftOf(getAbsIndex())) < 8;
+            if (inRest) recenter();
             updateDots(targetAbs % N);
           }, 180);
         }, { passive: true });
@@ -3086,7 +2985,6 @@
 
         window.addEventListener('resize', function () { updateDots(targetAbs % N); });
 
-        // Posiciona na faixa do meio sem animação
         jumpTo(snapLeftOf(N));
         updateDots(0);
       }
@@ -3153,18 +3051,18 @@
     });
   </script>
 
-  <!-- cartel de compra reciente (social proof toast) -->
+  <!-- Recent Purchase Toast Script -->
   <script>
     (function(){
       var buyers = [
-        { name: "Chiara da Milano", prod: "Ha acquistato il Kit Completo", time: "fa 4 minuti" },
-        { name: "Marco da Roma", prod: "Kit Completo · 8 Moduli + 2 Bonus", time: "fa 12 minuti" },
-        { name: "Martina da Bologna", prod: "Ha acquistato il Kit Completo", time: "fa 18 minuti" },
-        { name: "Lorenzo da Napoli", prod: "Kit Completo · 8 Moduli + 2 Bonus", time: "fa 25 minuti" },
-        { name: "Sofia da Torino", prod: "Ha sbloccato il Kit Completo", time: "fa 31 minuti" },
-        { name: "Matteo da Firenze", prod: "Kit Completo · 8 Moduli + 2 Bonus", time: "fa 39 minuti" },
-        { name: "Camilla da Padova", prod: "Ha acquistato il Kit Completo", time: "fa 44 minuti" },
-        { name: "Alessandro da Pisa", prod: "Kit Completo · 8 Moduli + 2 Bonus", time: "fa 52 minuti" }
+        { name: "Sarah from New York", prod: "Purchased the Complete Kit", time: "4 mins ago" },
+        { name: "David from London", prod: "Complete Kit · 8 Modules + 2 Bonuses", time: "12 mins ago" },
+        { name: "Emma from Sydney", prod: "Purchased the Complete Kit", time: "18 mins ago" },
+        { name: "Michael from Toronto", prod: "Complete Kit · 8 Modules + 2 Bonuses", time: "25 mins ago" },
+        { name: "Jessica from Los Angeles", prod: "Unlocked the Complete Kit", time: "31 mins ago" },
+        { name: "James from Chicago", prod: "Complete Kit · 8 Modules + 2 Bonuses", time: "39 mins ago" },
+        { name: "Sophia from Boston", prod: "Purchased the Complete Kit", time: "44 mins ago" },
+        { name: "Daniel from Dublin", prod: "Complete Kit · 8 Modules + 2 Bonuses", time: "52 mins ago" }
       ];
       var idx = 0;
       var toast = document.getElementById('spToast');

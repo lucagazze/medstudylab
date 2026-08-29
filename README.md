@@ -1,36 +1,19 @@
-# Farmacologia Illustrata — Studio Facile
+# Illustrated Pharmacology — MedStudyLab
 
-Landing page del Kit di Farmacologia Illustrata (8 moduli + 2 bonus, 13€ / EUR, checkout Hotmart).
-Todos los textos en italiano.
+Landing page for the Illustrated Pharmacology Kit (8 visual modules + 2 bonuses, $13 USD).
+All texts fully localized in English.
 
-## Estructura
-- `index.html` — la landing completa (CSS y JS inline, sin build)
-- `mockups/`, `amostras/`, `depoimentos/`, `personagens/` — imágenes WebP
-- `original.html` — versión previa en español y morado (ignorada por git, solo referencia local)
+## Structure
+- `index.html` — High-converting landing page (pure HTML/CSS/JS with zero external build step)
+- `refund-policy.html` — Dedicated 30-day money-back guarantee and refund policy page
+- `mockups/`, `amostras/`, `depoimentos/`, `personagens/` — WebP graphics & assets
+- `vercel.json` — Static hosting configuration
 
-## Paleta
-| Uso | Color |
+## Color Palette
+| Token | Hex |
 |---|---|
-| Azul primario / hero | `#2645a0` |
-| Azul oscuro | `#1c3479` / `#1b3277` |
-| Amarillo de acento | `#f7cf49` |
-| Naranja de botones | `#f97216` |
-| Fondo | `#FFFFFF` |
-
-## Medición
-GTM (server-side vía Stape) + Microsoft Clarity en el `<head>`.
-La página empuja al `dataLayer`:
-- `view_item` al cargar
-- `begin_checkout` en cada clic al checkout, con `cta_id` para saber cuál de los 5 CTAs cierra
-
-## PENDIENTE antes de publicar
-Estos datos siguen apuntando al proyecto en español y hay que reemplazarlos:
-
-- **Imágenes**: todos los mockups, páginas de muestra y testimonios están en español.
-  El texto dice "100% in italiano" pero las imágenes lo desmienten.
-- **Checkout**: `pay.hotmart.com/S95440624D` es el producto en español.
-- **GTM**: contenedor de `api.farmaciamapeada.com.br` (proyecto ES).
-- **Clarity**: project id `wcui1pae9q` (proyecto ES).
-- **canonical / og:url**: apuntan a `es.farmaciamapeada.com.br/farmacologia/`.
-- **Favicon**: `estudiasencillo.com.mx`.
-- **Claim "96,3%"**: sin fuente citada. Riesgo de rechazo en Meta.
+| Primary Blue / Hero | `#2645a0` |
+| Deep Blue | `#1c3479` / `#1b3277` |
+| Accent Yellow | `#f7cf49` |
+| CTA Orange | `#f97216` |
+| Background | `#FFFFFF` / `#f4f7fd` |
