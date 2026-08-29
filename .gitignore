@@ -7,3 +7,6 @@ nano-gen-*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# generated working files
+out/
