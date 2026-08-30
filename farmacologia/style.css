@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Farmacologia Illustrata — sistema visivo pagine A4
+   ========================================================================== */
+@font-face{font-family:'Poppins';src:url('../fonts/Poppins-Regular.ttf');font-weight:400}
+@font-face{font-family:'Poppins';src:url('../fonts/Poppins-Medium.ttf');font-weight:500}
+@font-face{font-family:'Poppins';src:url('../fonts/Poppins-SemiBold.ttf');font-weight:600}
+@font-face{font-family:'Poppins';src:url('../fonts/Poppins-Bold.ttf');font-weight:700}
+@font-face{font-family:'Poppins';src:url('../fonts/Poppins-ExtraBold.ttf');font-weight:800}
+
+:root{
+  --ink:#1c1d2e;
+  --ink-soft:#474962;
+  --purple:#6b4fcf;
+  --purple-d:#42297f;
+  --navy:#1b2b57;
+  --teal:#2f9e83;
+  --lav:#ddc3f0;   --lav-s:#f0e6fa;  --lav2:#c9a8ea;
+  --mint:#b6e3cd;  --mint-s:#e4f5ec;
+  --sky:#bfdcf6;   --sky-s:#e6f1fc;
+  --peach:#fbdcc4;
+  --rose:#fbd2da;  --rose-s:#fdeaee;
+  --cream:#fdf3dd;
+  --paper:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#c9ccd8}
+
+.page{
+  position:relative;width:794px;height:1123px;
+  background:var(--paper);font-family:'Poppins',sans-serif;
+  color:var(--ink);overflow:hidden;
+}
+
+/* --- fasce colorate ---------------------------------------------------- */
+.band{position:absolute;left:0;right:0;height:24px;display:flex;z-index:3}
+.band.top{top:0} .band.bottom{bottom:0}
+.band i{flex:1}
+.band i:nth-child(1){background:var(--mint)}
+.band i:nth-child(2){background:var(--lav)}
+.band i:nth-child(3){background:var(--sky)}
+.band i:nth-child(4){background:var(--lav)}
+.band i:nth-child(5){background:var(--mint)}
+
+.folio{position:absolute;z-index:8;left:0;right:0;bottom:32px;text-align:center;
+  font-size:11px;font-weight:600;color:rgba(28,29,46,.42)}
+
+/* --- contenuto --------------------------------------------------------- */
+.body{position:absolute;z-index:4;inset:24px 44px 56px 44px;display:flex;flex-direction:column}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;
+  font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--purple)}
+.eyebrow b{width:16px;height:3px;border-radius:2px;background:var(--lav2)}
+
+h1.title{font-size:40px;font-weight:800;line-height:1.03;letter-spacing:-.6px;
+  text-transform:uppercase}
+h1.title .p{color:var(--purple)}
+.lead{font-size:13.5px;font-weight:500;line-height:1.5;color:var(--ink-soft)}
+
+/* --- personaggi ritagliati e decorazioni -------------------------------- */
+.cutout{position:absolute;z-index:6;pointer-events:none}
+.deco{position:absolute;z-index:2;opacity:.95}
+.blob{position:absolute;z-index:1;border-radius:50%}
+.sq{position:absolute;z-index:1;border-radius:26px}
+
+/* ---------- righe concetto (P5, P8) ------------------------------------ */
+.rows{display:flex;flex-direction:column;gap:11px;margin-top:14px}
+.row{position:relative;display:flex;align-items:center;gap:16px;
+  border-radius:70px;padding:11px 30px 11px 12px;min-height:108px}
+.row.lav{background:var(--lav)}
+.row.mint{background:var(--mint)}
+.row.sky{background:var(--sky)}
+.row .disc{flex:0 0 94px;width:94px;height:94px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.row .disc img{width:84px;height:84px;object-fit:contain}
+.row .txt{flex:1}
+.row h2{font-size:21px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
+  margin-bottom:2px}
+.row p{font-size:13.2px;font-weight:500;line-height:1.4;color:#33354d}
+.row.narrow{padding-right:196px}
+
+/* ---------- copertina --------------------------------------------------- */
+.cover{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
+  align-items:center;text-align:center;padding:74px 56px 0}
+.cover .brandmark{display:flex;align-items:center;gap:9px;font-size:11px;
+  font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--purple)}
+.cover .brandmark b{width:7px;height:7px;border-radius:50%;background:var(--lav2)}
+.cover h1{margin-top:26px;font-size:76px;font-weight:800;line-height:.96;
+  color:var(--purple-d);letter-spacing:-2px}
+.cover h1 span{display:block;font-size:62px;color:var(--teal)}
+.cover .sub{margin-top:18px;font-size:16.5px;font-weight:500;color:var(--ink-soft)}
+.cover .avatar-big{margin-top:34px;width:238px;height:238px;border-radius:50%;
+  overflow:hidden;border:7px solid #fff;box-shadow:0 16px 38px rgba(28,29,46,.16)}
+.cover .avatar-big img{width:100%;height:100%;object-fit:cover}
+.cover .pile{position:absolute;left:-24px;right:-24px;bottom:46px;width:calc(100% + 48px);height:452px;object-fit:contain;object-position:bottom}
+.cover .chips{position:absolute;left:0;right:0;bottom:0;display:flex;
+  justify-content:center;gap:9px}
+.chip{padding:8px 18px;border-radius:999px;font-size:12.5px;font-weight:600;
+  background:var(--lav-s);color:var(--ink)}
+.chip.m{background:var(--mint-s)} .chip.s{background:var(--sky-s)}
+
+/* ---------- pagina avviso ---------------------------------------------- */
+.card{background:#fff;border-radius:34px;padding:30px 38px;
+  box-shadow:0 10px 30px rgba(28,29,46,.07)}
+.card p{font-size:14px;line-height:1.6;color:var(--ink-soft);font-weight:500}
+.card p + p{margin-top:12px}
+.hi{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.warn{margin-top:20px;border-radius:26px;background:var(--rose-s);padding:24px 30px;
+  border:2px dashed #f0a9b8}
+.warn h3{font-size:16px;font-weight:800;color:#c2405c;margin-bottom:8px}
+.warn p{font-size:13.2px;line-height:1.55;color:#8e3a4e;font-weight:500}
+
+.trio{display:flex;gap:13px;margin-top:22px}
+.trio .t{flex:1;background:var(--lav-s);border-radius:26px;padding:18px 16px;text-align:center}
+.trio .t:nth-child(2){background:var(--mint-s)}
+.trio .t:nth-child(3){background:var(--sky-s)}
+.trio img{width:70px;height:70px;object-fit:contain}
+.trio h4{font-size:13.5px;font-weight:800;margin:6px 0 4px;text-transform:uppercase}
+.trio p{font-size:11.3px;line-height:1.45;font-weight:500;color:var(--ink-soft)}
+
+/* ---------- nota ------------------------------------------------------- */
+.note{display:flex;align-items:center;gap:16px;margin-top:14px;background:var(--cream);
+  border-radius:32px;padding:14px 24px;border:2px dashed #ecd39a}
+.note img{width:68px;height:68px;object-fit:contain;flex:0 0 68px}
+.note h4{font-size:13.5px;font-weight:800;color:#9a7220;margin-bottom:2px;
+  text-transform:uppercase;letter-spacing:.6px}
+.note p{font-size:12.5px;line-height:1.42;font-weight:500;color:#7d6636}
+
+/* ---------- sommario --------------------------------------------------- */
+.toc-part{margin-top:18px;font-size:11.5px;font-weight:800;letter-spacing:2.4px;
+  text-transform:uppercase;color:var(--purple);padding-left:4px}
+.toc{display:flex;flex-direction:column;gap:6px;margin-top:9px}
+.toc div.li{display:flex;align-items:center;gap:12px;border-radius:18px;
+  padding:8px 18px;color:var(--ink);background:var(--lav-s)}
+.toc div.li:nth-child(even){background:var(--mint-s)}
+.toc .n{flex:0 0 25px;height:25px;border-radius:50%;background:#fff;display:flex;
+  align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--purple)}
+.toc .t{flex:1;font-size:13.5px;font-weight:600}
+.toc .p{font-size:12px;font-weight:700;color:var(--ink-soft)}
+
+/* ---------- divisore parte --------------------------------------------- */
+.divider{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:0 70px}
+.divider .badge{padding:11px 34px;border-radius:999px;background:var(--purple);
+  color:#fff;font-size:14px;font-weight:700;letter-spacing:4px}
+.divider h1{margin-top:24px;font-size:66px;font-weight:800;color:var(--purple-d);
+  letter-spacing:-1px}
+.divider .rule{width:170px;height:4px;border-radius:3px;background:var(--lav2);margin:20px 0}
+.divider .sub{font-size:16.5px;font-weight:500;color:var(--ink-soft);line-height:1.5}
+.divider .sub b{color:var(--purple);font-weight:700}
+.divider .chips{display:flex;gap:9px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+.divider .art{margin-top:20px;width:290px}
+
+/* ---------- pannelli (placebo / nocebo) -------------------------------- */
+.panel{position:relative;border-radius:38px;padding:20px 26px 22px;overflow:hidden}
+.panel.lav{background:var(--lav-s);border:2px solid var(--lav)}
+.panel.rose{background:var(--rose-s);border:2px solid var(--rose)}
+.panel + .panel{margin-top:14px}
+.tag{display:inline-block;padding:8px 24px;border-radius:999px;color:#fff;
+  font-size:13.5px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase}
+.tag.p{background:var(--purple)} .tag.r{background:#d9536f}
+
+.steps{display:flex;gap:11px;margin-top:14px}
+.steps .s{flex:1;background:#fff;border-radius:24px;padding:13px 14px 15px;text-align:center;
+  position:relative}
+.steps .s img{width:62px;height:62px;object-fit:contain}
+.steps .s .n{position:absolute;top:10px;left:12px;width:20px;height:20px;border-radius:50%;
+  background:var(--lav);font-size:10.5px;font-weight:800;display:flex;
+  align-items:center;justify-content:center;color:var(--purple-d)}
+.steps .s p{font-size:11.4px;line-height:1.4;font-weight:500;color:var(--ink-soft);margin-top:5px}
+.panel.rose .steps .s .n{background:var(--rose);color:#a8365a}
+
+.concl{margin-top:13px;background:#fff;border-radius:24px;padding:14px 20px;
+  font-size:13px;font-weight:600;line-height:1.45;color:#2c2e45}
+.concl b{color:var(--purple)}
+.panel.rose .concl b{color:#c2405c}
+
+/* ---------- schede definizione (P7) ------------------------------------ */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}
+.k{background:#fff;border:2px dashed var(--lav2);border-radius:30px;padding:20px 22px;
+  position:relative}
+.k.mint{border-color:var(--mint)} .k.sky{border-color:var(--sky)}
+.k .tag{font-size:12px;padding:6px 18px;letter-spacing:1.6px}
+.k .tag.m{background:var(--teal)} .k .tag.s{background:#3d7fc1}
+.k h4{margin-top:10px;font-size:13.6px;font-weight:700;line-height:1.4;color:#2c2e45}
+.k p{margin-top:7px;font-size:12.4px;line-height:1.45;font-weight:500;color:var(--ink-soft)}
+.k .ex{margin-top:10px;background:var(--cream);border-radius:18px;padding:10px 14px;
+  font-size:11.8px;line-height:1.45;font-weight:500;color:#6f5a26}
+.k .ex b{color:#9a7220}
+.k .ico{position:absolute;right:16px;top:14px;width:62px;height:62px;object-fit:contain}
+.k .big{display:block;margin:12px auto 0;width:132px}
+
+/* ---------- striscia di confronto -------------------------------------- */
+.strip{display:flex;align-items:center;gap:12px;margin-top:13px;border-radius:30px;
+  background:var(--sky-s);padding:14px 24px}
+.strip .b{flex:1;text-align:center;font-size:12.6px;font-weight:600;color:#2c2e45;
+  line-height:1.4}
+.strip .b b{display:block;font-size:13px;font-weight:800;text-transform:uppercase;
+  letter-spacing:1px;color:var(--purple);margin-bottom:2px}
+.strip .sep{width:2px;height:38px;background:var(--sky);border-radius:2px}
+
+/* ---------- flow di passaggi ------------------------------------------- */
+.flow{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}
+.flow .f{text-align:center;flex:0 0 auto}
+.flow .f img{width:74px;height:74px;object-fit:contain;display:block;margin:0 auto}
+.flow .f span{display:block;margin-top:3px;font-size:11px;font-weight:700;
+  color:var(--ink-soft);letter-spacing:.3px}
+.flow .ar{font-size:22px;font-weight:700;color:var(--lav2);line-height:1}
+
+/* ---------- elenco puntato --------------------------------------------- */
+ul.bul{list-style:none;margin-top:10px}
+ul.bul li{position:relative;padding-left:16px;font-size:12.6px;font-weight:500;
+  line-height:1.45;color:#33354d;margin-top:5px}
+ul.bul li:before{content:'';position:absolute;left:0;top:6px;width:7px;height:7px;
+  border-radius:50%;background:var(--lav2)}
+.panel.rose ul.bul li:before{background:#f0a9b8}
+
+/* ---------- lista di schede -------------------------------------------- */
+.klist{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.klist .k{padding-right:150px}
+
+/* ---------- schema (P20) ------------------------------------------------ */
+.schema{margin-top:14px;display:grid;grid-template-columns:150px 1fr 130px;gap:10px;
+  align-items:stretch}
+.schema .col{border-radius:26px;padding:12px 10px}
+.schema .col.a{background:var(--sky-s)}
+.schema .col.b{background:var(--mint-s)}
+.schema .col.c{background:var(--cream)}
+.schema h5{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;
+  text-align:center;color:var(--ink-soft);margin-bottom:8px}
+.schema .n{background:#fff;border-radius:14px;padding:6px 10px;font-size:11px;
+  font-weight:600;text-align:center;margin-top:5px}
+.schema .mid{display:flex;align-items:center;justify-content:space-between;gap:8px;height:100%}
+.schema .plasma{flex:0 0 118px;height:150px;border-radius:60px;background:var(--mint);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;
+  letter-spacing:1.5px;color:#1f5c46}
+.schema .org{display:flex;flex-direction:column;gap:5px;flex:1}
+.schema .org div{background:#fff;border-radius:12px;padding:5px 8px;font-size:10.5px;
+  font-weight:600;text-align:center}
+.fonte{margin-top:8px;font-size:10px;font-style:italic;color:var(--ink-soft);opacity:.8}
+
+/* icone d'angolo nelle schede: il testo non ci finisce sotto */
+.k:has(.ico) > p, .k:has(.ico) > h4, .k:has(.ico) > .ex{padding-right:76px}
+
+/* galleria di vie */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.gal .g{background:var(--sky-s);border-radius:22px;padding:12px 8px;text-align:center}
+.gal .g:nth-child(even){background:var(--lav-s)}
+.gal .g img{width:58px;height:58px;object-fit:contain}
+.gal .g span{display:block;font-size:11px;font-weight:700;margin-top:3px;color:var(--ink)}
+
+/* i blocchi principali crescono per riempire la pagina, senza buchi */
+.body > .panel, .body > .rows, .body > .grid2, .body > .klist{flex:1 1 auto;min-height:0}
+.panel{display:flex;flex-direction:column;justify-content:space-between}
+.rows{justify-content:space-between}
+.k{display:flex;flex-direction:column}
+.k .ex{margin-top:auto}
+.grid2{align-items:stretch}
+
+.panel > .tag{align-self:flex-start}
+.k > .tag{align-self:flex-start}
+.k{justify-content:flex-start}
+.k .big{margin-top:auto}
+
+.klist .k{flex:1 1 auto}
+.klist{justify-content:space-between}

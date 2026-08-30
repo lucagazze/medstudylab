@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farmacologia Illustrata — Studio Facile</title>
+<style>
+  @font-face{font-family:'Poppins';src:url('farmacologia/fonts/Poppins-Regular.ttf');font-weight:400}
+  @font-face{font-family:'Poppins';src:url('farmacologia/fonts/Poppins-SemiBold.ttf');font-weight:600}
+  @font-face{font-family:'Poppins';src:url('farmacologia/fonts/Poppins-Bold.ttf');font-weight:700}
+  @font-face{font-family:'Poppins';src:url('farmacologia/fonts/Poppins-ExtraBold.ttf');font-weight:800}
+
+  :root{
+    --ink:#22243a; --soft:#5b5d78; --purple:#6b4fcf; --lav:#e7dcfb;
+    --mint:#d2f0e3; --sky:#d8e9fa; --bg:#eceef5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);
+    backdrop-filter:blur(14px);border-bottom:1px solid #dcdfeb}
+  .bar{max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;
+    align-items:center;gap:18px;flex-wrap:wrap}
+  .mark{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:700;
+    letter-spacing:3px;text-transform:uppercase;color:var(--purple)}
+  .mark b{width:8px;height:8px;border-radius:50%;background:#cfbdf4}
+  h1{font-size:19px;font-weight:800;letter-spacing:-.2px}
+  h1 span{color:var(--purple)}
+  .meta{font-size:12px;font-weight:600;color:var(--soft)}
+  .actions{margin-left:auto;display:flex;gap:10px}
+  .btn{border:0;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;
+    padding:11px 20px;border-radius:999px;text-decoration:none;display:inline-flex;
+    align-items:center;gap:8px;transition:transform .12s ease, filter .12s ease}
+  .btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
+  .btn.primary{background:var(--purple);color:#fff}
+  .btn.ghost{background:var(--lav);color:var(--ink)}
+
+  main{max-width:1180px;margin:0 auto;padding:34px 24px 80px}
+  .intro{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .pill{padding:8px 16px;border-radius:999px;font-size:12px;font-weight:600;background:#fff}
+  .pill.m{background:var(--mint)} .pill.s{background:var(--sky)} .pill.l{background:var(--lav)}
+
+  .pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px}
+  figure{background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 10px 34px rgba(34,36,58,.12);position:relative}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{position:absolute;left:12px;top:12px;background:rgba(34,36,58,.72);
+    color:#fff;font-size:11px;font-weight:700;padding:5px 11px;border-radius:999px}
+  footer{max-width:1180px;margin:0 auto;padding:0 24px 60px;font-size:12px;color:var(--soft)}
+
+  /* --- lightbox --- */
+  .lb{position:fixed;inset:0;z-index:50;background:rgba(24,25,38,.9);display:none;
+    align-items:center;justify-content:center;padding:26px}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb .x{position:absolute;top:20px;right:24px;color:#fff;font-size:26px;
+    cursor:pointer;font-weight:700;line-height:1}
+
+  /* --- stampa: una pagina A4 per foglio --- */
+  @page{size:A4;margin:0}
+  @media print{
+    header,footer,.intro,.lb{display:none!important}
+    body{background:#fff}
+    main{max-width:none;padding:0;margin:0}
+    .pages{display:block;gap:0}
+    figure{box-shadow:none;border-radius:0;break-inside:avoid;page-break-after:always}
+    figcaption{display:none}
+    figure img{width:210mm;height:297mm;object-fit:contain}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <div>
+      <div class="mark"><b></b>Studio Facile</div>
+      <h1>Farmacologia <span>Illustrata</span></h1>
+    </div>
+    <div class="meta" id="meta">8 pagine · A4 · 300 dpi</div>
+    <div class="actions">
+      <a class="btn primary" href="farmacologia/Farmacologia-Illustrata.pdf" download>⬇ Scarica PDF</a>
+      <button class="btn ghost" onclick="window.print()">🖨 Stampa</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <span class="pill l">Didattica visiva</span>
+    <span class="pill m">Definizioni essenziali</span>
+    <span class="pill s">Formato A4</span>
+    <span class="pill">Anteprima: prime 8 pagine</span>
+  </div>
+
+  <div class="pages" id="pages"></div>
+</main>
+
+<footer>Farmacologia Illustrata · Studio Facile — materiale per uso personale.</footer>
+
+<div class="lb" id="lb"><span class="x" onclick="closeLb()">✕</span><img id="lbimg" alt=""></div>
+
+<script>
+  const TOTAL = 8;
+  const grid = document.getElementById('pages');
+  for (let i = 1; i <= TOTAL; i++) {
+    const n = String(i).padStart(2, '0');
+    const src = `farmacologia/pages/p${n}.webp`;
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<figcaption>Pag. ${i}</figcaption>
+                     <img src="${src}" alt="Pagina ${i}" loading="lazy">`;
+    fig.querySelector('img').addEventListener('click', () => openLb(src));
+    grid.appendChild(fig);
+  }
+  document.getElementById('meta').textContent = `${TOTAL} pagine · A4 · alta risoluzione`;
+
+  const lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg');
+  function openLb(s){ lbimg.src = s; lb.classList.add('on'); }
+  function closeLb(){ lb.classList.remove('on'); }
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>

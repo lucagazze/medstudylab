@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmacologia Illustrata - Didattica Visiva | Studio Facile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- jsPDF & html2pdf for direct download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-dark: #3730A3;
+      --primary-light: #EEF2FF;
+      --accent-mint: #10B981;
+      --accent-purple: #8B5CF6;
+      --bg-main: #0F172A;
+      --bg-card: #1E293B;
+      --bg-surface: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+      --shadow-page: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #6366F1, #8B5CF6);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, #CBD5E1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--accent-mint);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366F1, #4F46E5);
+      color: white;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #4F46E5, #4338CA);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Sub-bar / Controls */
+    .controls-bar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .view-modes {
+      display: flex;
+      background: var(--bg-main);
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .view-mode-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .view-mode-btn.active {
+      background: var(--bg-surface);
+      color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .page-indicator {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(99, 102, 241, 0.15);
+      color: #818CF8;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    /* Main Container */
+    .main-content {
+      flex: 1;
+      padding: 2rem 1.5rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Grid View */
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      justify-content: center;
+    }
+
+    /* Single / Flow View */
+    .pages-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    /* A4 Page Card */
+    .a4-page-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .page-header-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding: 0 0.5rem;
+    }
+
+    .page-title-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .page-actions-quick {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: var(--bg-surface);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* A4 Container Simulation */
+    .a4-page-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1.414; /* A4 Aspect Ratio */
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-page);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .a4-page-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 40px -10px rgba(0,0,0,0.6);
+    }
+
+    .a4-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+    }
+
+    /* Lightbox Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .modal-image-wrapper {
+      max-height: 84vh;
+      aspect-ratio: 1 / 1.414;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
+    }
+
+    .modal-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border-color);
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-nav:hover {
+      background: var(--primary);
+    }
+
+    .modal-nav.prev {
+      left: -60px;
+    }
+
+    .modal-nav.next {
+      right: -60px;
+    }
+
+    /* Print / PDF Styles */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      
+      body {
+        background: white !important;
+        color: black !important;
+      }
+
+      .header, .controls-bar, .page-header-info, .modal-backdrop, .toast {
+        display: none !important;
+      }
+
+      .main-content {
+        padding: 0 !important;
+        max-width: none !important;
+      }
+
+      .pages-grid, .pages-flow {
+        display: block !important;
+      }
+
+      .a4-page-wrapper {
+        max-width: none !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .a4-page-frame {
+        width: 100vw !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        aspect-ratio: auto !important;
+      }
+
+      .a4-image {
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: fill !important;
+      }
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1E293B;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: white;
+      padding: 0.85rem 1.25rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      z-index: 200;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">
+        <i data-lucide="book-open"></i>
+      </div>
+      <div class="brand-text">
+        <h1>Farmacologia Illustrata</h1>
+        <span>Studio Facile • Didattica Visiva</span>
+      </div>
+    </div>
+    
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="window.print()">
+        <i data-lucide="printer"></i>
+        <span>Stampa / PDF</span>
+      </button>
+      <button class="btn btn-primary" id="btn-download-pdf" onclick="downloadAllPagesAsPDF()">
+        <i data-lucide="download"></i>
+        <span>Scarica PDF Completo (Pagg. 1-8)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Controls Bar -->
+  <div class="controls-bar">
+    <div class="page-indicator">
+      <i data-lucide="layers" style="width: 18px; height: 18px;"></i>
+      <span>Pagine generate: <strong>1 - 8</strong> di 82</span>
+      <span class="badge">A4 Portrait Ready</span>
+      <span class="badge" style="background: rgba(16,185,129,0.15); color: #34D399; border-color: rgba(16,185,129,0.3)">HD Clean • No Watermark</span>
+    </div>
+
+    <div class="view-modes">
+      <button class="view-mode-btn active" id="btn-grid-view" onclick="setViewMode('grid')">
+        <i data-lucide="grid" style="width: 16px; height: 16px;"></i> Griglia
+      </button>
+      <button class="view-mode-btn" id="btn-flow-view" onclick="setViewMode('flow')">
+        <i data-lucide="file-text" style="width: 16px; height: 16px;"></i> Lettura A4
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="pages-grid" id="pages-container">
+
+      <!-- Page 1: Copertina Ridisegnata -->
+      <div class="a4-page-wrapper" data-page="1">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="bookmark" style="width: 16px; height: 16px; color: #818CF8;"></i>
+            Pagina 1 • Copertina Ebook (Personaggi Farmaci)
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(1)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_1.jpg" download="Farmacologia_Illustrata_Pagina_1.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(1)">
+          <img src="images/pagina_1.jpg" alt="Pagina 1 - Copertina Farmacologia Illustrata" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 2: Disclaimer & Diritti -->
+      <div class="a4-page-wrapper" data-page="2">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="shield-alert" style="width: 16px; height: 16px; color: #F59E0B;"></i>
+            Pagina 2 • Leggere con cura e attenzione
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(2)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_2.jpg" download="Farmacologia_Illustrata_Pagina_2.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(2)">
+          <img src="images/pagina_2.jpg" alt="Pagina 2 - Leggere con cura e attenzione" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 3: Sommario -->
+      <div class="a4-page-wrapper" data-page="3">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="list-ordered" style="width: 16px; height: 16px; color: #A78BFA;"></i>
+            Pagina 3 • Sommario Generale
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(3)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_3.jpg" download="Farmacologia_Illustrata_Pagina_3.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(3)">
+          <img src="images/pagina_3.jpg" alt="Pagina 3 - Sommario" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 4: Parte I Fondamenti -->
+      <div class="a4-page-wrapper" data-page="4">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="folder" style="width: 16px; height: 16px; color: #38BDF8;"></i>
+            Pagina 4 • Parte I - Fondamenti
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(4)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_4.jpg" download="Farmacologia_Illustrata_Pagina_4.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(4)">
+          <img src="images/pagina_4.jpg" alt="Pagina 4 - Parte I Fondamenti" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 5: Concetti di Base -->
+      <div class="a4-page-wrapper" data-page="5">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="sparkles" style="width: 16px; height: 16px; color: #34D399;"></i>
+            Pagina 5 • Concetti di base in Farmacologia
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(5)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_5.jpg" download="Farmacologia_Illustrata_Pagina_5.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(5)">
+          <img src="images/pagina_5.jpg" alt="Pagina 5 - Concetti di Base in Farmacologia" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 6: Effetto Placebo ed Effetto Nocebo -->
+      <div class="a4-page-wrapper" data-page="6">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="brain" style="width: 16px; height: 16px; color: #60A5FA;"></i>
+            Pagina 6 • Effetto Placebo ed Effetto Nocebo
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(6)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_6.jpg" download="Farmacologia_Illustrata_Pagina_6.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(6)">
+          <img src="images/pagina_6.jpg" alt="Pagina 6 - Effetto Placebo ed Effetto Nocebo" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 7: Potenza vs Efficacia -->
+      <div class="a4-page-wrapper" data-page="7">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="zap" style="width: 16px; height: 16px; color: #FBBF24;"></i>
+            Pagina 7 • Potenza ed Efficacia del Farmaco
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(7)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_7.jpg" download="Farmacologia_Illustrata_Pagina_7.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(7)">
+          <img src="images/pagina_7.jpg" alt="Pagina 7 - Potenza ed Efficacia del Farmaco" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Page 8: Forme Farmaceutiche Solide -->
+      <div class="a4-page-wrapper" data-page="8">
+        <div class="page-header-info">
+          <span class="page-title-tag">
+            <i data-lucide="package" style="width: 16px; height: 16px; color: #34D399;"></i>
+            Pagina 8 • Forme Farmaceutiche (Forme Solide)
+          </span>
+          <div class="page-actions-quick">
+            <button class="btn-icon" title="Ingrandisci" onclick="openModal(8)">
+              <i data-lucide="maximize-2" style="width: 16px; height: 16px;"></i>
+            </button>
+            <a href="images/pagina_8.jpg" download="Farmacologia_Illustrata_Pagina_8.jpg" class="btn-icon" title="Scarica Immagine">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="a4-page-frame" onclick="openModal(8)">
+          <img src="images/pagina_8.jpg" alt="Pagina 8 - Forme Farmaceutiche Solide" class="a4-image" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="modal-backdrop" id="imageModal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalDirect()"><i data-lucide="x"></i></button>
+      <button class="modal-nav prev" onclick="changeModalPage(-1)"><i data-lucide="chevron-left"></i></button>
+      <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Anteprima Pagina">
+      </div>
+      <button class="modal-nav next" onclick="changeModalPage(1)"><i data-lucide="chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <i data-lucide="check-circle" style="color: #10B981;"></i>
+    <span id="toast-text">PDF in generazione...</span>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    let currentPageModal = 1;
+    const totalPages = 8;
+
+    function setViewMode(mode) {
+      const container = document.getElementById('pages-container');
+      const btnGrid = document.getElementById('btn-grid-view');
+      const btnFlow = document.getElementById('btn-flow-view');
+
+      if (mode === 'grid') {
+        container.className = 'pages-grid';
+        btnGrid.classList.add('active');
+        btnFlow.classList.remove('active');
+      } else {
+        container.className = 'pages-flow';
+        btnFlow.classList.add('active');
+        btnGrid.classList.remove('active');
+      }
+    }
+
+    function openModal(pageNum) {
+      currentPageModal = pageNum;
+      document.getElementById('modalImg').src = `images/pagina_${pageNum}.jpg`;
+      document.getElementById('imageModal').classList.add('open');
+    }
+
+    function closeModal(e) {
+      if (e.target.classList.contains('modal-backdrop')) {
+        document.getElementById('imageModal').classList.remove('open');
+      }
+    }
+
+    function closeModalDirect() {
+      document.getElementById('imageModal').classList.remove('open');
+    }
+
+    function changeModalPage(delta) {
+      currentPageModal += delta;
+      if (currentPageModal < 1) currentPageModal = totalPages;
+      if (currentPageModal > totalPages) currentPageModal = 1;
+      document.getElementById('modalImg').src = `images/pagina_${currentPageModal}.jpg`;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('imageModal');
+      if (modal.classList.contains('open')) {
+        if (e.key === 'Escape') closeModalDirect();
+        if (e.key === 'ArrowLeft') changeModalPage(-1);
+        if (e.key === 'ArrowRight') changeModalPage(1);
+      }
+    });
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    // Direct High-Quality PDF download using jsPDF / browser print
+    async function downloadAllPagesAsPDF() {
+      showToast('Generazione PDF A4 (Pagg. 1-8) in corso...');
+      
+      const opt = {
+        margin:       0,
+        filename:     'Farmacologia_Illustrata_Studio_Facile_Pagg_1_8.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      const element = document.createElement('div');
+      element.style.width = '210mm';
+      element.style.background = '#ffffff';
+
+      for (let i = 1; i <= totalPages; i++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.style.width = '210mm';
+        pageDiv.style.height = '297mm';
+        pageDiv.style.pageBreakAfter = (i === totalPages) ? 'avoid' : 'always';
+        pageDiv.style.overflow = 'hidden';
+        pageDiv.style.margin = '0';
+        pageDiv.style.padding = '0';
+
+        const img = document.createElement('img');
+        img.src = `images/pagina_${i}.jpg`;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'fill';
+        img.style.display = 'block';
+
+        pageDiv.appendChild(img);
+        element.appendChild(pageDiv);
+      }
+
+      try {
+        await html2pdf().set(opt).from(element).save();
+        showToast('PDF scaricato con successo!');
+      } catch (err) {
+        console.error(err);
+        window.print();
+      }
+    }
+  </script>
+</body>
+</html>
