@@ -14,13 +14,14 @@
   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
   RewriteRule ^ / [R=301,L]
 
-  # 3. /pagina.html -> /pagina  (301, para no tener la misma página en dos URLs)
-  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-  RewriteRule ^ /%1 [R=301,L]
-
-  # 4. Y /pagina se sirve desde pagina.html sin que se note. Es lo que en Vercel
-  #    hace "cleanUrls": /usd y /refund-policy son las URLs del canonical y del
-  #    sitemap, y sin esta regla dan 404 en Apache.
+  # 3. /pagina se sirve desde pagina.html sin que se note. Es lo que en Vercel
+  #    hacen los "rewrites": /usd y /refund-policy son las URLs del canonical y
+  #    del sitemap, y sin esta regla dan 404 en Apache.
+  #
+  #    Ojo: acá NO redirigimos /pagina.html -> /pagina. Los anuncios de Meta
+  #    apuntan a /usd.html y cada redirect es un salto de más en cada clic
+  #    (y no se pueden reapuntar sin perder la prueba social del post).
+  #    Las dos URLs responden 200 y no se redirige ninguna a la otra.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
