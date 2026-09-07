@@ -1,6 +1,6 @@
 # Illustrated Pharmacology — MedStudyLab
 
-Landing page for the Illustrated Pharmacology Kit (8 visual modules + 2 bonuses, £13 GBP).
+Landing page for the Illustrated Pharmacology Kit (28 illustrated chapters + 2 bonuses, £15 GBP).
 Copy, artwork and spelling are fully localised for the UK and other English-speaking markets.
 
 ## Structure
@@ -8,7 +8,9 @@ Copy, artwork and spelling are fully localised for the UK and other English-spea
 - `refund-policy.html` — 30-day money-back guarantee and refund policy
 - `img/` — All page artwork, WebP
 - `brand/` — Logo mark, favicons, Open Graph image
-- `vercel.json` — Static hosting configuration
+- `vercel.json` — Vercel config: clean URLs, www -> apex redirect, HSTS
+- `.htaccess` — the same rules for Apache/Hostinger
+- `.vercelignore` — keeps the book PDF and the tooling out of the deploy
 
 All images are served from this repo — there are no external asset hosts.
 
@@ -33,7 +35,9 @@ All images are served from this repo — there are no external asset hosts.
 | CTA orange | `#f97216` |
 | Background | `#FFFFFF` / `#f4f7fd` |
 
+The canonical URL of the site is **https://medicalstudylab.com** (no www).
+
 ## Before going live
-- Confirm the checkout at `checkout.studiofacilebook.com` charges in **GBP**; the page, the
-  schema markup and the analytics events all now declare `GBP`.
+- The checkout is `checkout.medicalstudylab.com/checkout/kit-complete` and must charge in
+  **GBP**; the page, the schema markup and the analytics events all declare `GBP`.
 - The Meta Pixel domain allow-list must include the live domain or the pixel will not fire.

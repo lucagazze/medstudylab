@@ -1,0 +1,34 @@
+# medicalstudylab.com — reglas para Apache (Hostinger).
+# Vercel ignora este archivo: el equivalente de allá está en vercel.json.
+# Si algo falla, borrando este archivo el sitio vuelve exactamente a como estaba.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Una sola URL canónica: siempre https, siempre sin www.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://medicalstudylab.com%{REQUEST_URI} [R=301,L]
+
+  # 2. /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # 3. /pagina.html -> /pagina  (301, para no tener la misma página en dos URLs)
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # 4. Y /pagina se sirve desde pagina.html sin que se note. Es lo que en Vercel
+  #    hace "cleanUrls": /usd y /refund-policy son las URLs del canonical y del
+  #    sitemap, y sin esta regla dan 404 en Apache.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # HSTS: después de la primera visita el navegador ya no pide http nunca más.
+  # Sin "preload" a propósito: de esa lista se tarda meses en salir.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>

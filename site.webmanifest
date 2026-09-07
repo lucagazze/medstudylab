@@ -1,9 +1,9 @@
 {
   "name": "Illustrated Pharmacology — MedStudyLab",
   "short_name": "MedStudyLab",
-  "description": "8 illustrated pharmacology modules + 2 bonuses, in English.",
+  "description": "28 illustrated pharmacology chapters + 2 bonuses, in English.",
   "lang": "en",
-  "start_url": "https://www.medstudylab.com/",
+  "start_url": "https://medicalstudylab.com/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2645a0",

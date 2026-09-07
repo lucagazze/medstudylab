@@ -1,0 +1,24 @@
+# Lo que NO se publica. Vercel sube el repo entero tal cual, así que todo lo
+# que esté acá arriba queda descargable desde el dominio si no se excluye.
+#
+# La landing sólo necesita: index.html, usd.html, refund-policy.html,
+# Img-Leandro.webp, amostras/, brand/, depoimentos/, img/, mockups/,
+# site.webmanifest, favicon.ico, robots.txt y sitemap.xml.
+
+# El libro entero y sus fuentes: es el producto que se vende.
+farmacologia/
+farmacologia-ai/
+Farmacologia_Illustrata_Pagine_1_8.pdf
+Farmacologia_Illustrata_Prime_5_Pagine.pdf
+farmacologia-illustrata.html
+farmacologia_illustrata.html
+
+# Scripts y material de trabajo, nada de esto se sirve.
+tools/
+pdf_preview/
+images/
+assets/
+render_pages.py
+test.png
+README.md
+.vscode/
