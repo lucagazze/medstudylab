@@ -2739,7 +2739,7 @@
           cta_id: a.id || a.className || 'no-id',
           ecommerce: { currency: 'USD', value: 19, items: [ITEM] }
         });
-        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', FB);
+        if (typeof fbq === 'function') fbq('trackCustom', 'ClickCTA', FB);
       }, true);
     })();
   </script>
