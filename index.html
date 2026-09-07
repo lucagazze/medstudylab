@@ -2730,7 +2730,7 @@
       if (typeof fbq === 'function') fbq('track', 'ViewContent', FB);
 
       document.addEventListener('click', function (e) {
-        var a = e.target.closest('a[href="https://checkout.studiofacilebook.com/"], [data-checkout], a[href*="checkout"]');
+        var a = e.target.closest('[data-checkout], a[href*="checkout"]');
         if (!a) return;
         dataLayer.push({ ecommerce: null });
         dataLayer.push({
