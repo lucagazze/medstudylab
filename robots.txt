@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://medicalstudylab.com/sitemap.xml
+Sitemap: https://www.medicalstudylab.com/sitemap.xml

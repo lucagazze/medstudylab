@@ -35,7 +35,7 @@ All images are served from this repo — there are no external asset hosts.
 | CTA orange | `#f97216` |
 | Background | `#FFFFFF` / `#f4f7fd` |
 
-The canonical URL of the site is **https://medicalstudylab.com** (no www).
+The canonical URL of the site is **https://www.medicalstudylab.com** (no www).
 
 ## Before going live
 - The checkout is `checkout.medicalstudylab.com/checkout/kit-complete` and must charge in

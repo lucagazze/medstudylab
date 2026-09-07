@@ -1,14 +1,14 @@
-# medicalstudylab.com — reglas para Apache (Hostinger).
+# www.medicalstudylab.com — reglas para Apache (Hostinger).
 # Vercel ignora este archivo: el equivalente de allá está en vercel.json.
 # Si algo falla, borrando este archivo el sitio vuelve exactamente a como estaba.
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # 1. Una sola URL canónica: siempre https, siempre sin www.
+  # 1. Una sola URL canónica: siempre https, siempre con www.
   RewriteCond %{HTTPS} !=on [OR]
-  RewriteCond %{HTTP_HOST} ^www\. [NC]
-  RewriteRule ^ https://medicalstudylab.com%{REQUEST_URI} [R=301,L]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.medicalstudylab.com%{REQUEST_URI} [R=301,L]
 
   # 2. /index.html -> /
   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
