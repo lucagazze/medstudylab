@@ -1755,10 +1755,13 @@
       color: rgba(255, 255, 255, 0.62);
     }
 
-    .promo-clock {
+    .promo-break {
       flex-basis: 100%;
-      margin: 0 auto;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .promo-clock {
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.2px;
@@ -1992,7 +1995,7 @@
   <div class="promo" role="status" aria-live="off">
     <div class="promo-in">
       <span class="promo-txt">Launch Offer</span>
-      <span class="promo-time">Valid until today,</span><span class="promo-clock" id="promoClock"></span>
+      <span class="promo-time">Valid until today,</span><span class="promo-break"><span class="promo-clock" id="promoClock"></span></span>
     </div>
   </div>
 
