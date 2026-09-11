@@ -1977,6 +1977,21 @@
     {"@type":"Question","name":"Does it work for my country?","acceptedAnswer":{"@type":"Answer","text":"Yes. The price is in GBP and is automatically converted to your local currency at checkout. The content covers the universal pharmacology fundamentals tested across universities globally."}},
     {"@type":"Question","name":"Can I print the material?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDFs are designed in high resolution, making them perfect for printing, annotating, creating study binders, or taking on clinical placements."}}]}]}
   </script>
+<!-- Brevo: seguimiento web (visitas y clics de compra para las automatizaciones) -->
+<script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
+<script>
+  window.Brevo = window.Brevo || [];
+  Brevo.push(["init", { client_key: "8ogytok4pdv94cxv4noom3tt" }]);
+  (function () {
+    var base = { store: "medstudylab", lang: "en", page: location.pathname, utm_source: new URLSearchParams(location.search).get("utm_source") || "" };
+    Brevo.push(["track", "landing_viewed", {}, { data: base }]);
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="checkout."]');
+      if (a) Brevo.push(["track", "checkout_clicked", {}, { data: Object.assign({ url: a.href }, base) }]);
+    }, true);
+  })();
+</script>
+<!-- /Brevo -->
 </head>
 <body>
   <div class="sp-toast" id="spToast" role="status" aria-live="polite">
