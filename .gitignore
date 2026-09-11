@@ -10,3 +10,9 @@ desktop.ini
 
 # generated working files
 out/
+
+# farmacologia-ai
+farmacologia-ai/.key
+farmacologia-ai/ORIGINALE.pdf
+farmacologia-ai/src/orig/
+farmacologia-ai/src/small/
