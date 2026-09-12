@@ -1,11 +1,11 @@
 """Genera aus.html (landing de Australia, en dólares australianos) a partir de usd.html.
-Precio A$27.70, valor total A$91 (A$41 + A$25 + A$25), 70% OFF, píxel y datos estructurados en AUD.
-El checkout tiene que cobrar lo mismo: mercado Australia de Impultienda en AUD, kit a A$27.70.
+Precio A$27, valor total A$91 (A$41 + A$25 + A$25), 70% OFF, píxel y datos estructurados en AUD.
+El checkout tiene que cobrar lo mismo: mercado Australia de Impultienda en AUD, kit a A$27.
 Uso: python3 tools/build_aus.py  (desde la raíz del repo; falla si usd.html cambió y algún reemplazo no encaja)."""
 import os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PRICE, VALUE, CUR = "27.70", "27.7", "AUD"  # PRICE es el que se ve; VALUE el número para el píxel
+PRICE, VALUE, CUR = "27", "27", "AUD"  # PRICE es el que se ve; VALUE el número para el píxel
 
 # (buscar, reemplazar, cuántas veces tiene que aparecer)
 SUBS = [
@@ -24,7 +24,7 @@ SUBS = [
     ("currency: 'USD', value: 19", f"currency: '{CUR}', value: {VALUE}", 2),
     (">79% OFF<", ">70% OFF<", 1),
 ]
-# importes visibles: el kit pasa a A$27.70; los valores de referencia quedan igual pero en A$
+# importes visibles: el kit pasa a A$27; los valores de referencia quedan igual pero en A$
 AMOUNTS = [(r"(?<!\w)\$19(?!\d)", f"A${PRICE}", 9), (r"(?<!\w)\$41(?!\d)", "A$41", 1),
            (r"(?<!\w)\$25(?!\d)", "A$25", 6), (r"(?<!\w)\$91(?!\d)", "A$91", 2)]
 
