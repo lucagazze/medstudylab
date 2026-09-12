@@ -1,7 +1,17 @@
 {
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/usd", "destination": "/usd.html" },
-    { "source": "/refund-policy", "destination": "/refund-policy.html" }
+    {
+      "source": "/usd",
+      "destination": "/usd.html"
+    },
+    {
+      "source": "/aus",
+      "destination": "/aus.html"
+    },
+    {
+      "source": "/refund-policy",
+      "destination": "/refund-policy.html"
+    }
   ]
 }
