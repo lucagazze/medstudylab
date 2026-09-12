@@ -11,7 +11,7 @@ PRICE, VALUE, CUR = "27", "27", "AUD"  # PRICE es el que se ve; VALUE el número
 SUBS = [
     ('<html lang="en">', '<html lang="en-AU">', 1),
     ('https://www.medicalstudylab.com/usd"', 'https://www.medicalstudylab.com/aus"', 2),
-    ('"price":"19","priceCurrency":"USD"', f'"price":"{PRICE}","priceCurrency":"{CUR}"', 1),
+    ('"price":"27","priceCurrency":"USD"', f'"price":"{PRICE}","priceCurrency":"{CUR}"', 1),
     ("The price is in USD and is automatically converted to your local currency at checkout.",
      "The price is in Australian dollars (AUD), so what you see is what you pay.", 1),
     ("The price is in USD ($) and is automatically converted to your local currency at checkout.",
@@ -19,13 +19,12 @@ SUBS = [
     ("Automatic currency conversion for international orders.", "Prices in Australian dollars.", 1),
     ("Price in USD ($). Automatic conversion for international currencies.", "Price in Australian dollars (A$).", 1),
     ("Secure checkout with automatic currency conversion", "Secure checkout in Australian dollars", 1),
-    ("price: 19, currency: 'USD'", f"price: {VALUE}, currency: '{CUR}'", 1),
-    ("value: 19, currency: 'USD'", f"value: {VALUE}, currency: '{CUR}'", 1),
-    ("currency: 'USD', value: 19", f"currency: '{CUR}', value: {VALUE}", 2),
-    (">79% OFF<", ">70% OFF<", 1),
+    ("price: 27, currency: 'USD'", f"price: {VALUE}, currency: '{CUR}'", 1),
+    ("value: 27, currency: 'USD'", f"value: {VALUE}, currency: '{CUR}'", 1),
+    ("currency: 'USD', value: 27", f"currency: '{CUR}', value: {VALUE}", 2),
 ]
-# importes visibles: el kit pasa a A$27; los valores de referencia quedan igual pero en A$
-AMOUNTS = [(r"(?<!\w)\$19(?!\d)", f"A${PRICE}", 9), (r"(?<!\w)\$41(?!\d)", "A$41", 1),
+# importes visibles: el kit ($27 en usd.html) pasa a A$27; los valores de referencia quedan igual pero en A$
+AMOUNTS = [(r"(?<!\w)\$27(?!\d)", f"A${PRICE}", 9), (r"(?<!\w)\$41(?!\d)", "A$41", 1),
            (r"(?<!\w)\$25(?!\d)", "A$25", 6), (r"(?<!\w)\$91(?!\d)", "A$91", 2)]
 
 t = open(os.path.join(ROOT, "usd.html"), encoding="utf-8").read()
