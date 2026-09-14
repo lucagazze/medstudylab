@@ -11,10 +11,14 @@ SRC_PRICE = "27"   # precio del kit en usd.html
 
 MARKETS = {
     "aus": dict(price="27", cur="AUD", sym="A$", lang="en-AU", off="70% OFF", name="Australian dollars",
-                small="Price in Australian dollars (A$).<br>"),
+                small="Price in Australian dollars (A$).<br>", uk_spelling=True),
     "ca":  dict(price="35", cur="CAD", sym="CA$", lang="en-CA", off="62% OFF", name="Canadian dollars",
                 small=""),   # sin la nota de moneda (Luca la sacó en UK)
 }
+
+# usd.html va en ortografía estadounidense; Australia usa la británica
+UK_SPELLING = {"memorization": "memorisation", "memorizing": "memorising", "memorize": "memorise", "organization": "organisation",
+               "organizes": "organises", "organized": "organised", "practicing": "practising"}
 
 def build(slug, m):
     t = open(os.path.join(ROOT, "usd.html"), encoding="utf-8").read()
@@ -41,6 +45,9 @@ def build(slug, m):
     for amount, rep, n in [(SRC_PRICE, m["price"], 9), ("41", "41", 1), ("25", "25", 6), ("91", "91", 2)]:
         t, k = re.subn(rf"(?<![\w$])\${amount}(?!\d)", f"{m['sym']}{rep}", t)
         assert k == n, f"{slug}: ${amount} aparece {k} veces, se esperaban {n}"
+    if m.get("uk_spelling"):
+        for us, uk in UK_SPELLING.items():
+            t = re.sub(rf"\b{us}\b", lambda x: uk.capitalize() if x.group(0)[0].isupper() else uk, t, flags=re.I)
     left = re.findall(r"USD|(?<![A-Z\w])\$\d", t)
     assert not left, f"{slug}: quedan importes o menciones en dólares estadounidenses: {left[:5]}"
     open(os.path.join(ROOT, f"{slug}.html"), "w", encoding="utf-8").write(t)
