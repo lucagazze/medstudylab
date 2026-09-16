@@ -27,7 +27,7 @@ SITO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SLUG = "pharm"
 NAME = "Pharm Made Visual Kit"
-PRICE = 19
+PRICE = 27
 GIORNI = 3
 CHECKOUT = "https://checkout.medicalstudylab.com/checkout/pharm-made-visual"
 URL = f"https://www.medicalstudylab.com/{SLUG}"
@@ -177,7 +177,16 @@ EXTRA_CSS = """
     .bonus-sfoglia img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 8px 20px rgba(15,23,42,.14)}
     .bonus-sfoglia figcaption{font-size:12px;opacity:.75;margin-top:6px;text-align:center}
     .pmv-new{display:inline-block;background:#f97216;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:999px;margin-bottom:8px}
-    .pmv-compare{font-size:15px;color:#475569;margin:6px 0 0}
+    .pmv-compare{font-size:14px;color:#64748b;margin:6px 0 0}
+    .pmv-perbook{display:inline-block;margin:10px 0 2px;background:#fff4e8;color:#c2410c;font-size:15px;padding:6px 14px;border-radius:999px}
+    .pmv-mini{display:grid;gap:10px;margin-top:16px}
+    .pmv-mini img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 8px 20px rgba(15,23,42,.18)}
+    .pmv-mini span{font-size:12px;opacity:.75;text-align:center}
+    .hero-mockup img{filter:drop-shadow(0 24px 40px rgba(8,20,60,.35))}
+    .pmv-books-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:8px auto 36px;max-width:760px}
+    .pmv-books-strip span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px}
+    .decision-box .db-checklist li{align-items:center}
+    .solution-image img[src*='amostras']{max-width:520px;margin:0 auto;display:block}
   </style>
 """
 
@@ -299,12 +308,10 @@ def body(footer):
   </section>
 
   <!-- THE TWO BOOKS (dark background: the bonus-* classes are styled for it) -->
-  <section class="value-section" style="padding-bottom:0">
+  <section class="value-section">
     <div class="container">
       <h2 class="text-center">Here's Everything You Get:</h2>
-      <div style="margin: 20px auto 28px;">
-        <img src="./mockups/pmv/combo.webp" alt="Pharmacology Illustrated with sample pages" width="1100" height="1620" loading="lazy" decoding="async" style="max-width: 480px; width: 100%; display: block; margin: 0 auto;">
-      </div>
+      <div class="pmv-books-strip"><span>Pharmacology Illustrated</span><span>Rapid Review Cards</span><span>Dosage Calculations Made Visual</span><span>The Words of Clinical Pharmacy</span></div>
       <div class="bonus-grid">
         <div class="bonus-item-with-image">
           <div class="bonus-mockup"><img src="./mockups/pmv/book-ph.webp" alt="Pharmacology Illustrated" width="720" height="1000" loading="lazy" decoding="async"></div>
@@ -312,6 +319,7 @@ def body(footer):
             <h3>BOOK 1: &ldquo;Pharmacology Illustrated&rdquo;</h3>
             <p>72 pages that build pharmacology from the ground up: <strong>the language, how drugs get in, pharmacokinetics, pharmacodynamics, safety and interactions</strong> system by system.</p>
             <p style="margin-top:12px;">It's the foundation that makes every drug class easier to learn.</p>
+            <div class="bonus-sfoglia"><figure><img src="./amostras/pmv_03.webp" alt="Every route at a glance" width="{PAGES_W}" height="{PAGES_H}" loading="lazy" decoding="async"><figcaption>Every route at a glance</figcaption></figure><figure><img src="./amostras/pmv_07.webp" alt="The interactions worth knowing by heart" width="{PAGES_W}" height="{PAGES_H}" loading="lazy" decoding="async"><figcaption>Interactions worth knowing</figcaption></figure></div>
           </div>
         </div>
         <div class="bonus-item-with-image">
@@ -324,13 +332,9 @@ def body(footer):
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- BONUSES + OFFER -->
-  <section class="value-section">
-    <div class="container">
-      <h2 class="text-center">Plus 2 Bonus Books</h2>
+      <!-- BONUSES + OFFER (same dark section) -->
+      <h2 class="text-center" style="margin-top:64px">Plus 2 Bonus Books</h2>
       <div class="bonus-grid">
         <div class="bonus-item-with-image">
           <div class="bonus-mockup"><img src="./mockups/pmv/bonus-dc.webp" alt="Dosage Calculations Made Visual" width="720" height="1000" loading="lazy" decoding="async"></div>
@@ -339,6 +343,7 @@ def body(footer):
             <h3>BONUS 1: &ldquo;Dosage Calculations Made Visual&rdquo;</h3>
             <p>Nursing math explained with pictures: <strong>conversions, dimensional analysis, weight-based and pediatric doses, reconstitution, drops per minute and mcg/kg/min</strong>, with practice problems and answers.</p>
             <p style="margin-top:12px;"><strong>Heads up:</strong> this book is being finished. It arrives at your email within {GIORNI} days of purchase; the other three books are instant.</p>
+            <div class="pmv-mini"><img src="./mockups/pmv/card-drops.webp" alt="Worked example: drops per minute" width="1600" height="655" loading="lazy" decoding="async"><img src="./mockups/pmv/card-dimensional.webp" alt="Worked example: dimensional analysis" width="1600" height="619" loading="lazy" decoding="async"><span>Two worked examples from the book</span></div>
           </div>
         </div>
         <div class="bonus-item-with-image">
@@ -363,7 +368,8 @@ def body(footer):
         <div class="db-anchoring">
           <p class="db-new-price-label">All 4 books, one payment:</p>
           <p class="db-new-price">${PRICE}</p>
-          <p class="pmv-compare">No subscription. Keep the files forever.</p>
+          <p class="pmv-perbook">That's <strong>${PRICE / 4:.2f} per book</strong></p>
+          <p class="pmv-compare">No subscription. No monthly fee. Keep the files forever.</p>
         </div>
         <a href="{CHECKOUT}" data-checkout class="db-cta">YES, I WANT THE KIT FOR ${PRICE}</a>
         <div class="db-trust">
