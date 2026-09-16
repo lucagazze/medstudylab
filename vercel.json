@@ -14,6 +14,10 @@
       "destination": "/ca.html"
     },
     {
+      "source": "/pharm",
+      "destination": "/pharm.html"
+    },
+    {
       "source": "/refund-policy",
       "destination": "/refund-policy.html"
     }
