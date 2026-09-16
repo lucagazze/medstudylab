@@ -30,7 +30,7 @@ NAME = "Pharm Made Visual Kit"
 PRICE = 19
 GIORNI = 3
 CHECKOUT = "https://checkout.medicalstudylab.com/checkout/pharm-made-visual"
-URL = f"https://www.medstudylab.com/{SLUG}"
+URL = f"https://www.medicalstudylab.com/{SLUG}"
 LIVE = False          # True once the checkout product exists -> indexable
 
 PAGES_W, PAGES_H = 1100, 1556
@@ -466,7 +466,7 @@ def schema():
          "description": ("Four illustrated nursing pharmacology books: Pharmacology Illustrated, "
                          "Rapid Review Cards, Dosage Calculations Made Visual and The Words of "
                          "Clinical Pharmacy. US edition."),
-         "image": "https://www.medstudylab.com/mockups/pmv/hero.webp",
+         "image": "https://www.medicalstudylab.com/mockups/pmv/hero.webp",
          "brand": {"@type": "Brand", "name": "Med Study Lab"},
          "offers": {"@type": "Offer", "price": str(PRICE), "priceCurrency": "USD",
                     "availability": "https://schema.org/InStock", "url": CHECKOUT,
@@ -488,11 +488,11 @@ def head(t):
         (r'<meta property="og:url" content=".*?">', f'<meta property="og:url" content="{URL}">'),
         (r'<meta property="og:title" content=".*?">', '<meta property="og:title" content="Pharm Made Visual Kit | Med Study Lab">'),
         (r'<meta property="og:description" content=".*?">', '<meta property="og:description" content="Nursing pharmacology and dosage calc, finally explained with pictures.">'),
-        (r'<meta property="og:image" content=".*?">', '<meta property="og:image" content="https://www.medstudylab.com/mockups/pmv/og.jpg">'),
+        (r'<meta property="og:image" content=".*?">', '<meta property="og:image" content="https://www.medicalstudylab.com/mockups/pmv/og.jpg">'),
         (r'<meta property="og:image:alt" content=".*?">', '<meta property="og:image:alt" content="Pharm Made Visual Kit: 4 illustrated books">'),
         (r'<meta name="twitter:title" content=".*?">', '<meta name="twitter:title" content="Pharm Made Visual Kit | Med Study Lab">'),
         (r'<meta name="twitter:description" content=".*?">', '<meta name="twitter:description" content="4 illustrated books: pharmacology, drug classes, dosage calc and a glossary.">'),
-        (r'<meta name="twitter:image" content=".*?">', '<meta name="twitter:image" content="https://www.medstudylab.com/mockups/pmv/og.jpg">'),
+        (r'<meta name="twitter:image" content=".*?">', '<meta name="twitter:image" content="https://www.medicalstudylab.com/mockups/pmv/og.jpg">'),
         (r'<script type="application/ld\+json">.*?</script>', schema()),
         (r'<meta name="robots" content=".*?">',
          '<meta name="robots" content="index, follow">' if LIVE else '<meta name="robots" content="noindex, follow">'),
