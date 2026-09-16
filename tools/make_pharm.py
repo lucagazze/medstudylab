@@ -9,7 +9,9 @@ The body is written here.
 Deliberately NOT carried over from usd.html, because in the US they are
 FTC problems (fake reviews rule, 16 CFR 465; deceptive pricing, 16 CFR 233):
   - the "Sarah from Manchester just purchased" toast (invented buyers)
-  - the "+11,978 students" counters and the testimonial carousel
+  - the testimonial carousel
+  (the +11,978 students line IS used: real total across Studio Facile and
+  Med Study Lab, confirmed by Luca 16/09/2026)
   - (value anchor: Luca chose "Total Value $91 / Today $27", 16/09/2026)
   - "Valid until today" (a deadline that resets every day)
 
@@ -212,7 +214,7 @@ def body(footer):
         <img src="./mockups/pmv/hero.webp" alt="Pharm Made Visual Kit: Pharmacology Illustrated, Rapid Review Cards, Dosage Calculations Made Visual and The Words of Clinical Pharmacy"
              width="1400" height="830" loading="eager" fetchpriority="high" decoding="async">
       </div>
-      <p class="hero-social"><span><strong>For nursing students</strong> · US edition · instant PDF download</span></p>
+      <p class="hero-social"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>+11,978 students</strong> study with our illustrated books</span></p>
       <h1>Pharmacology Finally Makes Sense <mark>When You Can See It</mark></h1>
       <p class="subheadline">Drug classes, suffixes, side effects and the dosage math your nursing program tests, explained with pictures. One idea per page, made to study on your phone between shifts, classes and everything else.</p>
       <a href="#offer" id="cta-hero" class="btn-cta">GET THE KIT FOR ${PRICE}</a>
@@ -553,7 +555,7 @@ def main():
     footer = footer.replace("</div>\n  </footer>",
                             '<p style="margin:10px 0 0;font-size:11px;opacity:.6;">NCLEX® is a registered trademark of the National Council of State Boards of Nursing (NCSBN), which is not affiliated with Med Study Lab.</p>\n    </div>\n  </footer>')
     html = head(t) + body(footer) + tail(t)
-    for bad in ("11,978", "spToast", "Manchester"):
+    for bad in ("spToast", "Manchester"):
         assert bad not in html.split("</head>", 1)[1], f"leftover from usd.html: {bad}"
     for src in set(re.findall(r'src="\./([^"]+)"', html)):
         assert os.path.exists(os.path.join(SITO, src)), f"missing image: {src}"
