@@ -35,9 +35,9 @@ TOTAL = 91
 VALUES = {"ph": 37, "rr": 24, "dc": 17, "gl": 13}
 assert sum(VALUES.values()) == TOTAL
 GIORNI = 3
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/pharm-made-visual"
+CHECKOUT = "https://checkout.medicalstudylab.com/checkout/pharmacology-finally-makes-sense"
 URL = f"https://www.medicalstudylab.com/{SLUG}"
-LIVE = False          # True once the checkout product exists -> indexable
+LIVE = True           # True once the checkout product exists -> indexable
 
 PAGES_W, PAGES_H = 1100, 1556
 
