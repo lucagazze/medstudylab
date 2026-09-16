@@ -75,6 +75,14 @@ def main():
     lavori.append(("og", A.page(1200, 630, og), 1200, 630, False))
     for k, nome in (("ekg", "book-ekg"), ("em", "bonus-em"), ("lab", "bonus-lab")):
         lavori.append((nome, A.page(720, 1000, A.tab(cov[k], 40, 40, 640, 920)), 720, 1000, True))
+    fogli = [(-60, -30, -7, "ekg_01"), (330, -70, 5, "ekg_02"), (660, -20, 9, "ekg_04"),
+             (-90, 480, 4, "ekg_05"), (620, 500, -6, "ekg_06"), (-40, 990, -9, "ekg_07"),
+             (350, 1030, 3, "ekg_08"), (660, 980, 7, "ekg_03")]
+    parti = [f'<div class="sheet" style="left:{x}px;top:{y}px;width:470px;height:665px;'
+             f'transform:rotate({r}deg)"><img src="{A._uri(os.path.join(PAG, k + ".webp"))}" alt=""></div>'
+             for x, y, r, k in fogli]
+    parti.append(A.tab(cov["ekg"], 270, 400, 560, 786, 6))
+    lavori.append(("combo", A.page(1100, 1620, "".join(parti)), 1100, 1620, True))
     print("mockups:")
     asyncio.run(A.rendi(lavori))
 
