@@ -10,7 +10,7 @@ Deliberately NOT carried over from usd.html, because in the US they are
 FTC problems (fake reviews rule, 16 CFR 465; deceptive pricing, 16 CFR 233):
   - the "Sarah from Manchester just purchased" toast (invented buyers)
   - the "+11,978 students" counters and the testimonial carousel
-  - "Total Value $87 / Today only $17 / 80% OFF" (no real former price)
+  - (value anchor: Luca chose "Total Value $91 / Today $27", 16/09/2026)
   - "Valid until today" (a deadline that resets every day)
 
 The bonus Dosage Calculations Made Visual is being finished: the page says
@@ -28,6 +28,10 @@ SITO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SLUG = "pharm"
 NAME = "Pharm Made Visual Kit"
 PRICE = 27
+TOTAL = 91
+# per-book values shown in the offer box (sum = TOTAL): decided by Luca 16/09/2026
+VALUES = {"ph": 37, "rr": 24, "dc": 17, "gl": 13}
+assert sum(VALUES.values()) == TOTAL
 GIORNI = 3
 CHECKOUT = "https://checkout.medicalstudylab.com/checkout/pharm-made-visual"
 URL = f"https://www.medicalstudylab.com/{SLUG}"
@@ -83,7 +87,7 @@ CONTENTS = [
         "Opioids",
         "For each class: the class on one page, the mechanism, use and avoid, the harms, the interactions, a flash recap",
         "The five classes side by side, twenty questions that keep coming back, the errors that cost marks"]),
-    ("3", "Bonus: Dosage Calculations Made Visual", f"new · delivered within {GIORNI} days", [
+    ("3", "Bonus: Dosage Calculations Made Visual", "new", [
         "The basics: units, conversions, pounds to kilograms, dimensional analysis",
         "Oral and weight-based doses, safe dose ranges for children",
         "Vials, reconstitution, insulin and heparin units",
@@ -186,7 +190,7 @@ EXTRA_CSS = """
     .pmv-books-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:8px auto 36px;max-width:760px}
     .pmv-books-strip span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px}
     .decision-box .db-checklist li{align-items:center}
-    .solution-image img[src*='amostras']{max-width:520px;margin:0 auto;display:block}
+    .solution-image img[src*='amostras']{width:100%;max-width:520px;height:auto;margin:0 auto;display:block}
   </style>
 """
 
@@ -196,8 +200,8 @@ def body(footer):
   <!-- OFFER BANNER -->
   <div class="promo" role="status" aria-live="off">
     <div class="promo-in">
-      <span class="promo-txt">Launch price</span>
-      <span class="promo-time">${PRICE} one-time · 4 illustrated books</span>
+      <span class="promo-txt">Launch offer</span>
+      <span class="promo-time">4 illustrated books · ${TOTAL} value, today ${PRICE}</span>
     </div>
   </div>
 
@@ -360,16 +364,17 @@ def body(footer):
         <img src="./mockups/pmv/hero.webp" alt="{NAME}" class="db-mockup" width="1400" height="830" loading="lazy" decoding="async">
         <h3 class="db-title">{NAME}</h3>
         <ul class="db-checklist">
-          <li><span class="db-check">{CHECK}</span>Pharmacology Illustrated · 72 pages<span class="db-price-val">Instant</span></li>
-          <li><span class="db-check">{CHECK}</span>Rapid Review Cards · 40 pages<span class="db-price-val">Instant</span></li>
-          <li><span class="db-check">{CHECK}</span>Bonus: Dosage Calculations Made Visual<span class="db-price-val">{GIORNI} days</span></li>
-          <li><span class="db-check">{CHECK}</span>Bonus: The Words of Clinical Pharmacy<span class="db-price-val">Instant</span></li>
+          <li><span class="db-check">{CHECK}</span>Pharmacology Illustrated · 72 pages<span class="db-price-val">${VALUES["ph"]}</span></li>
+          <li><span class="db-check">{CHECK}</span>Rapid Review Cards · 40 pages<span class="db-price-val">${VALUES["rr"]}</span></li>
+          <li><span class="db-check">{CHECK}</span>Bonus: Dosage Calculations Made Visual<span class="db-price-val">${VALUES["dc"]}</span></li>
+          <li><span class="db-check">{CHECK}</span>Bonus: The Words of Clinical Pharmacy<span class="db-price-val">${VALUES["gl"]}</span></li>
         </ul>
         <div class="db-anchoring">
-          <p class="db-new-price-label">All 4 books, one payment:</p>
+          <p class="db-old-price">Total Value: ${TOTAL}</p>
+          <p class="db-new-price-label">Today Only:</p>
           <p class="db-new-price">${PRICE}</p>
-          <p class="pmv-perbook">That's <strong>${PRICE / 4:.2f} per book</strong></p>
-          <p class="pmv-compare">No subscription. No monthly fee. Keep the files forever.</p>
+          <span class="db-discount-badge">YOU SAVE ${TOTAL - PRICE}</span>
+          <p class="pmv-compare">One-time payment. No subscription. Keep the files forever.</p>
         </div>
         <a href="{CHECKOUT}" data-checkout class="db-cta">YES, I WANT THE KIT FOR ${PRICE}</a>
         <div class="db-trust">
@@ -377,7 +382,7 @@ def body(footer):
           <span class="db-trust-item"><span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg></span>Encrypted Checkout</span>
           <span class="db-trust-item"><span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>30-Day Guarantee</span>
         </div>
-        <p class="db-small-print">Price in USD. One-time payment. Three books are delivered instantly by email; Dosage Calculations Made Visual within {GIORNI} days.</p>
+        <p class="db-small-print">Price in USD. Dosage Calculations Made Visual is delivered by email within {GIORNI} days; the other books right after purchase.</p>
       </div>
     </div>
   </section>
@@ -388,15 +393,15 @@ def body(footer):
       <h2 class="text-center">Is This Kit for You?</h2>
       <div class="paraquem-grid">
         <div class="paraquem-card">
-          <img class="paraquem-foto" src="./img/persona-student.webp" alt="Nursing student studying" loading="lazy" width="900" height="672">
+          <img class="paraquem-foto" src="./img/pmv-persona-pharm.webp" alt="Nursing student studying in the library" loading="lazy" width="900" height="672">
           <div class="paraquem-info"><h3>You're in pharm this semester</h3><p>ADN or BSN, the drug list keeps growing and the exam is close. You need the classes to click, not another chapter to reread.</p></div>
         </div>
         <div class="paraquem-card">
-          <img class="paraquem-foto" src="./img/persona-graduate.webp" alt="Student studying on her phone" loading="lazy" width="900" height="672">
+          <img class="paraquem-foto" src="./img/pmv-persona-gaps.webp" alt="Nursing student and mom studying on her phone at night" loading="lazy" width="900" height="672">
           <div class="paraquem-info"><h3>You study in the gaps</h3><p>Work, kids, clinicals. Your study time is 10 minutes on your phone. One page, one idea, done.</p></div>
         </div>
         <div class="paraquem-card">
-          <img class="paraquem-foto" src="./img/persona-professional.webp" alt="New nurse" loading="lazy" width="900" height="672">
+          <img class="paraquem-foto" src="./img/pmv-persona-calc.webp" alt="Nursing student preparing a medication in the skills lab" loading="lazy" width="900" height="672">
           <div class="paraquem-info"><h3>Your dosage calc exam is coming</h3><p>You know the formulas exist; you just don't trust yourself with them yet. You need the same method for every problem.</p></div>
         </div>
       </div>
@@ -447,12 +452,12 @@ def body(footer):
       <h2>One Last Thing Before You Decide...</h2>
       <p>Pharmacology doesn't have to be the class that keeps you up at night.</p>
       <p>You don't need to memorize every drug. You need to <strong>see how they're grouped</strong>, and a method for the math that works every time.</p>
-      <p style="font-size: 22px; font-weight: 700; margin-top: 32px;">4 illustrated books. ${PRICE}, once.</p>
+      <p style="font-size: 22px; font-weight: 700; margin-top: 32px;">4 illustrated books. A ${TOTAL} value, today ${PRICE}.</p>
       <div class="cta-summary">
         <ul>
           <li>One-time payment: ${PRICE}</li>
           <li>30-day money-back guarantee</li>
-          <li>3 books instantly, Dosage Calc within {GIORNI} days</li>
+          <li>Dosage Calc delivered within {GIORNI} days</li>
         </ul>
       </div>
       <a href="#offer" class="btn-cta">GET THE KIT FOR ${PRICE}</a>
@@ -548,7 +553,7 @@ def main():
     footer = footer.replace("</div>\n  </footer>",
                             '<p style="margin:10px 0 0;font-size:11px;opacity:.6;">NCLEX® is a registered trademark of the National Council of State Boards of Nursing (NCSBN), which is not affiliated with Med Study Lab.</p>\n    </div>\n  </footer>')
     html = head(t) + body(footer) + tail(t)
-    for bad in ("11,978", "spToast", "Total Value", "Today Only", "Manchester"):
+    for bad in ("11,978", "spToast", "Manchester"):
         assert bad not in html.split("</head>", 1)[1], f"leftover from usd.html: {bad}"
     for src in set(re.findall(r'src="\./([^"]+)"', html)):
         assert os.path.exists(os.path.join(SITO, src)), f"missing image: {src}"
