@@ -26,6 +26,10 @@
       "destination": "/pharm.html"
     },
     {
+      "source": "/retake",
+      "destination": "/retake.html"
+    },
+    {
       "source": "/refund-policy",
       "destination": "/refund-policy.html"
     },
