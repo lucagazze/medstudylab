@@ -1,0 +1,9 @@
+[36m[nano-banana][0m Generating image...
+[90mModel: Nano Banana Pro[0m
+[90mPrompt: An experienced Black male nurse in navy scrubs at a patient's bedside in a hospital room, checking an EKG printout next to a cardiac monitor (screen blurred), patient resting in the background. Photorealistic lifestyle photo, natural light, shallow depth of field, candid and warm, 35mm lens, authentic American hospital or school setting, no text, no logos, no readable writing, monitor screens out of focus.[0m
+[90mSize: 1K | Aspect: 4:3[0m
+
+[90mCost: ~$0.1516 (87 input + 1262 output tokens)[0m
+
+[32m[nano-banana][0m Generated 1 image(s):
+  [32m+[0m ekg-persona-bedside.jpeg

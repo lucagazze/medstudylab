@@ -1,0 +1,9 @@
+[36m[nano-banana][0m Generating image...
+[90mModel: Nano Banana Pro[0m
+[90mPrompt: A new graduate nurse in teal scrubs at a telemetry station in a hospital at night, looking at several cardiac monitors (screens blurred), calm but attentive, hand near the phone. Photorealistic lifestyle photo, natural light, shallow depth of field, candid and warm, 35mm lens, authentic American hospital or school setting, no text, no logos, no readable writing, monitor screens out of focus.[0m
+[90mSize: 1K | Aspect: 4:3[0m
+
+[90mCost: ~$0.1515 (82 input + 1261 output tokens)[0m
+
+[32m[nano-banana][0m Generated 1 image(s):
+  [32m+[0m ekg-persona-tele.jpeg

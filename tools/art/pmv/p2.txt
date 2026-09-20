@@ -1,0 +1,9 @@
+[36m[nano-banana][0m Generating image...
+[90mModel: Nano Banana Pro[0m
+[90mPrompt: A young mother in her late 20s wearing light blue nursing scrubs, sitting at a kitchen table at night studying on her smartphone, a sleeping toddler's toy and a coffee mug on the table, soft warm lamp light, calm and determined expression. Photorealistic lifestyle photo, natural light, shallow depth of field, candid and warm, shot on a 35mm lens, authentic American setting, no text, no logos, no brand names, nothing written on any screen or paper.[0m
+[90mSize: 1K | Aspect: 4:3[0m
+
+[90mCost: ~$0.1510 (101 input + 1257 output tokens)[0m
+
+[32m[nano-banana][0m Generated 1 image(s):
+  [32m+[0m persona-gaps.jpeg

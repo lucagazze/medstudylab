@@ -1,0 +1,9 @@
+[36m[nano-banana][0m Generating image...
+[90mModel: Nano Banana Pro[0m
+[90mPrompt: A young Latina nursing student in teal scrubs in a hospital skills lab, holding a small medication vial and a syringe next to an IV pole, looking confident, a classmate blurred in the background. Photorealistic lifestyle photo, natural light, shallow depth of field, candid and warm, shot on a 35mm lens, authentic American setting, no text, no logos, no brand names, nothing written on any screen or paper.[0m
+[90mSize: 1K | Aspect: 4:3[0m
+
+[90mCost: ~$0.1493 (87 input + 1243 output tokens)[0m
+
+[32m[nano-banana][0m Generated 1 image(s):
+  [32m+[0m persona-calc.jpeg

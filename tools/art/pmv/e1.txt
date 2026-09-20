@@ -1,0 +1,9 @@
+[36m[nano-banana][0m Generating image...
+[90mModel: Nano Banana Pro[0m
+[90mPrompt: A young American nursing student woman in navy scrubs at a classroom desk, studying a printed pink EKG rhythm strip with a pen and a caliper, focused. Photorealistic lifestyle photo, natural light, shallow depth of field, candid and warm, 35mm lens, no text, no logos, no readable writing.[0m
+[90mSize: 1K | Aspect: 4:3[0m
+
+[90mCost: ~$0.1516 (65 input + 1262 output tokens)[0m
+
+[32m[nano-banana][0m Generated 1 image(s):
+  [32m+[0m ekg-persona-student.jpeg
