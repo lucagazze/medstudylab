@@ -34,9 +34,9 @@ _spec.loader.exec_module(S)
 TITLE = "Reading EKGs Made Visual"
 SLUG = "ecg-uk"
 MOCK = "ekg"  # same books, same covers: the /ekg mockups are reused as they are
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/ecg-uk"
+CHECKOUT = "https://checkout.medicalstudylab.com/checkout/kit-reading-the-ecg"
 URL = f"https://www.medicalstudylab.com/{SLUG}"
-LIVE = False
+LIVE = True
 
 # Same value anchor as the other Med Study Lab offers: 91 in total, 23 today.
 PRICE = 24
