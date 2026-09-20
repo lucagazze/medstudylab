@@ -16,3 +16,7 @@ farmacologia-ai/.key
 farmacologia-ai/ORIGINALE.pdf
 farmacologia-ai/src/orig/
 farmacologia-ai/src/small/
+.vercel
+
+# vercel cli
+.vercel/

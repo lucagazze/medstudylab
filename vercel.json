@@ -18,6 +18,10 @@
       "destination": "/ekg.html"
     },
     {
+      "source": "/ecg-uk",
+      "destination": "/ecg-uk.html"
+    },
+    {
       "source": "/pharm",
       "destination": "/pharm.html"
     },
