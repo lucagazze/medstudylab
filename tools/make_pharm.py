@@ -202,10 +202,20 @@ def body(footer):
   <!-- OFFER BANNER -->
   <div class="promo" role="status" aria-live="off">
     <div class="promo-in">
-      <span class="promo-txt">Launch offer</span>
-      <span class="promo-time">4 illustrated books · ${TOTAL} value, today ${PRICE}</span>
+      <span class="promo-txt">Launch Offer</span>
+      <span class="promo-time">Valid until today, <span class="promo-clock" id="promoClock"></span></span>
     </div>
   </div>
+  <script>
+    (function () {{
+      var el = document.getElementById('promoClock');
+      if (!el) return;
+      try {{
+        var today = new Date();
+        el.textContent = today.toLocaleDateString('en-GB', {{ weekday: 'long', day: 'numeric', month: 'long' }}) || 'Today';
+      }} catch (e) {{ el.textContent = 'Today'; }}
+    }})();
+  </script>
 
   <!-- HERO -->
   <section class="hero">
