@@ -31,7 +31,7 @@ _spec = importlib.util.spec_from_file_location("struttura_ecg_uk", os.path.join(
 S = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(S)
 
-TITLE = "Reading EKGs Made Visual"
+TITLE = "Reading the ECG"
 SLUG = "ecg-uk"
 MOCK = "ecg-uk"  # UK edition: its own cover (Reading the ECG), own mockups
 CHECKOUT = "https://checkout.medicalstudylab.com/checkout/kit-reading-the-ecg"
@@ -177,13 +177,11 @@ def carosello(id_, voci, etichetta, prec, succ):
 
 
 FAQ = [
-    ("The cover says EKG. Is this an ECG book?",
-     "It is. EKG is simply the American name for an ECG &mdash; same tracing, same paper, same rules. "
-     "The title on the cover keeps the spelling the series was launched with; inside, this edition is "
-     "written for UK practice: Resuscitation Council UK guidance, adrenaline rather than the American "
+    ("Is this written for UK practice?",
+     "Yes. This edition is written for UK practice: Resuscitation Council UK guidance, adrenaline rather than the American "
      "name, the IEC lead colours and bloods in SI units."),
     ("How will I receive the material?",
-     "Right after purchase you get an automatic email with all three books: Reading EKGs Made Visual "
+     "Right after purchase you get an automatic email with all three books: Reading the ECG "
      "and the two bonus books, Emergency Medications and How to Read Lab Tests. They are "
      "high-resolution PDFs, ready to download, print or read on any device."),
     ("Is this a one-off payment or a subscription?",
@@ -313,8 +311,7 @@ def corpo(FOOTER):
       <p class="text-center section-sub-p">One topic per page, the real tracing in the middle and the drawing that tells you where to look. Look inside:</p>
       {carosello("amostras", anteprime(), "Sample pages carousel", "Previous page", "Next page")}
       <p class="uk-note">
-        <strong>One word about the cover.</strong> It says <em>EKG</em>, and that is simply the American
-        name for an ECG &mdash; same tracing, same paper, same rules. What is inside is written for how
+        <strong>Written for UK practice.</strong> Everything inside follows how
         you practise here: the arrest sequence follows <strong>Resuscitation Council UK</strong> guidance,
         the drug is <strong>adrenaline</strong>, the electrodes use the <strong>IEC colours</strong> and
         every blood result is in <strong>SI units</strong>.
