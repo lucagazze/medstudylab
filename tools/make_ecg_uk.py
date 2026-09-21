@@ -39,7 +39,7 @@ URL = f"https://www.medicalstudylab.com/{SLUG}"
 LIVE = True
 
 # Same value anchor as the other Med Study Lab offers: 91 in total, 23 today.
-PRICE = 24
+PRICE = 19  # 21/09/2026: test 2 giorni a £19 (prima £24)
 CURRENCY = "GBP"
 TOTAL = 91
 VAL_EM = 19
