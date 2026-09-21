@@ -33,7 +33,7 @@ _spec.loader.exec_module(S)
 
 TITLE = "Reading EKGs Made Visual"
 SLUG = "ecg-uk"
-MOCK = "ekg"  # same books, same covers: the /ekg mockups are reused as they are
+MOCK = "ecg-uk"  # UK edition: its own cover (Reading the ECG), own mockups
 CHECKOUT = "https://checkout.medicalstudylab.com/checkout/kit-reading-the-ecg"
 URL = f"https://www.medicalstudylab.com/{SLUG}"
 LIVE = True
@@ -82,12 +82,12 @@ DESCR = {
 }
 
 PREVIEWS = [
-    ("ekg_01", "The ECG paper"),
-    ("ekg_02", "Waves and intervals"),
-    ("ekg_03", "The 8-step method"),
-    ("ekg_04", "Atrial fibrillation"),
-    ("ekg_06", "The territories of an MI"),
-    ("ekg_08", "Guided cases at the bedside"),
+    ("ecguk_p1", "The ECG paper"),
+    ("ecguk_p2", "Waves and intervals"),
+    ("ecguk_p3", "The 8-step method"),
+    ("ecguk_p4", "Atrial fibrillation"),
+    ("ecguk_p6", "The territories of an MI"),
+    ("ecguk_p8", "Guided cases at the bedside"),
 ]
 
 
@@ -272,7 +272,7 @@ def corpo(FOOTER):
       </div>
       <p class="hero-social">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <span><strong>+11,978 students</strong> · {N_PAG} illustrated pages · real tracings reported by cardiologists</span>
+        <span><strong>+11,978 students & healthcare professionals</strong></span>
       </p>
       <h1>The Easiest Way to Read an ECG <mark>Without Panicking!</mark></h1>
       <p class="subheadline">The material for student nurses, staff nurses and newly qualified doctors who need to recognise a rhythm, a block or an MI before anyone senior gets to the bedside: explained with pictures, on real tracings.</p>
@@ -363,7 +363,7 @@ def corpo(FOOTER):
             <li>The drawing shows you what to look for</li>
             <li>You recognise it at first glance</li>
           </ul>
-          <img src="./amostras/ekg_01.webp" alt="The ECG paper explained with illustrations" width="{PAGES_W}" height="{PAGES_H}" loading="lazy" decoding="async">
+          <img src="./amostras/ecguk_p1.webp" alt="The ECG paper explained with illustrations" width="{PAGES_W}" height="{PAGES_H}" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -391,7 +391,7 @@ def corpo(FOOTER):
         <p class="text-center">Instead of trying to remember fifty different patterns...</p>
         <p class="text-center">...you follow <strong>the same eight steps every time</strong>, in the same order: rate, rhythm, axis, P wave, PR, QRS, ST segment, QT.</p>
         <div class="solution-image">
-          <img src="./amostras/ekg_03.webp" alt="The 8-step method to read an ECG, illustrated" width="{PAGES_W}" height="{PAGES_H}" loading="lazy" decoding="async">
+          <img src="./amostras/ecguk_p3.webp" alt="The 8-step method to read an ECG, illustrated" width="{PAGES_W}" height="{PAGES_H}" loading="lazy" decoding="async">
         </div>
         <p class="text-center">Your brain <strong>stops searching at random</strong>. Every tracing becomes a checklist, and whatever doesn't fit jumps out on its own.</p>
         <p class="text-center" style="font-size: 22px; font-weight: 700; margin-top: 40px;">That's exactly what {TITLE} does.</p>
