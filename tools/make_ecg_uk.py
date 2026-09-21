@@ -86,8 +86,9 @@ PREVIEWS = [
     ("ecguk_p2", "Waves and intervals"),
     ("ecguk_p3", "The 8-step method"),
     ("ecguk_p4", "Atrial fibrillation"),
+    ("ecguk_p5", "Shockable and non-shockable"),
     ("ecguk_p6", "The territories of an MI"),
-    ("ecguk_p8", "Guided cases at the bedside"),
+    ("ecguk_p7", "Hyperkalaemia"),
 ]
 
 
