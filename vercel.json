@@ -2,6 +2,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/dosage",
+      "destination": "/dosage.html"
+    },
+    {
+      "source": "/ekg-ems",
+      "destination": "/ekg-ems.html"
+    },
+    {
       "source": "/usd",
       "destination": "/usd.html"
     },
