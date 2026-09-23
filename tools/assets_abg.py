@@ -33,13 +33,11 @@ COVER_ABG = os.path.join(PORTADAS, "09_ABGs-and-Electrolytes-Made-Visual.jpg")
 
 # (pdf, page number, output name) — all real pages of the two bonus books
 PAGINE = [(LAB, 40, "abg_01"),   # acid-base balance on one page
-          (LAB, 47, "abg_02"),   # arterial blood gas test card
-          (LAB, 44, "abg_03"),   # potassium
-          (LAB, 43, "abg_04"),   # sodium
-          (LAB, 45, "abg_05"),   # calcium
-          (LAB, 46, "abg_06"),   # magnesium
-          (EM, 56, "abg_07"),    # hyperkalemia: the emergency treatment
-          (EM, 54, "abg_08"),    # sodium bicarbonate
+          (EM, 57, "abg_02"),    # scenario: diabetic ketoacidosis
+          (EM, 56, "abg_03"),    # hyperkalemia: the emergency treatment
+          (EM, 51, "abg_04"),    # balanced crystalloid and sodium chloride 0.9%
+          (LAB, 64, "abg_05"),   # in the critically ill
+          (EM, 10, "abg_06"),    # the dilutions that kill
           (LAB, 12, "abg_lab1"),  # critical results
           (LAB, 49, "abg_lab2"),  # review of metabolism and balance
           (EM, 50, "abg_em1"),   # fluid and electrolyte replacement
