@@ -27,17 +27,27 @@ OUT = os.path.join(SITO, "mockups", "abg")
 PAG = os.path.join(SITO, "amostras")
 A.OUT = OUT
 
+ABG = os.path.join(USA, "ABGs and Electrolytes Made Visual.pdf")
 LAB = os.path.join(USA, "Reading Laboratory Tests.pdf")
 EM = os.path.join(USA, "Emergency Drugs Illustrated Handbook.pdf")
 COVER_ABG = os.path.join(PORTADAS, "09_ABGs-and-Electrolytes-Made-Visual.jpg")
 
-# (pdf, page number, output name) — all real pages of the two bonus books
-PAGINE = [(LAB, 40, "abg_01"),   # acid-base balance on one page
-          (EM, 57, "abg_02"),    # scenario: diabetic ketoacidosis
-          (EM, 56, "abg_03"),    # hyperkalemia: the emergency treatment
-          (EM, 51, "abg_04"),    # balanced crystalloid and sodium chloride 0.9%
-          (LAB, 64, "abg_05"),   # in the critically ill
-          (EM, 10, "abg_06"),    # the dilutions that kill
+# (pdf, página, nombre). Las seis del carrusel son del LIBRO, elegidas por
+# lo que se ve de lejos en un feed y buscando que no se parezcan entre sí:
+# un diagrama, un gráfico, objetos, un caso resuelto, una grilla y una
+# ficha. Seis variaciones de la misma cosa aburren aunque cada una sea
+# buena — es lo que pasaba cuando eran seis fichas de laboratorio.
+# (pdf, página, nombre). Las seis del carrusel son del LIBRO, elegidas por
+# lo que se ve de lejos en un feed y buscando que no se parezcan entre sí:
+# un diagrama, un gráfico, objetos, un caso resuelto, una grilla y una
+# ficha. Seis variaciones de la misma cosa aburren aunque cada una sea
+# buena — es lo que pasaba cuando eran seis fichas de laboratorio.
+PAGINE = [(ABG, 7, "abg_01"),    # los cuatro pasos en una página
+          (ABG, 22, "abg_02"),   # la curva de disociación
+          (ABG, 33, "abg_03"),   # qué hay en cada bolsa
+          (ABG, 40, "abg_04"),   # caso 6, con los cuatro pasos en blanco
+          (ABG, 24, "abg_05"),   # las cinco causas de hipoxemia
+          (ABG, 27, "abg_06"),   # potasio alto: la escala, el ECG, la dosis
           (LAB, 12, "abg_lab1"),  # critical results
           (LAB, 49, "abg_lab2"),  # review of metabolism and balance
           (EM, 50, "abg_em1"),   # fluid and electrolyte replacement
