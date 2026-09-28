@@ -2,6 +2,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/anatomy",
+      "destination": "/anatomy.html"
+    },
+    {
       "source": "/abg",
       "destination": "/abg.html"
     },
