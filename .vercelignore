@@ -2,8 +2,9 @@
 # que esté acá arriba queda descargable desde el dominio si no se excluye.
 #
 # La landing sólo necesita: index.html, usd.html, refund-policy.html,
-# Img-Leandro.webp, amostras/, brand/, depoimentos/, img/, mockups/,
-# site.webmanifest, favicon.ico, robots.txt y sitemap.xml.
+# Img-Leandro.webp, amostras/, anteprime/ (las muestras de dentistry.html),
+# brand/, depoimentos/, img/, mockups/, site.webmanifest, favicon.ico,
+# robots.txt y sitemap.xml.
 
 # El libro entero y sus fuentes: es el producto que se vende.
 farmacologia/

@@ -2,6 +2,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/dentistry",
+      "destination": "/dentistry.html"
+    },
+    {
       "source": "/anatomy",
       "destination": "/anatomy.html"
     },
