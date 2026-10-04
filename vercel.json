@@ -6,6 +6,10 @@
       "destination": "/dentistry.html"
     },
     {
+      "source": "/dentistry-uk",
+      "destination": "/dentistry-uk.html"
+    },
+    {
       "source": "/anatomy",
       "destination": "/anatomy.html"
     },

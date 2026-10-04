@@ -39,7 +39,12 @@ The seven previews are these pages of Dentistry-Made-Visual.pdf:
   01 p.12 num_us · 02 p.18 lay_a · 03 p.34 kit_a · 04 p.41 t_rest_a
   05 p.52 comp_a · 06 p.70 chain_a · 07 p.23 nerves
 
-  python tools/make_dentistry.py
+  python tools/make_dentistry.py        -> dentistry.html    (US, $27)
+  python tools/make_dentistry.py uk     -> dentistry-uk.html (UK, £19.99)
+
+THE UK PAGE (04/10/2026) is the same landing for the campaign «UK | CBO |
+Dentistry»: same copy, same book, same checkout (Impultienda adapts the
+currency by country); only the price is in pounds — £19.99, set by Luca.
 """
 import html
 import json
@@ -52,8 +57,11 @@ sys.path.insert(0, LIBRO)
 import struttura as S  # noqa: E402
 
 TITLE = "Dentistry Made Visual"
-SLUG = "dentistry"
-URL = f"https://www.medicalstudylab.com/{SLUG}"
+SLUG = "dentistry"                     # imágenes, item_id y content_ids: el producto es el mismo
+REGION = (sys.argv[1] if len(sys.argv) > 1 else "us").lower()
+UK = REGION == "uk"
+PAGE_SLUG = "dentistry-uk" if UK else SLUG
+URL = f"https://www.medicalstudylab.com/{PAGE_SLUG}"
 IMG = f"https://www.medicalstudylab.com/mockups/{SLUG}"
 
 # ---------------------------------------------------------------------------
@@ -65,11 +73,25 @@ IMG = f"https://www.medicalstudylab.com/mockups/{SLUG}"
 # entrambe le parti, altrimenti il clic sul bottone e' il punto in cui se
 # ne accorge. Gli altri importi che il checkout mostra ($14,50 e $7,90)
 # sono i bump e non stanno qui.
-PRICE_N = 27
-TOTAL_N = 91
-PRICE = f"${PRICE_N}"
-TOTAL = f"${TOTAL_N}"
-SAVINGS = f"${TOTAL_N - PRICE_N}"
+#
+# UK: £19.99 lo fija Luca para la campaña UK. El valor de referencia guarda la
+# misma proporción que en dólares (91 contra 27) y va en libras enteras (67).
+if UK:
+    CUR, CURRENCY, COUNTRY = "£", "GBP", "GB"
+    PRICE_N, TOTAL_N = 19.99, 67
+else:
+    CUR, CURRENCY, COUNTRY = "$", "USD", "US"
+    PRICE_N, TOTAL_N = 27, 91
+
+
+def money(n):
+    return f"{CUR}{int(n)}" if float(n) == int(n) else f"{CUR}{n:.2f}"
+
+
+PRICE = money(PRICE_N)
+TOTAL = money(TOTAL_N)
+# Redondeado para abajo (67 - 19,99 = 47,01 → «£47»): nunca promete de más.
+SAVINGS = money(int(TOTAL_N - PRICE_N))
 # Desde el 04/10/2026 el kit se cobra en la tienda aparte «Med Study Lab Dentistry»
 # (payment.medicalstudylab.com), para programar sus propios post-compra. Mismo
 # producto, precio y bumps que en checkout.medicalstudylab.com; pixel 1616069600057839.
@@ -84,9 +106,9 @@ KIT = "Illustrated Dentistry Kit"
 # arrotondata al dollaro in modo che la somma faccia esattamente 91. Non
 # sono numeri inventati e non sono prezzi di listino: se Luca vuole un'altra
 # divisione, si cambiano qui e basta rigenerare.
-VAL_B1_N, VAL_B2_N = 18, 15
-VAL_MAIN_N = TOTAL_N - VAL_B1_N - VAL_B2_N      # 58
-VAL_MAIN, VAL_B1, VAL_B2 = f"${VAL_MAIN_N}", f"${VAL_B1_N}", f"${VAL_B2_N}"
+VAL_B1_N, VAL_B2_N = (13, 11) if UK else (18, 15)
+VAL_MAIN_N = TOTAL_N - VAL_B1_N - VAL_B2_N      # 58 en dólares, 43 en libras
+VAL_MAIN, VAL_B1, VAL_B2 = money(VAL_MAIN_N), money(VAL_B1_N), money(VAL_B2_N)
 assert VAL_MAIN_N + VAL_B1_N + VAL_B2_N == TOTAL_N
 
 AVVISO = f"""<!--
@@ -95,7 +117,7 @@ AVVISO = f"""<!--
   Edit the script and run `python tools/make_dentistry.py`.
 
   Price and checkout come from the live checkout page, opened in a browser:
-  «Illustrated Dentistry Kit», US$ {PRICE_N}, anchor value US$ {TOTAL_N}.
+  «Illustrated Dentistry Kit», {CURRENCY} {PRICE_N}, anchor value {CURRENCY} {TOTAL_N}.
     checkout : {CHECKOUT}
     price    : {PRICE} · total value {TOTAL} · you save {SAVINGS}
 
@@ -286,7 +308,7 @@ def head(tpl_head):
                         "With two bonus books.",
          "image": f"{IMG}/hero.webp",
          "offers": {"@type": "Offer", "price": str(PRICE_N),
-                    "priceCurrency": "USD",
+                    "priceCurrency": CURRENCY,
                     "availability": "https://schema.org/InStock",
                     "url": CHECKOUT,
                     "hasMerchantReturnPolicy": {
@@ -294,7 +316,7 @@ def head(tpl_head):
                         "returnPolicyCategory":
                             "https://schema.org/MerchantReturnFiniteReturnWindow",
                         "merchantReturnDays": 30,
-                        "applicableCountry": "US"}}},
+                        "applicableCountry": COUNTRY}}},
         {"@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": html.unescape(q),
              "acceptedAnswer": {"@type": "Answer", "text": html.unescape(a)}}
@@ -802,6 +824,8 @@ def tail(tpl_tail):
         assert a in t, a
         t = t.replace(a, b)
     t = t.replace("value: 27,", f"value: {PRICE_N},")
+    if UK:
+        t = t.replace('"currency": "USD"', '"currency": "GBP"').replace("currency: 'USD'", "currency: 'GBP'")
     return t
 
 
@@ -810,7 +834,7 @@ def main():
     i = src.index("<body>")
     j = src.index("  <!-- Dynamic Offer Date")
     out = head(src[:i]) + body() + tail(src[j:])
-    open(os.path.join(SITO, f"{SLUG}.html"), "w", encoding="utf-8",
+    open(os.path.join(SITO, f"{PAGE_SLUG}.html"), "w", encoding="utf-8",
          newline="\n").write(out)
     mancano = [p for p in
                [f"mockups/{SLUG}/{n}" for n in
@@ -818,7 +842,7 @@ def main():
                  "bonus-emerg.webp", "questo.webp", "og.jpg")]
                + [f"anteprime/{f}.webp" for f, _a, _h in SAMPLES]
                if not os.path.exists(os.path.join(SITO, p))]
-    print(f"{SLUG}.html: {len(out)//1024} KB - {PAGES} pages, {N_PARTS} parts,"
+    print(f"{PAGE_SLUG}.html: {len(out)//1024} KB - {PAGES} pages, {N_PARTS} parts,"
           f" {N_CHAP} chapters - {PRICE} (value {TOTAL}, save {SAVINGS})")
     if mancano:
         print(f"  missing images: {len(mancano)} -> {mancano[:3]}")
