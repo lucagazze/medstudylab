@@ -70,7 +70,10 @@ TOTAL_N = 91
 PRICE = f"${PRICE_N}"
 TOTAL = f"${TOTAL_N}"
 SAVINGS = f"${TOTAL_N - PRICE_N}"
-CHECKOUT = ("https://checkout.medicalstudylab.com/checkout/"
+# Desde el 04/10/2026 el kit se cobra en la tienda aparte «Med Study Lab Dentistry»
+# (payment.medicalstudylab.com), para programar sus propios post-compra. Mismo
+# producto, precio y bumps que en checkout.medicalstudylab.com; pixel 1616069600057839.
+CHECKOUT = ("https://payment.medicalstudylab.com/checkout/"
             "illustrated-dentistry-kit")
 KIT = "Illustrated Dentistry Kit"
 
