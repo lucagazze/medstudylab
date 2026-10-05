@@ -50,13 +50,12 @@ SLUG = "nails"                     # imágenes, item_id y content_ids: el produc
 REGION = (sys.argv[1] if len(sys.argv) > 1 else "us").lower()
 UK = REGION == "uk"
 PAGE_SLUG = SLUG
-# Desde el 05/10/2026 la landing NO vive en medicalstudylab.com: landing,
-# checkout, post-compra y descargas van en nails.studiofacilebook.com (un
-# subdominio de un dominio viejo y verificado; studiofacilebook.academy, recién
-# registrado, lo bloqueaban los antivirus). Este script escribe la página y
+# Desde el 05/10/2026 la landing vive en su subdominio: landing, checkout,
+# post-compra y descargas van en nails.medicalstudylab.com (un subdominio por
+# oferta, en el dominio de la marca que cobra: Med Study Lab). Este script escribe la página y
 # copia sus imágenes en el checkout propio (public/lp/nails/en), que la sirve
 # en /en. medicalstudylab.com/nails redirige ahí (vercel.json).
-SUB_HOST = "https://nails.studiofacilebook.com"
+SUB_HOST = "https://nails.medicalstudylab.com"
 LANG = "en"
 LP_BASE = f"/lp/{SLUG}/{LANG}"
 LP_DIR = os.path.join(r"C:\Users\lucag\Desktop\CLAUDE\APPS\APPS\checkout-propio\public",
@@ -417,7 +416,7 @@ def body():
                     f' &middot; <a href="{legal}/privacy" style="{link}">Privacy</a>'
                     f' &middot; <a href="{legal}/terms" style="{link}">Terms</a>'
                     f' &middot; <a href="{legal}/contact" style="{link}">Support</a>'
-                    f' &middot; <a href="{legal}"'
+                    f' &middot; <a href="https://catalog.medicalstudylab.com/"'
                     f' style="{link}" target="_blank" rel="noopener">All '
                     f'products</a>')
 
@@ -840,9 +839,9 @@ UTM_JS = """<script>
 
 # Presencia en la landing para el panel «En vivo» del checkout propio
 # (public/t.js de checkout-propio, mismo dominio): view, heartbeat, clic al
-# checkout y salida, con la tienda y el checkout de esta oferta.
-TRACK_JS = '<script defer src="/t.js" data-store="%s" data-funnel="%s"></script>\n' % (
-    CHECKOUT_HOST.rstrip("/").rsplit("/", 1)[1], CHECKOUT.rstrip("/").rsplit("/", 1)[1])
+# checkout y salida, con la tienda y el checkout (slugs de la base) de esta oferta.
+TRACK_STORE, TRACK_FUNNEL = "medstudylab", "nails-made-visual-kit"
+TRACK_JS = '<script defer src="/t.js" data-store="%s" data-funnel="%s"></script>\n' % (TRACK_STORE, TRACK_FUNNEL)
 
 
 def main():

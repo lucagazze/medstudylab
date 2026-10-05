@@ -73,7 +73,7 @@
   "redirects": [
     {
       "source": "/nails",
-      "destination": "https://nails.studiofacilebook.com/en",
+      "destination": "https://nails.medicalstudylab.com/en",
       "permanent": false
     }
   ]
