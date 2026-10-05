@@ -851,6 +851,12 @@ def main():
     # Los UTM y el fbclid del anuncio viajan al checkout: así cada venta queda
     # pegada a su campaña, conjunto y anuncio (el checkout los guarda en el pedido).
     out = out.replace("</body>", UTM_JS + TRACK_JS + "</body>", 1)
+    # El InitiateCheckout lo manda el checkout (navegador + API de Conversiones,
+    # mismo event_id). Si la landing también lo manda al tocar el botón, Meta
+    # cuenta dos por persona: acá queda como evento propio, igual que DE/FR.
+    ic = "fbq('track', 'InitiateCheckout', FB)"
+    assert out.count(ic) == 1, out.count(ic)
+    out = out.replace(ic, "fbq('trackCustom', 'ClickCTA', FB)")
     # Cada "./archivo" de la página se copia a public/lp/nails/en y pasa a
     # "/lp/nails/en/archivo": la página se sirve en /en, no en su carpeta.
     # El manifest es el de Med Study Lab (start_url medicalstudylab.com): una
