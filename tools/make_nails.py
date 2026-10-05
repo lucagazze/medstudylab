@@ -95,10 +95,11 @@ SAVINGS = money(int(TOTAL_N - PRICE_N))
 # Desde el 05/10/2026 el kit se cobra en el checkout propio (algordigital),
 # tienda Med Study Lab, con el producto, los 2 bonos y los 2 order bumps
 # cargados y SOLO el pixel de uñas 4766627606900943 (+ API de Conversiones).
-# Los pagos van al subdominio de la tienda que cobra: Med Study Lab (inglés) → pay.medicalstudylab.com (funnels.checkout_host).
-# fbclid y UTM viajan en el link (UTM_JS), así la venta queda atribuida aunque cambie el dominio.
-CHECKOUT_HOST = "https://pay.medicalstudylab.com/c/medstudylab"
-CHECKOUT = f"{CHECKOUT_HOST}/nails-made-visual-kit"
+# El checkout va en el mismo subdominio que la landing, en /en/checkout
+# (funnels.checkout_host + checkout_path): misma cookie del pixel de punta a
+# punta. Cobra la cuenta de Stripe de Med Study Lab.
+CHECKOUT_HOST = SUB_HOST
+CHECKOUT = f"{SUB_HOST}/{LANG}/checkout"
 KIT = "Nails Made Visual Kit"
 
 # I tre valori di riga. Il checkout da' il totale (91) e il prezzo (27), non
@@ -837,6 +838,12 @@ UTM_JS = """<script>
 </script>
 """ % CHECKOUT_HOST
 
+# Presencia en la landing para el panel «En vivo» del checkout propio
+# (public/t.js de checkout-propio, mismo dominio): view, heartbeat, clic al
+# checkout y salida, con la tienda y el checkout de esta oferta.
+TRACK_JS = '<script defer src="/t.js" data-store="%s" data-funnel="%s"></script>\n' % (
+    CHECKOUT_HOST.rstrip("/").rsplit("/", 1)[1], CHECKOUT.rstrip("/").rsplit("/", 1)[1])
+
 
 def main():
     src = open(os.path.join(SITO, "ekg.html"), encoding="utf-8").read()
@@ -845,7 +852,7 @@ def main():
     out = head(src[:i]) + body() + tail(src[j:])
     # Los UTM y el fbclid del anuncio viajan al checkout: así cada venta queda
     # pegada a su campaña, conjunto y anuncio (el checkout los guarda en el pedido).
-    out = out.replace("</body>", UTM_JS + "</body>", 1)
+    out = out.replace("</body>", UTM_JS + TRACK_JS + "</body>", 1)
     # Cada "./archivo" de la página se copia a public/lp/nails/en y pasa a
     # "/lp/nails/en/archivo": la página se sirve en /en, no en su carpeta.
     # El manifest es el de Med Study Lab (start_url medicalstudylab.com): una
