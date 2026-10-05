@@ -81,9 +81,9 @@ SAVINGS = money(int(TOTAL_N - PRICE_N))
 # Desde el 05/10/2026 el kit se cobra en el checkout propio (algordigital),
 # tienda Med Study Lab, con el producto, los 2 bonos y los 2 order bumps
 # cargados y SOLO el pixel de uñas 4766627606900943 (+ API de Conversiones).
-# Cuando buy.medicalstudylab.com apunte a Vercel (registro A en Hostinger),
-# cambiar CHECKOUT_HOST y regenerar: el checkout responde igual en los dos.
-CHECKOUT_HOST = "https://checkout-propio-sepia.vercel.app/c/medstudylab"
+# Dominio público del checkout propio: studiofacilebook.academy (05/10/2026).
+# Todos los pixels tienen ese dominio autorizado en Permisos de tráfico.
+CHECKOUT_HOST = "https://studiofacilebook.academy/c/medstudylab"
 CHECKOUT = f"{CHECKOUT_HOST}/nails-made-visual-kit"
 KIT = "Nails Made Visual Kit"
 
