@@ -2,10 +2,6 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/nails",
-      "destination": "/nails.html"
-    },
-    {
       "source": "/dentistry",
       "destination": "/dentistry.html"
     },
@@ -72,6 +68,13 @@
     {
       "source": "/terms",
       "destination": "/terms.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/nails",
+      "destination": "https://nails.studiofacilebook.com/en",
+      "permanent": false
     }
   ]
 }

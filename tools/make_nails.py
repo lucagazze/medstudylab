@@ -30,11 +30,14 @@ Images are built by tools/assets_nails.py and already exist:
   mockups/nails/{hero,combo,bonus-1,bonus-2,questo,og}
   anteprime/nails_01..07.webp
 
-  python tools/make_nails.py        -> nails.html   (US, $27)
+  python tools/make_nails.py        -> checkout-propio/public/lp/nails/en (US, $27)
+                                       servida en nails.studiofacilebook.com/en
 """
 import html
 import json
 import os
+import re
+import shutil
 import sys
 
 SITO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,8 +50,19 @@ SLUG = "nails"                     # imágenes, item_id y content_ids: el produc
 REGION = (sys.argv[1] if len(sys.argv) > 1 else "us").lower()
 UK = REGION == "uk"
 PAGE_SLUG = SLUG
-URL = f"https://www.medicalstudylab.com/{PAGE_SLUG}"
-IMG = f"https://www.medicalstudylab.com/mockups/{SLUG}"
+# Desde el 05/10/2026 la landing NO vive en medicalstudylab.com: landing,
+# checkout, post-compra y descargas van en nails.studiofacilebook.com (un
+# subdominio de un dominio viejo y verificado; studiofacilebook.academy, recién
+# registrado, lo bloqueaban los antivirus). Este script escribe la página y
+# copia sus imágenes en el checkout propio (public/lp/nails/en), que la sirve
+# en /en. medicalstudylab.com/nails redirige ahí (vercel.json).
+SUB_HOST = "https://nails.studiofacilebook.com"
+LANG = "en"
+LP_BASE = f"/lp/{SLUG}/{LANG}"
+LP_DIR = os.path.join(r"C:\Users\lucag\Desktop\CLAUDE\APPS\APPS\checkout-propio\public",
+                      "lp", SLUG, LANG)
+URL = f"{SUB_HOST}/{LANG}"
+IMG = f"{SUB_HOST}{LP_BASE}/mockups/{SLUG}"
 
 # ---------------------------------------------------------------------------
 # PREZZO E CHECKOUT: PRESI DAL CHECKOUT VERO, APERTO NEL BROWSER.
@@ -81,9 +95,9 @@ SAVINGS = money(int(TOTAL_N - PRICE_N))
 # Desde el 05/10/2026 el kit se cobra en el checkout propio (algordigital),
 # tienda Med Study Lab, con el producto, los 2 bonos y los 2 order bumps
 # cargados y SOLO el pixel de uñas 4766627606900943 (+ API de Conversiones).
-# Dominio público del checkout propio: studiofacilebook.academy (05/10/2026).
-# Todos los pixels tienen ese dominio autorizado en Permisos de tráfico.
-CHECKOUT_HOST = "https://studiofacilebook.academy/c/medstudylab"
+# Todos los pagos de la marca van a pay.studiofacilebook.com (funnels.checkout_host).
+# Mismo dominio raíz que la landing: la cookie _fbp del pixel es la misma.
+CHECKOUT_HOST = "https://pay.studiofacilebook.com/c/medstudylab"
 CHECKOUT = f"{CHECKOUT_HOST}/nails-made-visual-kit"
 KIT = "Nails Made Visual Kit"
 
@@ -407,11 +421,14 @@ def body():
     # comparivano le barre di scorrimento orizzontali — e' lo stesso
     # inciampo che avevano le landing di studiofacile.
     link = ('color: rgba(255,255,255,0.7); text-decoration: underline;')
-    footer_links = (f'<a href="https://www.medicalstudylab.com/refund-policy" style="{link}">Refund Policy</a>'
-                    f' &middot; <a href="https://www.medicalstudylab.com/privacy" style="{link}">Privacy</a>'
-                    f' &middot; <a href="https://www.medicalstudylab.com/terms" style="{link}">Terms</a>'
-                    f' &middot; <a href="https://www.medicalstudylab.com/support" style="{link}">Support</a>'
-                    f' &middot; <a href="https://catalog.medicalstudylab.com/"'
+    # Las políticas son las del checkout propio, en el mismo subdominio: dicen
+    # lo mismo que el mail de entrega (garantía por problemas reales).
+    legal = f"{SUB_HOST}/catalogo/medstudylab"
+    footer_links = (f'<a href="{legal}/refund-policy" style="{link}">Refund Policy</a>'
+                    f' &middot; <a href="{legal}/privacy" style="{link}">Privacy</a>'
+                    f' &middot; <a href="{legal}/terms" style="{link}">Terms</a>'
+                    f' &middot; <a href="{legal}/contact" style="{link}">Support</a>'
+                    f' &middot; <a href="{legal}"'
                     f' style="{link}" target="_blank" rel="noopener">All '
                     f'products</a>')
 
@@ -726,7 +743,7 @@ def body():
         <li>Bonus 2: &ldquo;{B2}&rdquo;, 20 pages and the 18 questions clients ask, each with a sentence you can say out loud (value {VAL_B2})</li>
         <li>Four pull-out tables made to be printed and taped up next to the sterilizer</li>
         <li>Delivery: all 3 books by email right after purchase</li>
-        <li>30-day guarantee: if it doesn't help, I refund you</li>
+        <li>30-day guarantee if anything is genuinely wrong with the books</li>
         <li>High-resolution PDFs: print them, annotate them, keep them in the operatory</li>
       </ul>
       <div class="price-recap">
@@ -744,11 +761,10 @@ def body():
     <div class="container">
       <div class="guarantee-box">
         <div class="icon"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>&ldquo;Risk-Free Trial&rdquo; Guarantee: 30 Days</h3>
-        <p>You have 30 full days to try {TITLE} and the two bonus books.</p>
-        <p>If in that time the material didn't help you, didn't get used or simply wasn't what you expected, <strong>I refund 100% of what you paid</strong>.</p>
-        <p>No questions. No fine print. No hassle.</p>
-        <p><strong>The risk is ZERO. The decision is yours.</strong></p>
+        <h3>30-Day Guarantee</h3>
+        <p>You have 30 days to go through {TITLE} and the two bonus books.</p>
+        <p>If something is genuinely wrong &mdash; a file won't open, or the content isn't what this page describes &mdash; write to us and tell us what happened: <strong>we fix it or refund you</strong>.</p>
+        <p>Please note: these are <strong>digital books (PDF)</strong>, delivered by email. Nothing is shipped, so expecting a printed book or changing your mind after downloading are not grounds for a refund.</p>
       </div>
     </div>
   </section>
@@ -842,8 +858,21 @@ def main():
     # Los UTM y el fbclid del anuncio viajan al checkout: así cada venta queda
     # pegada a su campaña, conjunto y anuncio (el checkout los guarda en el pedido).
     out = out.replace("</body>", UTM_JS + "</body>", 1)
-    open(os.path.join(SITO, f"{PAGE_SLUG}.html"), "w", encoding="utf-8",
+    # Cada "./archivo" de la página se copia a public/lp/nails/en y pasa a
+    # "/lp/nails/en/archivo": la página se sirve en /en, no en su carpeta.
+    # El manifest es el de Med Study Lab (start_url medicalstudylab.com): una
+    # landing no lo necesita.
+    out = re.sub(r'\s*<link rel="manifest"[^>]*>', "", out)
+    copiar = set(re.findall(r'(?:src|href)="\./([^"?#]+)', out))
+    copiar.add(f"mockups/{SLUG}/og.jpg")
+    for rel in sorted(copiar):
+        dst = os.path.join(LP_DIR, rel)
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copyfile(os.path.join(SITO, rel), dst)
+    out = re.sub(r'((?:src|href)=")\./', rf'\1{LP_BASE}/', out)
+    open(os.path.join(LP_DIR, "index.html"), "w", encoding="utf-8",
          newline="\n").write(out)
+    print(f"  -> {LP_DIR}\\index.html + {len(copiar)} files")
     mancano = [p for p in
                [f"mockups/{SLUG}/{n}" for n in
                 ("hero.webp", "combo.webp", "bonus-1.webp",
