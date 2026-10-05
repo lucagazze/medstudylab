@@ -50,17 +50,16 @@ SLUG = "nails"                     # imágenes, item_id y content_ids: el produc
 REGION = (sys.argv[1] if len(sys.argv) > 1 else "us").lower()
 UK = REGION == "uk"
 PAGE_SLUG = SLUG
-# Desde el 05/10/2026 la landing vive en su subdominio: landing, checkout,
-# post-compra y descargas van en nails.medicalstudylab.com (un subdominio por
-# oferta, en el dominio de la marca que cobra: Med Study Lab). Este script escribe la página y
-# copia sus imágenes en el checkout propio (public/lp/nails/en), que la sirve
-# en /en. medicalstudylab.com/nails redirige ahí (vercel.json).
-SUB_HOST = "https://nails.medicalstudylab.com"
+# Desde el 05/10/2026 la oferta vive en el sitio principal: www.medicalstudylab.com/nails
+# (landing) y /nails/checkout. Este sitio le pasa esas rutas a la app del checkout
+# propio (rewrites en vercel.json); la página y sus imágenes las escribe este
+# script en checkout-propio/public/lp/nails/en.
+SUB_HOST = "https://www.medicalstudylab.com"
 LANG = "en"
 LP_BASE = f"/lp/{SLUG}/{LANG}"
 LP_DIR = os.path.join(r"C:\Users\lucag\Desktop\CLAUDE\APPS\APPS\checkout-propio\public",
                       "lp", SLUG, LANG)
-URL = f"{SUB_HOST}/{LANG}"
+URL = f"{SUB_HOST}/{SLUG}"
 IMG = f"{SUB_HOST}{LP_BASE}/mockups/{SLUG}"
 
 # ---------------------------------------------------------------------------
@@ -98,7 +97,7 @@ SAVINGS = money(int(TOTAL_N - PRICE_N))
 # (funnels.checkout_host + checkout_path): misma cookie del pixel de punta a
 # punta. Cobra la cuenta de Stripe de Med Study Lab.
 CHECKOUT_HOST = SUB_HOST
-CHECKOUT = f"{SUB_HOST}/{LANG}/checkout"
+CHECKOUT = f"{SUB_HOST}/{SLUG}/checkout"
 KIT = "Nails Made Visual Kit"
 
 # I tre valori di riga. Il checkout da' il totale (91) e il prezzo (27), non
