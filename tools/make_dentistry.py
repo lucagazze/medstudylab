@@ -152,8 +152,12 @@ PIXEL_JS = f"""
 
 """
 
-B1 = "Tray Setups Made Visual"
-B2 = "Chairside Emergencies Made Visual"
+# Los nombres de la TAPA de cada PDF, que es lo que llega al comprador
+# (05/10/2026: la landing decía «Tray Setups Made Visual» y «Chairside
+# Emergencies Made Visual», y el libro de emergencias trae 11 situaciones,
+# no 10 — faltaba la reacción al anestésico local; ver DentalEmerg-US).
+B1 = "Tray Setups Ready to Go"
+B2 = "The Emergency at the Chair"
 
 PAGES = S.TOTALE                                   # 86
 N_PARTS = len(S.PARTI)                             # 4
@@ -638,12 +642,12 @@ def body():
 
         <div class="bonus-item-with-image">
           <div class="bonus-mockup">
-            <img src="./mockups/{SLUG}/bonus-emerg.webp" alt="{B2}, the bonus with 10 situations" width="720" height="1000" loading="lazy" decoding="async">
+            <img src="./mockups/{SLUG}/bonus-emerg.webp" alt="{B2}, the bonus with 11 situations" width="720" height="1000" loading="lazy" decoding="async">
           </div>
           <div class="bonus-text">
-            <h3>BONUS 2: &ldquo;{B2}&rdquo;, 10 situations</h3>
+            <h3>BONUS 2: &ldquo;{B2}&rdquo;, 11 situations</h3>
             <p class="value">Standalone value: {VAL_B2}</p>
-            <p>20 pages on what happens when the appointment goes off script: <strong>syncope, low blood sugar, allergic reaction, asthma attack</strong>, seizure, airway obstruction, bleeding, chest pain, hyperventilation and stroke.</p>
+            <p>20 pages on what happens when the appointment goes off script: <strong>syncope, low blood sugar, a reaction to the local anesthetic, allergic reaction, asthma attack</strong>, seizure, airway obstruction, bleeding, chest pain, hyperventilation and stroke.</p>
             <p style="margin-top: 12px;">Every page has the same three bands in the same order: how you recognize it, what you do first, and what you never do. The role stays yours &mdash; recognize, call, assist.</p>
           </div>
         </div>
@@ -732,7 +736,7 @@ def body():
       <ul class="recap-list">
         <li>{TITLE}: {PAGES} illustrated pages in {N_PARTS} parts &mdash; the teeth and all three numbering systems, the instruments and the trays, the materials and their setting times, and the infection control chain on CDC and OSHA lines</li>
         <li>Bonus 1: &ldquo;{B1}&rdquo;, 20 pages and 16 procedures, one tray per page (value {VAL_B1})</li>
-        <li>Bonus 2: &ldquo;{B2}&rdquo;, 20 pages and 10 situations (value {VAL_B2})</li>
+        <li>Bonus 2: &ldquo;{B2}&rdquo;, 20 pages and 11 situations (value {VAL_B2})</li>
         <li>Four pull-out tables made to be printed and taped up next to the sterilizer</li>
         <li>Delivery: all 3 books by email right after purchase</li>
         <li>30-day guarantee: if it doesn't help, I refund you</li>
