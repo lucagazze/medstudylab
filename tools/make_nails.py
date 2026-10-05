@@ -95,9 +95,9 @@ SAVINGS = money(int(TOTAL_N - PRICE_N))
 # Desde el 05/10/2026 el kit se cobra en el checkout propio (algordigital),
 # tienda Med Study Lab, con el producto, los 2 bonos y los 2 order bumps
 # cargados y SOLO el pixel de uñas 4766627606900943 (+ API de Conversiones).
-# Todos los pagos de la marca van a pay.studiofacilebook.com (funnels.checkout_host).
-# Mismo dominio raíz que la landing: la cookie _fbp del pixel es la misma.
-CHECKOUT_HOST = "https://pay.studiofacilebook.com/c/medstudylab"
+# Los pagos van al subdominio de la tienda que cobra: Med Study Lab (inglés) → pay.medicalstudylab.com (funnels.checkout_host).
+# fbclid y UTM viajan en el link (UTM_JS), así la venta queda atribuida aunque cambie el dominio.
+CHECKOUT_HOST = "https://pay.medicalstudylab.com/c/medstudylab"
 CHECKOUT = f"{CHECKOUT_HOST}/nails-made-visual-kit"
 KIT = "Nails Made Visual Kit"
 
@@ -137,24 +137,12 @@ AVVISO = f"""<!--
 -->
 """
 
-# Il pixel di odontoiatria. NON sostituisce il principale di Med Study Lab
-# (1369545011992472), che e' gia' inizializzato nell'head di ekg.html e lo
-# ereditano tutte le landing: una campagna che ottimizza su questo pixel
-# vedrebbe gli acquisti e mai la visita, cioe' imparerebbe su mezzo imbuto.
-# «trackSingle» e non «track»: il PageView del pixel principale e' gia'
-# partito, un secondo «track» lo conterebbe due volte. Gli eventi dopo
-# (ViewContent, InitiateCheckout) usano «track» e partono per tutti e due.
+# Un pixel por oferta (05/10/2026): el de uñas REEMPLAZA al principal de Med
+# Study Lab (1369545011992472) que trae el head de ekg.html. El checkout propio
+# carga solo el de uñas, así que landing y compra quedan en el mismo pixel y el
+# principal no se ensucia con visitas de una oferta que nunca le compra.
+MAIN_PIXEL = "1369545011992472"
 PIXEL = "4766627606900943"
-PIXEL_JS = f"""
-  <!-- Meta Pixel — nails (added to the main one, not instead of it) -->
-  <script>
-    fbq('init','{PIXEL}');
-    fbq('trackSingle','{PIXEL}','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" alt=""
-    src="https://www.facebook.com/tr?id={PIXEL}&ev=PageView&noscript=1"></noscript>
-
-"""
 
 # Los nombres de la TAPA de cada PDF, que es lo que llega al comprador
 # (05/10/2026: la landing decía «Tray Setups Made Visual» y «Chairside
@@ -328,9 +316,9 @@ def head(tpl_head):
             for q, a in FAQ]}]}
     h = (h[:s] + '<script type="application/ld+json">\n'
          + json.dumps(ld, ensure_ascii=False) + "\n  </script>" + h[e:])
-    # il pixel di odontoiatria in coda all'head, dopo quello principale
-    i = h.rindex("</head>")
-    h = h[:i] + PIXEL_JS + h[i:]
+    # init + noscript del pixel principal → el de uñas (ver MAIN_PIXEL)
+    assert h.count(MAIN_PIXEL) == 2, h.count(MAIN_PIXEL)
+    h = h.replace(MAIN_PIXEL, PIXEL)
     # L'avviso va DOPO <meta charset>, non in cima al file. Messo subito
     # dopo il doctype spingeva il charset oltre i primi 1024 byte, che e'
     # la finestra in cui il browser lo cerca: senza, la pagina si leggeva
