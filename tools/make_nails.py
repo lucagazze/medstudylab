@@ -407,10 +407,10 @@ def body():
     # comparivano le barre di scorrimento orizzontali — e' lo stesso
     # inciampo che avevano le landing di studiofacile.
     link = ('color: rgba(255,255,255,0.7); text-decoration: underline;')
-    footer_links = (f'<a href="/refund-policy" style="{link}">Refund Policy</a>'
-                    f' &middot; <a href="/privacy" style="{link}">Privacy</a>'
-                    f' &middot; <a href="/terms" style="{link}">Terms</a>'
-                    f' &middot; <a href="/support" style="{link}">Support</a>'
+    footer_links = (f'<a href="https://www.medicalstudylab.com/refund-policy" style="{link}">Refund Policy</a>'
+                    f' &middot; <a href="https://www.medicalstudylab.com/privacy" style="{link}">Privacy</a>'
+                    f' &middot; <a href="https://www.medicalstudylab.com/terms" style="{link}">Terms</a>'
+                    f' &middot; <a href="https://www.medicalstudylab.com/support" style="{link}">Support</a>'
                     f' &middot; <a href="https://catalog.medicalstudylab.com/"'
                     f' style="{link}" target="_blank" rel="noopener">All '
                     f'products</a>')
