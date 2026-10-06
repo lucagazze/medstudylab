@@ -22,6 +22,18 @@
       "destination": "https://checkout-propio-sepia.vercel.app/us/ekg/checkout"
     },
     {
+      "source": "/abg/checkout",
+      "destination": "https://checkout-propio-sepia.vercel.app/abg/checkout"
+    },
+    {
+      "source": "/anatomy/checkout",
+      "destination": "https://checkout-propio-sepia.vercel.app/anatomy/checkout"
+    },
+    {
+      "source": "/dosage/checkout",
+      "destination": "https://checkout-propio-sepia.vercel.app/dosage/checkout"
+    },
+    {
       "source": "/lp/:path*",
       "destination": "https://checkout-propio-sepia.vercel.app/lp/:path*"
     },
