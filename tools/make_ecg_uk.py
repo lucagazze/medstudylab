@@ -34,7 +34,7 @@ _spec.loader.exec_module(S)
 TITLE = "Reading the ECG"
 SLUG = "ecg-uk"
 MOCK = "ecg-uk"  # UK edition: its own cover (Reading the ECG), own mockups
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/kit-reading-the-ecg"
+CHECKOUT = "https://www.medicalstudylab.com/ecg-uk/checkout"
 URL = f"https://www.medicalstudylab.com/{SLUG}"
 LIVE = True
 
