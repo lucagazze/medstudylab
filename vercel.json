@@ -22,6 +22,10 @@
       "destination": "https://checkout-propio-sepia.vercel.app/us/ekg/checkout"
     },
     {
+      "source": "/pharm/checkout",
+      "destination": "https://checkout-propio-sepia.vercel.app/pharm/checkout"
+    },
+    {
       "source": "/abg/checkout",
       "destination": "https://checkout-propio-sepia.vercel.app/abg/checkout"
     },
