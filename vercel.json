@@ -38,6 +38,10 @@
       "destination": "https://checkout-propio-sepia.vercel.app/dosage/checkout"
     },
     {
+      "source": "/dentistry/checkout",
+      "destination": "https://checkout-propio-sepia.vercel.app/dentistry/checkout"
+    },
+    {
       "source": "/lp/:path*",
       "destination": "https://checkout-propio-sepia.vercel.app/lp/:path*"
     },

@@ -95,8 +95,7 @@ SAVINGS = money(int(TOTAL_N - PRICE_N))
 # Desde el 04/10/2026 el kit se cobra en la tienda aparte «Med Study Lab Dentistry»
 # (payment.medicalstudylab.com), para programar sus propios post-compra. Mismo
 # producto, precio y bumps que en checkout.medicalstudylab.com; pixel 1616069600057839.
-CHECKOUT = ("https://payment.medicalstudylab.com/checkout/"
-            "illustrated-dentistry-kit")
+CHECKOUT = "https://www.medicalstudylab.com/dentistry/checkout"  # checkout de la app (07/10/2026), US y UK
 KIT = "Illustrated Dentistry Kit"
 
 # I tre valori di riga. Il checkout da' il totale (91) e il prezzo (27), non
@@ -328,8 +327,11 @@ def head(tpl_head):
     h = (h[:s] + '<script type="application/ld+json">\n'
          + json.dumps(ld, ensure_ascii=False) + "\n  </script>" + h[e:])
     # il pixel di odontoiatria in coda all'head, dopo quello principale
-    i = h.rindex("</head>")
-    h = h[:i] + PIXEL_JS + h[i:]
+    # Un solo pixel, el de odontología (07/10/2026): el principal del head se cambia por este,
+    # no se agrega otro. Dos pixeles en la misma landing inflaban la atribución.
+    h = h.replace("fbq('init','1369545011992472');", f"fbq('init','{PIXEL}');").replace("tr?id=1369545011992472&", f"tr?id={PIXEL}&")
+    if h.count("fbq('init'") != 1:
+        raise SystemExit("la landing tiene que tener un solo pixel")
     # L'avviso va DOPO <meta charset>, non in cima al file. Messo subito
     # dopo il doctype spingeva il charset oltre i primi 1024 byte, che e'
     # la finestra in cui il browser lo cerca: senza, la pagina si leggeva
