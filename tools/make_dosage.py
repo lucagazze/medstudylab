@@ -19,7 +19,7 @@ SITO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TITLE = "Dosage Calculations Made Visual"
 SLUG = "dosage"
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/dosage-calculations-made-visual"
+CHECKOUT = "https://www.medicalstudylab.com/dosage/checkout"  # checkout de la app (07/10/2026); el de Impultienda ya no se usa
 URL = f"https://www.medicalstudylab.com/{SLUG}"
 IMG = f"https://www.medicalstudylab.com/mockups/{SLUG}"
 

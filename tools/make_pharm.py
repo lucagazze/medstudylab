@@ -35,7 +35,7 @@ TOTAL = 91
 VALUES = {"ph": 37, "rr": 24, "dc": 17, "gl": 13}
 assert sum(VALUES.values()) == TOTAL
 GIORNI = 3
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/pharmacology-finally-makes-sense"
+CHECKOUT = "https://www.medicalstudylab.com/pharm/checkout"  # checkout de la app (07/10/2026); el de Impultienda ya no se usa
 URL = f"https://www.medicalstudylab.com/{SLUG}"
 LIVE = True           # True once the checkout product exists -> indexable
 

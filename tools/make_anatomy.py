@@ -30,7 +30,7 @@ SITO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TITLE = "Clinical Anatomy Made Visual"
 SLUG = "anatomy"
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/clinical-anatomy-made-visual"
+CHECKOUT = "https://www.medicalstudylab.com/anatomy/checkout"  # checkout de la app (07/10/2026); el de Impultienda ya no se usa
 URL = f"https://www.medicalstudylab.com/{SLUG}"
 IMG = f"https://www.medicalstudylab.com/mockups/{SLUG}"
 

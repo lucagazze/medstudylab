@@ -27,7 +27,7 @@ _spec.loader.exec_module(S)
 
 TITLE = "Reading EKGs Made Visual"
 SLUG = "ekg"
-CHECKOUT = "https://checkout.medicalstudylab.com/checkout/ekgs-finally-make-sense"
+CHECKOUT = "https://www.medicalstudylab.com/us/ekg/checkout"  # checkout de la app (07/10/2026); el de Impultienda ya no se usa
 URL = f"https://www.medicalstudylab.com/{SLUG}"
 LIVE = True
 
